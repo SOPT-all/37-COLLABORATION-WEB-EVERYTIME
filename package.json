@@ -13,6 +13,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^5.90.9",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0"
 	},
