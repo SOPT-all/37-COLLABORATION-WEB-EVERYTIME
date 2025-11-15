@@ -1,8 +1,12 @@
-name: Auto PR Assignees
+name: Auto Assign PR Author
 
 on:
   pull_request:
     types: [opened, ready_for_review]
+
+permissions:
+  pull-requests: write
+  issues: write
 
 jobs:
   assign-author:
