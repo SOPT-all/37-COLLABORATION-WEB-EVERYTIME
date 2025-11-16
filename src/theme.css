@@ -1,137 +1,161 @@
-@import "tailwindcss";
+@theme {
+	--color-white: #ffffff;
 
-@layer base {
-	html {
-		font-size: 62.5%;
-	}
+	/* Primary */
+	--color-primary-red: #f91f15;
+	--color-primary-black: #292929;
+	--color-primary-gray: #f0f0f0;
 
-	/* Static */
-	:root {
-		--color-white: #ffffff;
+	/* Gray scale */
+	--color-gray-100: #f9f9f9;
+	--color-gray-200: #f2f2f2;
+	--color-gray-300: #e3e3e3;
+	--color-gray-400: #d6d6d6;
+	--color-gray-500: #a6a6a6;
+	--color-gray-600: #737373;
+	--color-gray-700: #444444;
+	--color-gray-800: #393939;
 
-		/* Primary */
-		--color-primary-red: #f91f15;
-		--color-primary-black: #292929;
-		--color-primary-gray: #f0f0f0;
+	/* Sub colors */
+	--color-sub-green: #05bcbc;
+	--color-sub-skyblue: #0397ea;
+	--color-sub-blue: #056ab5;
+	--color-sub-yellow: #ffc900;
+	--color-sub-pink: #ffe4e4;
 
-		/* Gray scale */
-		--color-gray-100: #f9f9f9;
-		--color-gray-200: #f2f2f2;
-		--color-gray-300: #e3e3e3;
-		--color-gray-400: #d6d6d6;
-		--color-gray-500: #a6a6a6;
-		--color-gray-600: #737373;
-		--color-gray-700: #444444;
-		--color-gray-800: #393939;
+	/* Radius */
+	--radius-2: 0.2rem;
+	--radius-4: 0.4rem;
+	--radius-6: 0.6rem;
+	--radius-12: 1.2rem;
+}
 
-		/* Sub colors */
-		--color-sub-green: #05bcbc;
-		--color-sub-skyblue: #0397ea;
-		--color-sub-blue: #056ab5;
-		--color-sub-yellow: #ffc900;
-		--color-sub-pink: #ffe4e4;
+/* Static */
+:root {
+	--color-white: #ffffff;
 
-		/* Typography */
-		--font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	/* Primary */
+	--color-primary-red: #f91f15;
+	--color-primary-black: #292929;
+	--color-primary-gray: #f0f0f0;
 
-		/* Title */
-		--title01-weight: 800;
-		--title01-size: 2rem;
-		--title01-line: 1.3;
-		--title01-track: 0.05em;
+	/* Gray scale */
+	--color-gray-100: #f9f9f9;
+	--color-gray-200: #f2f2f2;
+	--color-gray-300: #e3e3e3;
+	--color-gray-400: #d6d6d6;
+	--color-gray-500: #a6a6a6;
+	--color-gray-600: #737373;
+	--color-gray-700: #444444;
+	--color-gray-800: #393939;
 
-		--title02-weight: 700;
-		--title02-size: 1.3rem;
-		--title02-line: 1.3;
-		--title02-track: 0.04em;
+	/* Sub colors */
+	--color-sub-green: #05bcbc;
+	--color-sub-skyblue: #0397ea;
+	--color-sub-blue: #056ab5;
+	--color-sub-yellow: #ffc900;
+	--color-sub-pink: #ffe4e4;
 
-		--title03-weight: 700;
-		--title03-size: 1.2rem;
-		--title03-line: 1.3;
-		--title03-track: -0.03em;
+	/* Typography */
+	--font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-		--title04-weight: 600;
-		--title04-size: 1.5rem;
-		--title04-line: 1.3;
-		--title04-track: 0.05em;
+	/* Title */
+	--title01-weight: 800;
+	--title01-size: 2rem;
+	--title01-line: 1.3;
+	--title01-track: 0.05em;
 
-		--title05-weight: 600;
-		--title05-size: 1.4rem;
-		--title05-line: 1.3;
-		--title05-track: -0.01em;
+	--title02-weight: 700;
+	--title02-size: 1.3rem;
+	--title02-line: 1.3;
+	--title02-track: 0.04em;
 
-		--title06-weight: 400;
-		--title06-size: 1rem;
-		--title06-line: 1.3;
-		--title06-track: -0.05em;
+	--title03-weight: 700;
+	--title03-size: 1.2rem;
+	--title03-line: 1.3;
+	--title03-track: -0.03em;
 
-		/* Body */
-		--body01-weight: 700;
-		--body01-size: 1.4rem;
-		--body01-line: 1.3;
-		--body01-track: 0.01em;
+	--title04-weight: 600;
+	--title04-size: 1.5rem;
+	--title04-line: 1.3;
+	--title04-track: 0.05em;
 
-		--body02-weight: 700;
-		--body02-size: 1.35rem;
-		--body02-line: 1.3;
-		--body02-track: 0.01em;
+	--title05-weight: 600;
+	--title05-size: 1.4rem;
+	--title05-line: 1.3;
+	--title05-track: -0.01em;
 
-		--body03-weight: 400;
-		--body03-size: 1.3rem;
-		--body03-line: 1.4;
-		--body03-track: 0.04em;
+	--title06-weight: 400;
+	--title06-size: 1rem;
+	--title06-line: 1.3;
+	--title06-track: -0.05em;
 
-		--body04-weight: 400;
-		--body04-size: 1.3rem;
-		--body04-line: 1.4;
-		--body04-track: -0.01em;
+	/* Body */
+	--body01-weight: 700;
+	--body01-size: 1.4rem;
+	--body01-line: 1.3;
+	--body01-track: 0.01em;
 
-		--body05-weight: 400;
-		--body05-size: 1.2rem;
-		--body05-line: 1.3;
-		--body05-track: -0.01em;
+	--body02-weight: 700;
+	--body02-size: 1.35rem;
+	--body02-line: 1.3;
+	--body02-track: 0.01em;
 
-		--body06-weight: 400;
-		--body06-size: 1.6rem;
-		--body06-line: 1.3;
-		--body06-track: -0.01em;
+	--body03-weight: 400;
+	--body03-size: 1.3rem;
+	--body03-line: 1.4;
+	--body03-track: 0.04em;
 
-		/* Caption */
-		--caption01-weight: 600;
-		--caption01-size: 1.4rem;
-		--caption01-line: 1.3;
-		--caption01-track: -0.01em;
+	--body04-weight: 400;
+	--body04-size: 1.3rem;
+	--body04-line: 1.4;
+	--body04-track: -0.01em;
 
-		--caption02-weight: 800;
-		--caption02-size: 1.1rem;
-		--caption02-line: 1.3;
-		--caption02-track: 0.05em;
+	--body05-weight: 400;
+	--body05-size: 1.2rem;
+	--body05-line: 1.3;
+	--body05-track: -0.01em;
 
-		--caption03-weight: 600;
-		--caption03-size: 1.1rem;
-		--caption03-line: 1.3;
-		--caption03-track: 0.04em;
+	--body06-weight: 400;
+	--body06-size: 1.6rem;
+	--body06-line: 1.3;
+	--body06-track: -0.01em;
 
-		--caption04-weight: 500;
-		--caption04-size: 1.1rem;
-		--caption04-line: 1.15;
-		--caption04-track: 0.03em;
+	/* Caption */
+	--caption01-weight: 600;
+	--caption01-size: 1.4rem;
+	--caption01-line: 1.3;
+	--caption01-track: -0.01em;
 
-		--caption05-weight: 500;
-		--caption05-size: 1rem;
-		--caption05-line: 1.15;
-		--caption05-track: 0em;
+	--caption02-weight: 800;
+	--caption02-size: 1.1rem;
+	--caption02-line: 1.3;
+	--caption02-track: 0.05em;
 
-		/* Label */
-		--label01-weight: 400;
-		--label01-size: 2.4rem;
-		--label01-line: 1.3;
-		--label01-track: 0.08em;
+	--caption03-weight: 600;
+	--caption03-size: 1.1rem;
+	--caption03-line: 1.3;
+	--caption03-track: 0.04em;
 
-		/* Border Radius */
-		--radius-2: 0.2rem;
-		--radius-4: 0.4rem;
-		--radius-6: 0.6rem;
-		--radius-12: 1.2rem;
-	}
+	--caption04-weight: 500;
+	--caption04-size: 1.1rem;
+	--caption04-line: 1.15;
+	--caption04-track: 0.03em;
+
+	--caption05-weight: 500;
+	--caption05-size: 1rem;
+	--caption05-line: 1.15;
+	--caption05-track: 0em;
+
+	/* Label */
+	--label01-weight: 400;
+	--label01-size: 2.4rem;
+	--label01-line: 1.3;
+	--label01-track: 0.08em;
+
+	/* Border Radius */
+	--radius-2: 0.2rem;
+	--radius-4: 0.4rem;
+	--radius-6: 0.6rem;
+	--radius-12: 1.2rem;
 }
