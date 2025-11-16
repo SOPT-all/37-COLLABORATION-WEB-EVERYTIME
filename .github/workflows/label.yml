@@ -30,12 +30,11 @@ jobs:
               : context.payload.issue.user.login;
 
             const userLabels = {
-              "hummingbbird": ":nail_care: FRONTEND",
-              "HeeNamgoong": ":nail_care: FRONTEND",
-              "seo0o519": ":nail_care: FRONTEND",
-              "hyni03": ":rocket: BACKEND",
-              "mjk25": ":rocket: BACKEND",
-              "justpers": ":page_facing_up: AI"
+              "hummingbbird": "🥦채영",
+              "eojindesu": "🍥어진",
+              "yooncandooit": "🫧윤지",
+              "jyeon03":"🌀지연",
+              "jm8468": "🥑서준",
             };
 
             const labelToAdd = userLabels[author];
