@@ -1,0 +1,34 @@
+@import "./theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		width: 100%;
+		height: 100%;
+		font-size: 62.5%;
+	}
+
+	body {
+		width: 100%;
+		height: 100%;
+		font-family: var(--font-sans);
+		background-color: var(--color-white);
+		color: var(--color-primary-black);
+	}
+
+	button {
+		background: none;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+}
