@@ -25,11 +25,11 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
 
-    /* Path Alias */
+		/* Path Alias */
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src", "svg.d.ts"]
 }
