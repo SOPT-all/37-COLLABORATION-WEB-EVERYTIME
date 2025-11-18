@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
-  return (
-    <div className="w-full h-screen flex flex-col justify-center">
-      <Outlet />
-    </div>
-  );
+	return (
+		<div className="flex h-screen w-full flex-col justify-center">
+			<Outlet />
+		</div>
+	);
 };
 
 export default Layout;
