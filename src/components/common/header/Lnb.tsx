@@ -8,7 +8,6 @@ import { LnbItem } from "./LnbItem";
 const Lnb = ({ isOpen }: LnbProps) => {
 	if (!isOpen) return null;
 
-	// 그룹 내부에서도 8개씩 잘라 컬럼 배열 생성
 	const columns = splitGroupBoards(BOARD_GROUPS, 8);
 
 	return (
@@ -24,9 +23,9 @@ const Lnb = ({ isOpen }: LnbProps) => {
 					<div
 						key={idx}
 						className={cn(
-							"flex w-[16rem] flex-col gap-1 pl-1",
+							"flex w-[16.1rem] flex-col gap-1 pl-[1.6rem]",
 							"border-gray-300",
-							idx !== columns.length - 1 ? "border-r-[1px]" : "",
+							idx !== columns.length - 1 ? "border-l-[1px]" : "border-x-[1px]",
 						)}
 					>
 						{column.map((board) => (
