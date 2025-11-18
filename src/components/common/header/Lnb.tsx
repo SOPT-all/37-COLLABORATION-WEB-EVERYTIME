@@ -2,17 +2,13 @@
  * 헤더 컴포넌트 구현 시, Lnb 컴포넌트 적용할 때 참고용으로 작성한 예시 코드입니다.
  */
 
-import { cn } from "@/utils/cn";
-import { BADGE_BOARDS, BOARD_LIST } from "@/constants/boardList";
-import { LnbItem } from "./LnbItem";
-
 import { useNavigate } from "react-router-dom";
 
-interface LnbProps {
-	isOpen: boolean;
-	onClose?: () => void;
-	badgeBoards?: string[];
-}
+import { BADGE_BOARDS, BOARD_LIST } from "@/constants/boardList";
+import type { LnbProps } from "@/types/lnb";
+import { cn } from "@/utils/cn";
+
+import { LnbItem } from "./LnbItem";
 
 const Lnb = ({ isOpen, onClose, badgeBoards = [...BADGE_BOARDS] }: LnbProps) => {
 	// 파란 점(업데이트 뱃지)을 표시할 게시판 목록
