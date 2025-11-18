@@ -1,11 +1,5 @@
-import { Lnb } from "@/components/common/header/Lnb";
-
 const HomePage = () => {
-	return (
-		<div className="relative">
-			<Lnb isOpen={true} />
-		</div>
-	);
+	return <div className="relative">home page</div>;
 };
 
 export default HomePage;

@@ -1,38 +1,30 @@
-/**
- * 헤더 컴포넌트 구현 시, Lnb 컴포넌트 적용할 때 참고용으로 작성한 예시 코드입니다.
- */
-
-import { useNavigate } from "react-router-dom";
-
 import { BADGE_BOARDS, BOARD_LIST } from "@/constants/boardList";
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
 
 import { LnbItem } from "./LnbItem";
 
-const Lnb = ({ isOpen, onClose, badgeBoards = [...BADGE_BOARDS] }: LnbProps) => {
-	// 파란 점(업데이트 뱃지)을 표시할 게시판 목록
-	const navigate = useNavigate();
-	const handleBoardClick = (boardName: string) => {
-		navigate(`/board/${boardName}`);
-
-		// Lnb 닫기 (선택)
-		onClose?.();
-	};
+const Lnb = ({ isOpen, badgeBoards = [...BADGE_BOARDS] }: LnbProps) => {
+	const handleBoardClick = () => {};
 
 	// Lnb가 닫혀있으면 렌더링하지 않음
 	if (!isOpen) return null;
 
 	return (
-		<nav className={cn("border-bottom-1 border-gray-300 bg-gray-200", "p-4")}>
+		<nav
+			className={cn(
+				"border-bottom-1 border-gray-300 bg-gray-200",
+				"z-2",
+				"mt-[7rem]",
+				"fixed",
+				"top-0",
+				"right-0",
+				"w-full",
+			)}
+		>
 			<div className="flex flex-col">
 				{BOARD_LIST.map((board) => (
-					<LnbItem
-						key={board}
-						title={board}
-						hasBadge={badgeBoards.includes(board)}
-						onClick={() => handleBoardClick(board)}
-					/>
+					<LnbItem key={board} title={board} hasBadge={badgeBoards.includes(board)} onClick={handleBoardClick} />
 				))}
 			</div>
 		</nav>

@@ -1,6 +1,5 @@
 export interface LnbProps {
 	isOpen: boolean;
-	onClose?: () => void;
 	badgeBoards?: string[];
 }
 

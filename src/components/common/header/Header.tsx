@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import IconChat from "@/assets/icons/icon_chat.svg?react";
 import IconUser from "@/assets/icons/icon_user.svg?react";
 import LogoIcon from "@/assets/images/logo.svg?react";
+import { Lnb } from "@/components/common/header/Lnb";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
@@ -11,6 +13,7 @@ import { Navbar } from "./Navbar";
 const Header = () => {
 	const navigate = useNavigate();
 	const currentPage = "게시판";
+	const [isLnbOpen, setIsLnbOpen] = useState(false);
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
@@ -39,7 +42,7 @@ const Header = () => {
 					<span className={cn("label01 text-primary-black")}>솝트대</span>
 				</div>
 			</div>
-			<Navbar currentPage={currentPage} />
+			<Navbar currentPage={currentPage} onClick={() => setIsLnbOpen(!isLnbOpen)} />
 			<div className={cn("flex gap-[0.5rem]")}>
 				<button
 					className={cn(
@@ -62,6 +65,7 @@ const Header = () => {
 					<IconUser className={cn("w-[2.7rem]", "mr-[1px] h-[2.7rem]")} />
 				</button>
 			</div>
+			{isLnbOpen && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
 };
