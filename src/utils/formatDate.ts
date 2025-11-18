@@ -2,10 +2,10 @@
  * 날짜 문자열(예: "2025-11-15T15:10:00")을
  * "MM/DD HH:mm" 형식으로 변환하는 함수
  */
-const formatDateWithTime = (isoString: string): string => {
-	if (!isoString) return "";
+const formatDateWithTime = (createdAt: string): string => {
+	if (!createdAt) return "";
 
-	const date = new Date(isoString);
+	const date = new Date(createdAt);
 
 	const month = String(date.getMonth() + 1).padStart(2, "0");
 	const day = String(date.getDate()).padStart(2, "0");
