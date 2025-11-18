@@ -18,9 +18,9 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 		<button
 			onClick={handleClick}
 			className={cn(
-				"flex items-center",
+				"flex items-center gap-[0.4rem]",
 				"w-fit",
-				"py-[0.85rem] pr-[1rem] pl-[1rem]",
+				"px-[1rem] py-[0.85rem]",
 				"border border-[var(--color-gray-400)]",
 				"bg-[var(--color-gray-100)]",
 				"hover:bg-[var(--color-white)]",
@@ -29,11 +29,9 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 			)}
 		>
 			{/* 제목 */}
-			<span className={cn("body05 w-[19.7rem] truncate text-left text-[var(--color-gray-800)]")} title={title}>
+			<span className="body05 truncate text-left text-[var(--color-gray-800)]" title={title}>
 				{slicedTitle}
 			</span>
-
-			<span className="w-[0.4rem]" />
 
 			{/* 날짜 */}
 			<span className="caption04 text-[var(--color-gray-500)]">{formatDate}</span>
