@@ -4,10 +4,6 @@ import { formatDateWithTime } from "@/utils/formatDate";
 import { truncateByLength } from "@/utils/truncate";
 
 const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
-	const handleClick = () => {
-		if (onClick) onClick();
-	};
-
 	// 공백 포함 15번째부터 말줄임표
 	const slicedTitle = truncateByLength(title, 14);
 
@@ -16,7 +12,7 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 
 	return (
 		<button
-			onClick={handleClick}
+			onClick={onClick}
 			className={cn(
 				"flex items-center gap-[0.4rem]",
 				"w-fit",
@@ -25,7 +21,6 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 				"bg-[var(--color-gray-100)]",
 				"hover:bg-[var(--color-white)]",
 				"transition-colors duration-200",
-				"cursor-pointer",
 			)}
 		>
 			{/* 제목 */}
