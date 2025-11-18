@@ -1,11 +1,22 @@
+import { useNavigate } from "react-router-dom";
+
 import IconChat from "@/assets/icons/icon_chat.svg?react";
 import IconUser from "@/assets/icons/icon_user.svg?react";
 import LogoIcon from "@/assets/images/logo.svg?react";
-import { GNB_LIST } from "@/constants/gnbList";
+import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
+import { Navbar } from "./Navbar";
+
 const Header = () => {
+	const navigate = useNavigate();
 	const currentPage = "게시판";
+
+	const handleLogoClick = () => {
+		window.scrollTo(0, 0);
+		navigate(ROUTES.HOME);
+	};
+
 	return (
 		<header
 			className={cn(
@@ -20,7 +31,7 @@ const Header = () => {
 			)}
 		>
 			<div className={cn("flex items-center justify-center", "left-4", "gap-[1.2rem]")}>
-				<button type="button">
+				<button type="button" onClick={handleLogoClick}>
 					<LogoIcon className={cn("w-[3.8rem]", "h-[3.2rem]")} />
 				</button>
 				<div className={cn("items-left flex flex-col")}>
@@ -28,21 +39,7 @@ const Header = () => {
 					<span className={cn("label01 text-primary-black")}>솝트대</span>
 				</div>
 			</div>
-			<nav className={cn("h-full", "flex", "gap-[2.75rem]", "mr-[23.9rem] ml-[20.8rem]")}>
-				{GNB_LIST.map((menu) => (
-					<button
-						key={menu}
-						type="button"
-						className={cn(
-							"title06 hover:text-primary-red relative h-full text-gray-800",
-							currentPage === menu &&
-								"after:bg-primary-red text-primary-red after:absolute after:bottom-0 after:left-0 after:h-[6px] after:w-full after:content-['']",
-						)}
-					>
-						{menu}
-					</button>
-				))}
-			</nav>
+			<Navbar currentPage={currentPage} />
 			<div className={cn("flex gap-[0.5rem]")}>
 				<button
 					className={cn(
