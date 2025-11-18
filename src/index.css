@@ -1,21 +1,45 @@
 @import "tailwindcss";
 @import "./theme.css";
 
-/* Global reset */
 @layer base {
-	html {
-		font-size: 62.5%;
-	}
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 	}
 
+	html {
+		width: 100%;
+		height: 100%;
+		font-size: 62.5%;
+	}
+
 	body {
+		width: 100%;
+		height: 100%;
 		font-family: var(--font-sans);
 		background-color: var(--color-white);
 		color: var(--color-primary-black);
+	}
+
+	button {
+		border: none;
+		outline: none;
+		background: none;
+		cursor: pointer;
+	}
+
+	input {
+		background: none;
+		border: none;
+		outline: none;
+		font-family: inherit;
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		height: auto;
 	}
 }
 
