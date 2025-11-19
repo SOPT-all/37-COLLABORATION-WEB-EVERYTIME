@@ -54,6 +54,7 @@ const Footer = () => {
 				<button type="button" className="caption02">
 					문의하기
 				</button>
+				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
 
 				<button type="button" className="body02">
 					© 에브리타임
