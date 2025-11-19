@@ -82,6 +82,18 @@
 		line-height: var(--title06-line);
 		letter-spacing: var(--title06-track);
 	}
+	.title07 {
+		font-size: var(--title07-size);
+		font-weight: var(--title07-weight);
+		line-height: var(--title07-line);
+		letter-spacing: var(--title07-track);
+	}
+	.title08 {
+		font-size: var(--title08-size);
+		font-weight: var(--title08-weight);
+		line-height: var(--title08-line);
+		letter-spacing: var(--title08-track);
+	}
 
 	/* Body */
 	.body01 {
@@ -120,6 +132,12 @@
 		line-height: var(--body06-line);
 		letter-spacing: var(--body06-track);
 	}
+	.body07 {
+		font-size: var(--body07-size);
+		font-weight: var(--body07-weight);
+		line-height: var(--body07-line);
+		letter-spacing: var(--body07-track);
+	}
 
 	/* Caption */
 	.caption01 {
@@ -151,6 +169,12 @@
 		font-weight: var(--caption05-weight);
 		line-height: var(--caption05-line);
 		letter-spacing: var(--caption05-track);
+	}
+	.caption06 {
+		font-size: var(--caption06-size);
+		font-weight: var(--caption06-weight);
+		line-height: var(--caption06-line);
+		letter-spacing: var(--caption06-track);
 	}
 
 	/* Label */
