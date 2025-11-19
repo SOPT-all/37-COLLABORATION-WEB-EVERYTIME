@@ -8,7 +8,7 @@ interface ListProps {
 const List = ({ content, createdAt }: ListProps) => {
 	const date = formatDateForList(createdAt);
 	return (
-		<div
+		<button
 			className={cn(
 				"flex items-center justify-between",
 				"p-[1rem]",
@@ -16,12 +16,11 @@ const List = ({ content, createdAt }: ListProps) => {
 				"h-[3.8rem] w-[38.8rem]",
 				"whitespace-nowrap",
 				"border-r border-b border-l border-gray-300",
-				"cursor-pointer",
 			)}
 		>
 			<p className={cn("body05 text-gray-700", "w-[28rem] truncate")}>{content}</p>
 			<p className={cn("caption06 text-gray-500")}>{date}</p>
-		</div>
+		</button>
 	);
 };
 
