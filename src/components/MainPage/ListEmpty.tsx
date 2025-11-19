@@ -1,0 +1,36 @@
+import { EMPTY_POSTS } from "@/constants/postsCount";
+import { cn } from "@/utils/cn";
+
+import { List } from "./List";
+interface PostsItem {
+	id: number;
+	title: string;
+	createdAt: string;
+}
+interface ListEmptyProps {
+	posts: PostsItem[];
+}
+
+const ListEmpty = ({ posts }: ListEmptyProps) => {
+	const isPostsEmpty = posts.length === EMPTY_POSTS;
+	return (
+		<div
+			className={cn(
+				"h-[15.2rem] w-[38.8rem] bg-white",
+				isPostsEmpty && [
+					"border-r border-b border-l border-gray-300",
+					"flex items-center p-[1rem]",
+					"cursor-pointer hover:bg-gray-200",
+				],
+			)}
+		>
+			{isPostsEmpty ? (
+				<p className={cn("w-[28rem]", "body05")}>게시글이 없습니다.</p>
+			) : (
+				posts.map((post) => <List key={post.id} content={post.title} createdAt={post.createdAt} />)
+			)}
+		</div>
+	);
+};
+
+export { ListEmpty };
