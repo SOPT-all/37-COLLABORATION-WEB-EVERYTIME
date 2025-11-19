@@ -20,13 +20,15 @@ const Header = () => {
 	};
 
 	const handleBoardHover = () => {
-		setIsLnbOpen(true);
-		console.log("Lnb 열기");
+		if (!isLnbOpen) {
+			setIsLnbOpen(true);
+		}
 	};
 
-	// header 전체 영역에서 마우스가 벗어나면 닫기
 	const handleMouseLeave = () => {
-		setIsLnbOpen(false);
+		if (isLnbOpen) {
+			setIsLnbOpen(false);
+		}
 	};
 
 	return (
