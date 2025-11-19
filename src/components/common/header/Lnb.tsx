@@ -1,9 +1,12 @@
+import { Fragment } from "react/jsx-runtime";
+
 import { BOARD_GROUPS, BADGE_BOARDS } from "@/constants/boardList";
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
 import { splitGroupBoards } from "@/utils/splitGroupBoards";
 
 import { LnbItem } from "./LnbItem";
+import { LnbSearch } from "./LnbSearch";
 
 const Lnb = ({ isOpen }: LnbProps) => {
 	const columns = splitGroupBoards(BOARD_GROUPS, 8);
@@ -29,8 +32,11 @@ const Lnb = ({ isOpen }: LnbProps) => {
 							idx === columns.length - 1 && "border-r-[1px]",
 						)}
 					>
-						{column.map((board) => (
-							<LnbItem key={board} title={board} hasBadge={BADGE_BOARDS.includes(board)} />
+						{column.map((board, boardIdx) => (
+							<Fragment key={board}>
+								<LnbItem title={board} hasBadge={BADGE_BOARDS.includes(board)} />
+								{idx === columns.length - 1 && boardIdx === column.length - 1 && <LnbSearch title="게시판 찾기" />}
+							</Fragment>
 						))}
 					</div>
 				))}
