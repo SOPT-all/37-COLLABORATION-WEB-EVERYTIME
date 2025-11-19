@@ -8,11 +8,6 @@ export interface LnbItemProps {
 	onClick?: () => void;
 }
 
-export interface LnbSearchProps {
-	title: string;
-	onClick?: () => void;
-}
-
 export interface BoardGroupsItemType {
 	groupName: string;
 	boards: string[];

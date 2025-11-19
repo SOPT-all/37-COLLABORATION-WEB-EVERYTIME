@@ -35,7 +35,7 @@ const Lnb = ({ isOpen }: LnbProps) => {
 						{column.map((board, boardIdx) => (
 							<Fragment key={board}>
 								<LnbItem title={board} hasBadge={BADGE_BOARDS.includes(board)} />
-								{idx === columns.length - 1 && boardIdx === column.length - 1 && <LnbSearch title="게시판 찾기" />}
+								{idx === columns.length - 1 && boardIdx === column.length - 1 && <LnbSearch />}
 							</Fragment>
 						))}
 					</div>
