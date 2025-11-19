@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Layout from "@/layouts";
-import HomePage from "@/pages/MainPage";
+import { Layout } from "@/layouts";
+import { MainPage } from "@/pages/MainPage";
 
 export const router = createBrowserRouter([
 	{
@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <HomePage />,
+				element: <MainPage />,
 			}, // Pages 추가
 		],
 	},

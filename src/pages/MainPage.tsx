@@ -2,7 +2,7 @@ import { Lnb } from "@/components/common/header/Lnb";
 import { ProfileItem } from "@/components/common/sidebar/ProfileItem";
 import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
 
-const HomePage = () => {
+const MainPage = () => {
 	return (
 		<div className="relative">
 			<Lnb isOpen={true} />
@@ -12,4 +12,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export { MainPage };
