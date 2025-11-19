@@ -61,34 +61,44 @@
 
 	/* Title */
 	--title01-weight: 800;
-	--title01-size: 2rem;
+	--title01-size: 2.2rem;
 	--title01-line: 1.3;
 	--title01-track: 0.05em;
 
 	--title02-weight: 700;
-	--title02-size: 1.3rem;
+	--title02-size: 2rem;
 	--title02-line: 1.3;
-	--title02-track: 0.04em;
+	--title02-track: -0.03em;
 
 	--title03-weight: 700;
-	--title03-size: 1.2rem;
+	--title03-size: 1.6rem;
 	--title03-line: 1.3;
-	--title03-track: -0.03em;
+	--title03-track: 0.01em;
 
-	--title04-weight: 600;
-	--title04-size: 1.5rem;
+	--title04-weight: 700;
+	--title04-size: 1.4rem;
 	--title04-line: 1.3;
-	--title04-track: 0.05em;
+	--title04-track: 0.04em;
 
-	--title05-weight: 600;
-	--title05-size: 1.4rem;
+	--title05-weight: 700;
+	--title05-size: 1.2rem;
 	--title05-line: 1.3;
-	--title05-track: -0.01em;
+	--title05-track: -0.03em;
 
 	--title06-weight: 600;
 	--title06-size: 1.6rem;
 	--title06-line: 1.3;
-	--title06-track: -0.05em;
+	--title06-track: 0.05em;
+
+	--title07-weight: 600;
+	--title07-size: 1.4rem;
+	--title07-line: 1.3;
+	--title07-track: -0.01em;
+
+	--title08-weight: 400;
+	--title08-size: 1.6rem;
+	--title08-line: 1.3;
+	--title08-track: -0.01em;
 
 	/* Body */
 	--body01-weight: 700;
@@ -99,53 +109,63 @@
 	--body02-weight: 700;
 	--body02-size: 1.3rem;
 	--body02-line: 1.3;
-	--body02-track: 0.01em;
+	--body02-track: 0.05em;
 
-	--body03-weight: 400;
-	--body03-size: 1.3rem;
-	--body03-line: 1.4;
-	--body03-track: 0.04em;
+	--body03-weight: 600;
+	--body03-size: 1.5rem;
+	--body03-line: 1.3;
+	--body03-track: 0.03em;
 
-	--body04-weight: 400;
-	--body04-size: 1.3rem;
-	--body04-line: 1.4;
-	--body04-track: -0.01em;
+	--body04-weight: 600;
+	--body04-size: 1.4rem;
+	--body04-line: 1.3;
+	--body04-track: 0.01em;
 
 	--body05-weight: 400;
-	--body05-size: 1.2rem;
+	--body05-size: 1.5rem;
 	--body05-line: 1.3;
-	--body05-track: -0.01em;
+	--body05-track: 0.02em;
 
 	--body06-weight: 400;
 	--body06-size: 1.4rem;
 	--body06-line: 1.3;
-	--body06-track: -0.01em;
+	--body06-track: 0.01em;
+
+	--body07-weight: 400;
+	--body07-size: 1.2rem;
+	--body07-line: 1.3;
+	--body07-track: -0.01em;
 
 	/* Caption */
 	--caption01-weight: 600;
-	--caption01-size: 1.4rem;
+	--caption01-size: 1.2rem;
 	--caption01-line: 1.3;
-	--caption01-track: -0.01em;
+	--caption01-track: 0.04em;
 
-	--caption02-weight: 800;
-	--caption02-size: 1.1rem;
+	--caption02-weight: 500;
+	--caption02-size: 1.3rem;
 	--caption02-line: 1.3;
 	--caption02-track: 0.05em;
 
-	--caption03-weight: 600;
-	--caption03-size: 1.1rem;
-	--caption03-line: 1.3;
-	--caption03-track: 0.04em;
+	--caption03-weight: 500;
+	--caption03-size: 1.2rem;
+	--caption03-line: 1.15;
+	--caption03-track: 0.03em;
 
 	--caption04-weight: 500;
 	--caption04-size: 1.1rem;
 	--caption04-line: 1.15;
-	--caption04-track: 0.03em;
+	--caption04-track: 0em;
 
-	--caption05-weight: 500;
-	--caption05-size: 1rem;
-	--caption05-line: 1.15;
-	--caption05-track: 0em;
+	--caption05-weight: 400;
+	--caption05-size: 1.3rem;
+	--caption05-line: 1.3;
+	--caption05-track: -0.01em;
+
+	--caption06-weight: 400;
+	--caption06-size: 1.1rem;
+	--caption06-line: 1.3;
+	--caption06-track: 0em;
 
 	/* Label */
 	--label01-weight: 400;
