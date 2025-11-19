@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import IconChat from "@/assets/icons/icon_chat.svg?react";
-import IconUser from "@/assets/icons/icon_user.svg?react";
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
 import { Navbar } from "./Navbar";
+import { UserButtonGroup } from "./UserButtonGroup";
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -54,32 +53,8 @@ const Header = () => {
 				</div>
 			</div>
 
-			{/* Navbar */}
 			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
-
-			{/* 우측 버튼 그룹 */}
-			<div className={cn("flex gap-[0.5rem]")}>
-				<button
-					className={cn(
-						"w-[4.2rem]",
-						"h-[4.2rem]",
-						"flex items-center justify-center",
-						"rounded-[12px] border border-gray-400",
-					)}
-				>
-					<IconChat className={cn("w-[2.7rem]", "h-[2.7rem]")} />
-				</button>
-				<button
-					className={cn(
-						"w-[4.2rem]",
-						"h-[4.2rem]",
-						"flex items-center justify-center",
-						"rounded-[12px] border border-gray-400",
-					)}
-				>
-					<IconUser className={cn("w-[2.7rem]", "mr-[1px] h-[2.7rem]")} />
-				</button>
-			</div>
+			<UserButtonGroup />
 			{isLnbOpen && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
