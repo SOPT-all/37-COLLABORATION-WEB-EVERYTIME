@@ -1,6 +1,16 @@
 import DividerIcon from "@/assets/icons/footer_divider.svg";
 import { cn } from "@/utils/cn";
 
+const FOOTER_LINKS = [
+	{ label: "이용약관", className: "caption02" },
+	{ label: "개인정보처리방침", className: "body02" },
+	{ label: "청소년보호정책", className: "caption02" },
+	{ label: "커뮤니티이용규칙", className: "caption02" },
+	{ label: "공지사항", className: "caption02" },
+	{ label: "문의하기", className: "caption02" },
+	{ label: "© 에브리타임", className: "body02" },
+];
+
 const Footer = () => {
 	return (
 		<footer
@@ -26,39 +36,14 @@ const Footer = () => {
 			</div>
 
 			<div className="mt-[1.7rem] flex flex-wrap items-center gap-[0.8rem]">
-				<button type="button" className="caption02">
-					이용약관
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="body02">
-					개인정보처리방침
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="caption02">
-					청소년보호정책
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="caption02">
-					커뮤니티이용규칙
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="caption02">
-					공지사항
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="caption02">
-					문의하기
-				</button>
-				<img src={DividerIcon} alt="구분선" className="h-[1rem]" />
-
-				<button type="button" className="body02">
-					© 에브리타임
-				</button>
+				{FOOTER_LINKS.map((item, i) => (
+					<div key={item.label} className="flex items-center gap-[0.8rem]">
+						<button type="button" className={item.className}>
+							{item.label}
+						</button>
+						{i !== FOOTER_LINKS.length - 1 && <img src={DividerIcon} alt="구분선" className="h-[1rem]" />}
+					</div>
+				))}
 			</div>
 		</footer>
 	);
