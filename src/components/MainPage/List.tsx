@@ -16,6 +16,7 @@ const List = ({ content, createdAt }: ListProps) => {
 				"h-[3.8rem] w-[38.8rem]",
 				"whitespace-nowrap",
 				"border border-gray-300",
+				"cursor-pointer",
 			)}
 		>
 			<p className={cn("body05 text-gray-700", "w-[28rem] truncate")}>{content}</p>
