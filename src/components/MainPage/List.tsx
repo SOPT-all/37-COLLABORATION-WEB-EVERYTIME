@@ -1,9 +1,6 @@
+import { type ListProps } from "@/types/board";
 import { cn } from "@/utils/cn";
 import { formatDateForList } from "@/utils/formatDate";
-interface ListProps {
-	content: string;
-	createdAt: string;
-}
 
 const List = ({ content, createdAt }: ListProps) => {
 	const date = formatDateForList(createdAt);
