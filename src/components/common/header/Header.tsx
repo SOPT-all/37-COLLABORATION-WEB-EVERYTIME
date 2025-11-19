@@ -20,6 +20,15 @@ const Header = () => {
 		navigate(ROUTES.HOME);
 	};
 
+	const handleBoardHover = () => {
+		setIsLnbOpen(true);
+	};
+
+	// header 전체 영역에서 마우스가 벗어나면 닫기
+	const handleMouseLeave = () => {
+		setIsLnbOpen(false);
+	};
+
 	return (
 		<header
 			className={cn(
@@ -32,7 +41,9 @@ const Header = () => {
 				"z-1",
 				"pr-[11.2rem] pl-[11.8rem]",
 			)}
+			onMouseLeave={handleMouseLeave}
 		>
+			{/* 왼쪽 로고 */}
 			<div className={cn("flex items-center justify-center", "left-4", "gap-[1.2rem]")}>
 				<button type="button" onClick={handleLogoClick}>
 					<LogoIcon className={cn("w-[3.8rem]", "h-[3.2rem]")} />
@@ -42,7 +53,11 @@ const Header = () => {
 					<span className={cn("label01 text-primary-black")}>솝트대</span>
 				</div>
 			</div>
-			<Navbar currentPage={currentPage} onClick={() => setIsLnbOpen(!isLnbOpen)} />
+
+			{/* Navbar */}
+			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
+
+			{/* 우측 버튼 그룹 */}
 			<div className={cn("flex gap-[0.5rem]")}>
 				<button
 					className={cn(
