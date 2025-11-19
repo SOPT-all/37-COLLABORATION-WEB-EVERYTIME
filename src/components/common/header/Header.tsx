@@ -12,7 +12,7 @@ import { UserButtonGroup } from "./UserButtonGroup";
 const Header = () => {
 	const navigate = useNavigate();
 	const currentPage = "게시판";
-	const [isLnbOpen, setIsLnbOpen] = useState(false);
+	const [isLnbOpen, setIsLnbOpen] = useState(true);
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
@@ -21,6 +21,7 @@ const Header = () => {
 
 	const handleBoardHover = () => {
 		setIsLnbOpen(true);
+		console.log("Lnb 열기");
 	};
 
 	// header 전체 영역에서 마우스가 벗어나면 닫기
@@ -55,7 +56,7 @@ const Header = () => {
 
 			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
 			<UserButtonGroup />
-			{isLnbOpen && <Lnb isOpen={isLnbOpen} />}
+			<Lnb isOpen={isLnbOpen} />
 		</header>
 	);
 };
