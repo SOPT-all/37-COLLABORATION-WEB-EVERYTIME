@@ -38,7 +38,8 @@ const formatDateForList = (createdAt: string): string => {
 	const hour = String(created.getHours()).padStart(2, "0");
 	const min = String(created.getMinutes()).padStart(2, "0");
 
-	if (diffMin < 60) return `${diffMin}분 전`;
+	if (diffMin < 1) return "방금 전";
+	else if (diffMin < 60) return `${diffMin}분 전`;
 	else if (diffMin >= 60 && nowYear === year) return `${month}/${day} ${hour}:${min}`;
 	return `${shortYear}/${month}/${day} ${hour}:${min}`;
 };
