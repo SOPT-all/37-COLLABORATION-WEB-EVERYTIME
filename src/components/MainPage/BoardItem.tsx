@@ -6,6 +6,7 @@ const BoardItem = ({ content, createdAt }: ListProps) => {
 	const date = formatDateForList(createdAt);
 	return (
 		<button
+			type="button"
 			className={cn(
 				"flex items-center justify-between",
 				"p-[1rem]",
