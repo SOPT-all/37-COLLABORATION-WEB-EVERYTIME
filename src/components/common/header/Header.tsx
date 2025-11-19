@@ -12,7 +12,7 @@ import { UserButtonGroup } from "./UserButtonGroup";
 const Header = () => {
 	const navigate = useNavigate();
 	const currentPage = "게시판";
-	const [isLnbOpen, setIsLnbOpen] = useState(true);
+	const [isLnbOpen, setIsLnbOpen] = useState(false);
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
