@@ -15,7 +15,7 @@ const List = ({ content, createdAt }: ListProps) => {
 				"bg-white hover:bg-gray-200",
 				"h-[3.8rem] w-[38.8rem]",
 				"whitespace-nowrap",
-				"border border-gray-300",
+				"border-r border-b border-l border-gray-300",
 				"cursor-pointer",
 			)}
 		>
