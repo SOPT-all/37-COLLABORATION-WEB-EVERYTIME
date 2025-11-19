@@ -2,7 +2,7 @@ import { type ListProps } from "@/types/board";
 import { cn } from "@/utils/cn";
 import { formatDateForList } from "@/utils/formatDate";
 
-const List = ({ content, createdAt }: ListProps) => {
+const BoardItem = ({ content, createdAt }: ListProps) => {
 	const date = formatDateForList(createdAt);
 	return (
 		<button
@@ -21,4 +21,4 @@ const List = ({ content, createdAt }: ListProps) => {
 	);
 };
 
-export { List };
+export { BoardItem };
