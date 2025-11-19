@@ -15,10 +15,10 @@ const Lnb = ({ isOpen }: LnbProps) => {
 		<section
 			className={cn(
 				"border-b border-gray-400 bg-gray-200",
-				"fixed top-[7rem] right-0 z-10 h-[23rem] w-full",
+				"fixed top-[7rem] right-0 z-10 w-full",
 				"flex items-center justify-center",
-				"transition-all duration-200 ease-in-out",
-				isOpen ? "opacity-100" : "opacity-0",
+				"transition-opacity duration-200 ease-in-out",
+				isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
 			)}
 		>
 			<div className="flex flex-row px-[1.7rem] py-[1.7rem]">
