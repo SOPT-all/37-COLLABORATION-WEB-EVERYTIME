@@ -1,4 +1,11 @@
-import { type ParseDateType } from "@/types/formatDateTypes";
+export interface ParseDateType {
+	year: number;
+	shortYear: string;
+	month: string;
+	day: string;
+	hour: string;
+	min: string;
+}
 
 /**
  * 날짜 문자열(예: "2025-11-15T15:10:00")을
