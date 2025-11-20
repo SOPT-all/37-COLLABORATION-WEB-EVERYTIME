@@ -15,7 +15,7 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 			onClick={onClick}
 			className={cn(
 				"flex items-center gap-[0.4rem]",
-				"w-fit",
+				"w-[28rem]",
 				"px-[1rem] py-[0.85rem]",
 				"border border-[var(--color-gray-400)]",
 				"bg-[var(--color-gray-100)]",
