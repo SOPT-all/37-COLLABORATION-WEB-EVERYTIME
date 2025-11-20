@@ -12,7 +12,7 @@ const BLOCK_SIZE = 10;
 
 const iconSizeClass = "h-[1.8rem] w-[1.8rem]";
 interface PaginationProps {
-	currentPage: number; // 1-based
+	currentPage: number;
 	totalPages: number;
 	onPageChange: (page: number) => void;
 	hasPrevious: boolean;
