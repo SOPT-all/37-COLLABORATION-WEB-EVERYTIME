@@ -17,9 +17,16 @@ const Board = ({ category, posts }: BoardProps) => {
 	return (
 		<>
 			<div className={cn("h-[4rem] w-[38.8rem]", "bg-white", "border border-gray-300", "p-[1rem]")}>
-				<span className={cn("h-[2.1rem] w-auto", "title03 text-primary-red whitespace-nowrap", "cursor-pointer")}>
+				<p
+					className={cn(
+						"h-[2.1rem] max-w-[36.8rem] truncate",
+						"title03 text-primary-red",
+						"cursor-pointer",
+						"inline-block",
+					)}
+				>
 					{category}
-				</span>
+				</p>
 			</div>
 			<div
 				className={cn(
