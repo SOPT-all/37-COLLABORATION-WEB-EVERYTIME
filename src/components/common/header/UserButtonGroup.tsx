@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 
 const IconButton = ({ children }: { children: React.ReactNode }) => (
 	<button
+		type="button"
 		className={cn("h-[4.2rem] w-[4.2rem]", "flex items-center justify-center", "rounded-[12px] border border-gray-400")}
 	>
 		{children}
