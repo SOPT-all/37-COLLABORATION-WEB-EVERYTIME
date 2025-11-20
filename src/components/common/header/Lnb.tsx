@@ -1,41 +1,47 @@
-/**
- * 헤더 컴포넌트 구현 시, Lnb 컴포넌트 적용할 때 참고용으로 작성한 예시 코드입니다.
- */
+import { Fragment } from "react/jsx-runtime";
 
-import { useNavigate } from "react-router-dom";
-
-import { BADGE_BOARDS, BOARD_LIST } from "@/constants/boardList";
+import { BOARD_GROUPS, BADGE_BOARDS } from "@/constants/boardList";
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
+import { splitGroupBoards } from "@/utils/splitGroupBoards";
 
 import { LnbItem } from "./LnbItem";
+import { LnbSearch } from "./LnbSearch";
 
-const Lnb = ({ isOpen, onClose, badgeBoards = [...BADGE_BOARDS] }: LnbProps) => {
-	// 파란 점(업데이트 뱃지)을 표시할 게시판 목록
-	const navigate = useNavigate();
-	const handleBoardClick = (boardName: string) => {
-		navigate(`/board/${boardName}`);
-
-		// Lnb 닫기 (선택)
-		onClose?.();
-	};
-
-	// Lnb가 닫혀있으면 렌더링하지 않음
-	if (!isOpen) return null;
+const Lnb = ({ isOpen }: LnbProps) => {
+	const columns = splitGroupBoards(BOARD_GROUPS, 8);
 
 	return (
-		<nav className={cn("border-bottom-1 border-gray-300 bg-gray-200", "p-4")}>
-			<div className="flex flex-col">
-				{BOARD_LIST.map((board) => (
-					<LnbItem
-						key={board}
-						title={board}
-						hasBadge={badgeBoards.includes(board)}
-						onClick={() => handleBoardClick(board)}
-					/>
+		<section
+			className={cn(
+				"border-b border-gray-400 bg-gray-200",
+				"fixed top-[7rem] right-0 z-10 w-full",
+				"flex items-center justify-center",
+				"transition-opacity duration-200 ease-in-out",
+				isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+			)}
+		>
+			<div className="flex flex-row px-[1.7rem] py-[1.7rem]">
+				{columns.map((column, idx) => (
+					<div
+						key={column[0]}
+						className={cn(
+							"flex w-[16.1rem] flex-col gap-1 pl-[1.6rem]",
+							"border-gray-300",
+							idx !== 1 && "border-l-[1px]",
+							idx === columns.length - 1 && "border-r-[1px]",
+						)}
+					>
+						{column.map((board, boardIdx) => (
+							<Fragment key={board}>
+								<LnbItem title={board} hasBadge={BADGE_BOARDS.includes(board)} />
+								{idx === columns.length - 1 && boardIdx === column.length - 1 && <LnbSearch />}
+							</Fragment>
+						))}
+					</div>
 				))}
 			</div>
-		</nav>
+		</section>
 	);
 };
 
