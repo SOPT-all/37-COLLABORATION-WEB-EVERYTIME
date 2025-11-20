@@ -6,7 +6,7 @@ interface BookItemProps {
 	price: number;
 }
 
-const MAX_TITLE_LENGTH = 10;
+const MAX_TITLE_LENGTH = 8;
 
 const BookItem = ({ title, price }: BookItemProps) => {
 	const truncatedTitle = truncateByLength(title, MAX_TITLE_LENGTH);
