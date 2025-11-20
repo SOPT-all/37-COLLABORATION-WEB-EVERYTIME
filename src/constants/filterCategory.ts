@@ -1,10 +1,11 @@
-export interface FilterOption {
-	id: number;
-	name: string;
-}
+import type { FilterOptionProps } from "@/components/SearchPage/Filter";
 
-export const FILTER_CATEGORY: FilterOption[] = [
-	{ id: 0, name: "전체" },
+export const CATEGORY = {
+	ALL: "전체",
+} as const;
+
+export const FILTER_CATEGORY: FilterOptionProps[] = [
+	{ id: 0, name: CATEGORY.ALL },
 	{ id: 1, name: "자유게시판" },
 	{ id: 2, name: "비밀게시판" },
 	{ id: 3, name: "졸업생게시판" },

@@ -6,25 +6,28 @@ import { FILTER_CATEGORY } from "@/constants/filterCategory";
 import { cn } from "@/utils/cn";
 
 interface FilterProps {
-	selectedId?: number;
-	onSelect?: (id: number) => void;
+	selectedCategory: string;
+	onSelect: (category: string) => void;
 }
 
-const Filter = ({ selectedId = 0, onSelect }: FilterProps) => {
+export interface FilterOptionProps {
+	id: number;
+	name: string;
+}
+
+const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [currentId, setCurrentId] = useState(selectedId);
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-	const selectedItem = FILTER_CATEGORY.find((item) => item.id === currentId);
+	const currentItem = FILTER_CATEGORY.find((item) => item.name === selectedCategory) ?? FILTER_CATEGORY[0];
 
 	const handleToggle = () => {
 		setIsOpen((prev) => !prev);
 	};
 
-	const handleSelect = (id: number) => {
-		setCurrentId(id);
-		onSelect?.(id);
+	const handleSelect = (category: string) => {
+		onSelect(category);
 		setIsOpen(false);
 	};
 
@@ -55,7 +58,7 @@ const Filter = ({ selectedId = 0, onSelect }: FilterProps) => {
 					"body05 text-[var(--color-gray-700)]",
 				)}
 			>
-				<span className={cn("flex")}>{selectedItem?.name}</span>
+				<span>{currentItem.name}</span>
 				<img src={isOpen ? ArrowUpIcon : ArrowDownIcon} alt="옵션 토글" className="h-[1.8rem] w-[1.8rem] shrink-0" />
 			</button>
 
@@ -72,13 +75,13 @@ const Filter = ({ selectedId = 0, onSelect }: FilterProps) => {
 					)}
 				>
 					{FILTER_CATEGORY.map((item) => {
-						const isSelected = item.id === currentId;
+						const isSelected = item.name === currentItem.name;
 
 						return (
 							<button
 								key={item.id}
 								type="button"
-								onClick={() => handleSelect(item.id)}
+								onClick={() => handleSelect(item.name)}
 								className={cn(
 									"flex items-center",
 									"h-[4rem] w-full",
