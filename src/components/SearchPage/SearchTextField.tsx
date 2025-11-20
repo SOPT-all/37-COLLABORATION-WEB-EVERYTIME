@@ -1,4 +1,4 @@
-import { useState, useEffect, type KeyboardEvent, type ChangeEvent } from "react";
+import { useState, useMemo, type KeyboardEvent, type ChangeEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
@@ -6,22 +6,24 @@ import { cn } from "@/utils/cn";
 
 interface SearchTextFieldProps {
 	variant: "main" | "search";
-	className?: string;
 }
 
 const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
-	const [keyword, setKeyword] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 
-	// URL 쿼리 파라미터에서 keyword 초기화
-	useEffect(() => {
-		const keywordParam = searchParams.get("keyword");
-		if (keywordParam) {
-			// eslint-disable-next-line react-hooks/set-state-in-effect
-			setKeyword(keywordParam);
+	// 초기값 설정
+	const initialKeyword = searchParams.get("keyword") || "";
+	const [keyword, setKeyword] = useState(initialKeyword);
+
+	// URL 변경 감지 (useMemo)
+	useMemo(() => {
+		const currentUrlKeyword = searchParams.get("keyword") || "";
+		if (currentUrlKeyword !== keyword && !isFocused) {
+			setKeyword(currentUrlKeyword);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchParams]);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
