@@ -31,7 +31,7 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" && keyword.trim()) {
 			const category = searchParams.get("category") || "전체";
-			navigate(`/search?category=${category}&keyword=${encodeURIComponent(keyword.trim())}&page=1`); // 페이지 초기화
+			navigate(`/search?category=${category}&keyword=${encodeURIComponent(keyword.trim())}&page=1`);
 		}
 	};
 
