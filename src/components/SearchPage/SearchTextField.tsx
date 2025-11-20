@@ -13,11 +13,9 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 	const [searchParams] = useSearchParams();
 	const [isFocused, setIsFocused] = useState(false);
 
-	// 초기값 설정
 	const initialKeyword = searchParams.get("keyword") || "";
 	const [keyword, setKeyword] = useState(initialKeyword);
 
-	// URL 변경 감지 (useMemo)
 	useMemo(() => {
 		const currentUrlKeyword = searchParams.get("keyword") || "";
 		if (currentUrlKeyword !== keyword && !isFocused) {
@@ -32,7 +30,6 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" && keyword.trim()) {
-			// 검색 결과 페이지로 이동하면서 keyword 쿼리 파라미터 유지
 			const category = searchParams.get("category") || "전체";
 			navigate(`/search?category=${category}&keyword=${encodeURIComponent(keyword.trim())}&page=1`); // 페이지 초기화
 		}
@@ -46,11 +43,6 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 		setIsFocused(false);
 	};
 
-	// 4가지 상태 분류
-	// Default: placeholder 존재, 포커스 아웃
-	// Typing: 입력 중, 포커싱
-	// Filled: 입력값 존재, 포커스 아웃
-	// Focused: 텍스트필드 선택, 포커싱
 	const getInputState = () => {
 		if (isFocused && keyword) return "typing";
 		if (isFocused && !keyword) return "focused";
@@ -73,10 +65,8 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 				inputState === "focused" && "border-gray-700 bg-white",
 			)}
 		>
-			{/* 검색 아이콘 */}
 			<SearchIcon className={cn("h-[3.4rem] w-[3.4rem] shrink-0 transition-colors")} />
 
-			{/* 입력 필드 */}
 			<input
 				type="text"
 				value={keyword}
