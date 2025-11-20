@@ -33,4 +33,4 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 	);
 };
 
-export default ReviewItem;
+export { ReviewItem };

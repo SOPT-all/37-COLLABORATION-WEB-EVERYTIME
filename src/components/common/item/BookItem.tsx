@@ -22,4 +22,4 @@ const BookItem = ({ title, price }: BookItemProps) => {
 	);
 };
 
-export default BookItem;
+export { BookItem };

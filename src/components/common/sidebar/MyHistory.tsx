@@ -44,4 +44,4 @@ const MyHistory = ({ variant, onClick }: MyHistoryProps) => {
 	);
 };
 
-export default MyHistory;
+export { MyHistory };

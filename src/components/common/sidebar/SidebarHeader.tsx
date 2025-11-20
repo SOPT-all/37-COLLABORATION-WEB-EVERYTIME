@@ -26,4 +26,4 @@ const SidebarHeader = ({ title, isMore, onClick }: SidebarHeaderProps) => {
 	);
 };
 
-export default SidebarHeader;
+export { SidebarHeader };
