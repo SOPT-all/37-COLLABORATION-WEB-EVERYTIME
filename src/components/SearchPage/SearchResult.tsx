@@ -20,4 +20,4 @@ const SearchResult = ({ keyword }: SearchResultProps) => {
 	);
 };
 
-export default SearchResult;
+export { SearchResult };
