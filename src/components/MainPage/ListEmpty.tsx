@@ -20,7 +20,7 @@ const ListEmpty = ({ posts }: ListEmptyProps) => {
 				isPostsEmpty && [
 					"border-r border-b border-l border-gray-300",
 					"flex items-center p-[1rem]",
-					"cursor-pointer hover:bg-gray-200",
+					"hover:bg-gray-200",
 				],
 			)}
 		>
