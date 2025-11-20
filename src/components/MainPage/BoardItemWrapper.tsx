@@ -7,11 +7,11 @@ interface PostsItem {
 	title: string;
 	createdAt: string;
 }
-interface ListEmptyProps {
+interface BoardItemWrapperProps {
 	posts: PostsItem[];
 }
 
-const ListEmpty = ({ posts }: ListEmptyProps) => {
+const BoardItemWrapper = ({ posts }: BoardItemWrapperProps) => {
 	const isPostsEmpty = posts.length === EMPTY_POSTS;
 	return (
 		<div
@@ -33,4 +33,4 @@ const ListEmpty = ({ posts }: ListEmptyProps) => {
 	);
 };
 
-export { ListEmpty };
+export { BoardItemWrapper };
