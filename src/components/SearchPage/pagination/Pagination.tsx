@@ -1,13 +1,12 @@
 import IconArrowLeft from "@/assets/icons/icon_arrow_left.svg?react";
-import IconArrowRight from "@/assets/icons/icon_arrow_right.svg?react";
-import { cn } from "@/utils/cn";
-
 import IconArrowLeftGray from "@/assets/icons/icon_arrow_left_gray.svg?react";
+import IconArrowRight from "@/assets/icons/icon_arrow_right.svg?react";
 import IconArrowRightGray from "@/assets/icons/icon_arrow_right_gray.svg?react";
 import IconDoubleArrowLeft from "@/assets/icons/icon_double_arrow_left.svg?react";
 import IconDoubleArrowLeftGray from "@/assets/icons/icon_double_arrow_left_gray.svg?react";
 import IconDoubleArrowRight from "@/assets/icons/icon_double_arrow_right.svg?react";
 import IconDoubleArrowRightGray from "@/assets/icons/icon_double_arrow_right_gray.svg?react";
+import { cn } from "@/utils/cn";
 
 const BLOCK_SIZE = 10;
 
@@ -20,7 +19,7 @@ interface PaginationProps {
 	hasNext: boolean;
 }
 
-export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: PaginationProps) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: PaginationProps) => {
 	if (totalPages <= 0) return null;
 
 	// 현재 페이지가 속한 블럭 계산
@@ -138,3 +137,5 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious,
 		</div>
 	);
 };
+
+export { Pagination };
