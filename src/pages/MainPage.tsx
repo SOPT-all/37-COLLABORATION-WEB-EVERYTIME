@@ -1,7 +1,8 @@
-import { Lnb } from "@/components/common/header/Lnb";
 import { LivePostItem } from "@/components/common/sidebar/LivePostItem";
 import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
 import { MOCK_LIVE_POST, MOCK_EMPTY_LIVE_POST } from "@/mocks/posts";
+
+import { ProfileItem } from "@/components/common/sidebar/ProfileItem";
 
 const MainPage = () => {
 	return (
@@ -12,8 +13,9 @@ const MainPage = () => {
 
 			{/* 조건에 맞는 게시글이 없는 경우 (아무것도 렌더링 안됨) */}
 			<LivePostItem post={MOCK_EMPTY_LIVE_POST} />
+			<ProfileItem nickname="전설의 맛" name="김경아" userId="ruddk0821" />
 		</div>
 	);
 };
 
-export default MainPage;
+export { MainPage };
