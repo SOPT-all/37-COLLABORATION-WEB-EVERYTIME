@@ -1,5 +1,4 @@
 import defaultProfile from "@/assets/images/default_profile.svg";
-import type { ProfileItemProps } from "@/types/profile";
 import { cn } from "@/utils/cn";
 
 const BUTTON_STYLES = cn(
@@ -13,6 +12,13 @@ const BUTTON_STYLES = cn(
 	"hover:bg-gray-100",
 	"transition-colors",
 );
+
+interface ProfileItemProps {
+	nickname: string;
+	name: string;
+	userId: string;
+	profileImage?: string;
+}
 
 const ProfileItem = ({ nickname, name, userId, profileImage = defaultProfile }: ProfileItemProps) => {
 	const handleMyInfoClick = () => {
