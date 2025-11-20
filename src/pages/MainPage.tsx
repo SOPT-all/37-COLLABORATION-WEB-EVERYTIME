@@ -2,7 +2,7 @@ import { LivePostItem } from "@/components/common/sidebar/LivePostItem";
 import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
 import { MOCK_LIVE_POST, MOCK_EMPTY_LIVE_POST } from "@/mocks/posts";
 
-const HomePage = () => {
+const MainPage = () => {
 	return (
 		<div className="relative">
 			<SimplePostItem title="하둘셋넷다하둘셋넷다하둘셋넷다하둘셋넷다" createdAt="2025-11-15T15:10:00" />
@@ -15,4 +15,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default MainPage;

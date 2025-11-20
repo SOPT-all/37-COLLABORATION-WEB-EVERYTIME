@@ -7,12 +7,11 @@ const LnbItem = ({ title, hasBadge = false, onClick }: LnbItemProps) => {
 			onClick={onClick}
 			className={cn(
 				"flex items-center gap-[0.3rem]",
-				"py-[0.2rem] pr-[5.8rem]",
+				"py-[0.2rem]",
 				"w-fit",
 				"body06 text-gray-800",
 				"hover:text-primary-red",
 				"transition-colors duration-200",
-				"cursor-pointer",
 			)}
 		>
 			<span>{title}</span>
