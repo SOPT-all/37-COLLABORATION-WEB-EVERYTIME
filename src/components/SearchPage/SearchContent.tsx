@@ -7,12 +7,12 @@ import { splitIntoTwoLines } from "@/utils/highlight";
 
 import { SearchHighlight } from "./SearchHighlight";
 
-interface SearchContent {
+interface SearchContentProps {
 	searchTerm: string;
 	searchResult: SearchResultType;
 }
 
-const SearchContent = ({ searchTerm, searchResult }: SearchContent) => {
+const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	const hasLike = searchResult.likeCount > 0;
 	const hasComment = searchResult.commentCount > 0;
 	const { firstLine, secondLine } = splitIntoTwoLines(searchResult.content);
