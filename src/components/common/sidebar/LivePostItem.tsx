@@ -31,7 +31,7 @@ const LivePostItem = ({ post }: LivePostItemProps) => {
 				<span className={cn("caption01 text-gray-500")}>{post.category}</span>
 
 				<div className={cn("flex items-center gap-[0.4rem]")}>
-					<div className={cn("flex items-center gap-[0.01rem]")}>
+					<div className={cn("flex items-center gap-[0.1rem]")}>
 						<IconThumbsUp className={cn("h-[1.8rem] w-[1.8rem]")} />
 						<span className={cn("caption04 text-primary-red")}>{post.likeCount}</span>
 					</div>
