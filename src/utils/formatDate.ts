@@ -43,6 +43,14 @@ const formatDateForList = (createdAt: string): string => {
 	return `${shortYear}/${month}/${day} ${hour}:${min}`;
 };
 
+const monthDay = (createdAt: string): string => {
+	if (!createdAt) return "";
+
+	const { month, day } = parseDate(createdAt);
+
+	return `${month}/${day}`;
+};
+
 const parseDate = (dateString: string): ParseDateType => {
 	const date = new Date(dateString);
 	const year = date.getFullYear();
@@ -61,4 +69,4 @@ const parseDate = (dateString: string): ParseDateType => {
 	};
 };
 
-export { formatDateWithTime, formatDateForList };
+export { formatDateWithTime, formatDateForList, monthDay };
