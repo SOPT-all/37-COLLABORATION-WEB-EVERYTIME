@@ -9,7 +9,7 @@ import { cn } from "@/utils/cn";
 import { Filter } from "../Filter";
 import { SearchTextField } from "../SearchTextField";
 export const SearchContainer = () => {
-	const [, setCategory] = useState("전체");
+	const [category, setCategory] = useState("전체");
 	const [keyword, setKeyword] = useState("테스트");
 	// TODO: api 연동 시 response로부터 받아옴
 	const [currentPage, setCurrentPage] = useState(1);
@@ -38,10 +38,10 @@ export const SearchContainer = () => {
 	};
 
 	return (
-		<section className={cn("flex flex-col items-center justify-center px-8 py-10", "w-full")}>
+		<section className={cn("flex flex-col items-center justify-center", "px-8 py-10", "w-full")}>
 			<div className={cn("flex gap-[0.4rem]")}>
-				<Filter selectedCategory={"전체"} onSelect={setCategory} />
-				<SearchTextField variant="search" keyword={keyword} onKeywordChange={onKeywordChange} />
+				<Filter selectedCategory={category} onSelect={setCategory} />
+				<SearchTextField variant="search" onKeywordChange={onKeywordChange} />
 			</div>
 			<SearchWrapper keyword={keyword} results={currentPageResults} />
 			{totalElements !== 0 && (

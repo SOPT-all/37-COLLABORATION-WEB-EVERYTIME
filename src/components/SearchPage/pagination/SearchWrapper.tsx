@@ -21,7 +21,7 @@ export const SearchWrapper = ({ keyword, results }: SearchWrapperProps) => {
 					검색 결과가 없습니다.
 				</p>
 			) : (
-				<div className={cn("mt-4 flex flex-col", "border-t border-gray-400")}>
+				<div className={cn("mt-[0.4rem] flex flex-col", "border-t border-gray-400")}>
 					{results.map((item) => (
 						<SearchContent key={item.id} searchTerm={keyword} searchResult={item} />
 					))}

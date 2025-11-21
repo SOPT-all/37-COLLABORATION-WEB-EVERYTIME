@@ -1,8 +1,122 @@
 import type { SearchResultType } from "@/types/search";
-export const PAGE_SIZE = 20; // 한 장에 보여지는 게시글 수
 
-export const ALL_MOCK_POSTS: SearchResultType[] = Array.from({ length: 97 }).map((_, idx) => {
-	const id = idx + 1;
+export const PAGE_SIZE = 20;
+const FIRST_10_MOCKS: SearchResultType[] = [
+	{
+		category: "자유게시판",
+		id: 1,
+		title: "테스트 게시글 1 – 시험 중 발생한 문제 공유",
+		content:
+			"테스트라는 단어가 잘 인식되어야 할텐데요.. 잘 될까요? 잘 되는 거 같습니다!! 정말 멋져요. 다들 컴포넌트를 너무 잘 만들어주어서 저는 행복합니다 ~ ^^ 여러분 짱이야 최고야 히히~ 이보다 더 길어지면 잘리겠죠? 어디까지보이나보자",
+		likeCount: 12,
+		commentCount: 3,
+		createdAt: "2025-01-10T09:12:00Z",
+		isAnonymous: false,
+		nickname: "User1",
+	},
+	{
+		category: "자유게시판",
+		id: 2,
+		title: "테스트 2번 – 강의실 냉난방 문제",
+		content: "테스트로 체크한 강의실 온도가 너무 낮아서 불편합니다.",
+		likeCount: 9,
+		commentCount: 1,
+		createdAt: "2025-01-11T14:50:00Z",
+		isAnonymous: true,
+		nickname: "익명",
+	},
+	{
+		category: "자유게시판",
+		id: 3,
+		title: "테스트 3 – 학식 맛 평가",
+		content: "테스트로 하루 동안 학식 맛을 기록해 보았습니다.",
+		likeCount: 4,
+		commentCount: 0,
+		createdAt: "2025-01-12T12:30:00Z",
+		isAnonymous: false,
+		nickname: "User3",
+	},
+	{
+		category: "자유게시판",
+		id: 4,
+		title: "테스트 글 4 – 기숙사 점검 알림",
+		content: "기숙사 점검 테스트 과정에서 작성된 공지입니다.",
+		likeCount: 20,
+		commentCount: 5,
+		createdAt: "2025-01-13T07:45:00Z",
+		isAnonymous: true,
+		nickname: "익명",
+	},
+	{
+		category: "자유게시판",
+		id: 5,
+		title: "테스트 5 – 개인 프로젝트 진행 상황",
+		content: "개인 프로젝트 테스트 결과 일부 기능 오류를 발견했습니다.",
+		likeCount: 6,
+		commentCount: 2,
+		createdAt: "2025-01-15T11:10:00Z",
+		isAnonymous: false,
+		nickname: "User5",
+	},
+	{
+		category: "자유게시판",
+		id: 6,
+		title: "테스트 글 6 – 도서관 자리 현황",
+		content: "테스트로 확인해 본 도서관 좌석 현황입니다.",
+		likeCount: 2,
+		commentCount: 1,
+		createdAt: "2025-01-16T17:22:00Z",
+		isAnonymous: true,
+		nickname: "익명",
+	},
+	{
+		category: "자유게시판",
+		id: 7,
+		title: "테스트 7 – 시험 기간 팁 공유",
+		content: "테스트로 정리한 시험 기간 집중 팁입니다.",
+		likeCount: 18,
+		commentCount: 4,
+		createdAt: "2025-01-18T08:00:00Z",
+		isAnonymous: false,
+		nickname: "User7",
+	},
+	{
+		category: "자유게시판",
+		id: 8,
+		title: "테스트 글 8 – 운동 루틴 추천",
+		content: "테스트로 구성한 초보자 운동 루틴을 공유합니다.",
+		likeCount: 7,
+		commentCount: 1,
+		createdAt: "2025-01-20T19:15:00Z",
+		isAnonymous: true,
+		nickname: "익명",
+	},
+	{
+		category: "자유게시판",
+		id: 9,
+		title: "테스트 9 – 동아리 홍보 글",
+		content: "테스트로 작성한 홍보 글이며 실제와 유사합니다.",
+		likeCount: 16,
+		commentCount: 3,
+		createdAt: "2025-01-22T13:40:00Z",
+		isAnonymous: false,
+		nickname: "User9",
+	},
+	{
+		category: "자유게시판",
+		id: 10,
+		title: "테스트 게시물 10 – 학과 공지 정리",
+		content: "테스트로 학과 공지를 모아 작성해 본 글입니다.",
+		likeCount: 10,
+		commentCount: 2,
+		createdAt: "2025-01-25T10:05:00Z",
+		isAnonymous: true,
+		nickname: "익명",
+	},
+];
+
+const REST_MOCKS: SearchResultType[] = Array.from({ length: 87 }).map((_, idx) => {
+	const id = idx + 11; // 11부터 시작
 	return {
 		category: "자유게시판",
 		id,
@@ -15,3 +129,5 @@ export const ALL_MOCK_POSTS: SearchResultType[] = Array.from({ length: 97 }).map
 		nickname: id % 2 === 0 ? "익명" : `User${id}`,
 	};
 });
+
+export const ALL_MOCK_POSTS: SearchResultType[] = [...FIRST_10_MOCKS, ...REST_MOCKS];
