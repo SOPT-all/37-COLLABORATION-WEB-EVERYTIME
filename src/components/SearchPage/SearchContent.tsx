@@ -2,7 +2,7 @@ import MyComment from "@/assets/icons/icon_mycomment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
-import { monthDay } from "@/utils/formatDate";
+import { formatDateForSearch } from "@/utils/formatDate";
 import { splitIntoTwoLines } from "@/utils/highlight";
 
 import { SearchHighlight } from "./SearchHighlight";
@@ -16,7 +16,7 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	const hasLike = searchResult.likeCount > 0;
 	const hasComment = searchResult.commentCount > 0;
 	const { firstLine, secondLine } = splitIntoTwoLines(searchResult.content);
-	const date = monthDay(searchResult.createdAt);
+	const date = formatDateForSearch(searchResult.createdAt);
 
 	return (
 		<div

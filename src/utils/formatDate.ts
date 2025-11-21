@@ -43,7 +43,7 @@ const formatDateForList = (createdAt: string): string => {
 	return `${shortYear}/${month}/${day} ${hour}:${min}`;
 };
 
-const monthDay = (createdAt: string): string => {
+const formatDateForSearch = (createdAt: string): string => {
 	if (!createdAt) return "";
 
 	const { month, day } = parseDate(createdAt);
@@ -69,4 +69,4 @@ const parseDate = (dateString: string): ParseDateType => {
 	};
 };
 
-export { formatDateWithTime, formatDateForList, monthDay };
+export { formatDateWithTime, formatDateForList, formatDateForSearch };
