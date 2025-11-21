@@ -27,6 +27,11 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 		if (e.key === "Enter") {
 			const trimmedKeyword = tempKeyword.trim();
 
+			if (trimmedKeyword.length < 2) {
+				alert("검색어를 두 글자 이상 입력하세요!");
+				return;
+			}
+
 			if (trimmedKeyword) {
 				const category = searchParams.get("category") || "전체";
 				navigate(`/search?category=${category}&keyword=${encodeURIComponent(trimmedKeyword)}&page=1`);
