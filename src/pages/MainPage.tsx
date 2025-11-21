@@ -1,18 +1,24 @@
-import { LivePostItem } from "@/components/common/sidebar/LivePostItem";
-import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
-import { MOCK_LIVE_POST, MOCK_EMPTY_LIVE_POST } from "@/mocks/posts";
+import { SearchTextField } from "@/components/SearchPage/SearchTextField";
+import AdImg from "@/assets/images/img_ad1.png";
+import { BoardList } from "@/components/MainPage/BoardList";
+import Book from "@/components/MainPage/Book";
+import { MOCK_BOOKS } from "@/mocks/books";
 
 const MainPage = () => {
 	return (
-		<div className="relative">
-			<SimplePostItem title="하둘셋넷다하둘셋넷다하둘셋넷다하둘셋넷다" createdAt="2025-11-15T15:10:00" />
-
-			{/* 실시간 인기 글이 있는 경우 */}
-			<LivePostItem post={MOCK_LIVE_POST} />
-
-			{/* 조건에 맞는 게시글이 없는 경우 (아무것도 렌더링 안됨) */}
-			<LivePostItem post={MOCK_EMPTY_LIVE_POST} />
-		</div>
+		<main className="mt-[2rem]">
+			{/* TODO: 사이드바 컴포넌트 추가 */}
+			<div className="mx-auto flex w-[78rem] flex-col gap-[1.5rem]">
+				<div className="flex flex-col gap-[0.4rem]">
+					<SearchTextField variant="main" />
+					<aside>
+						<img src={AdImg} alt="광고 배너" className="h-[20.8rem] w-[78rem]" />
+					</aside>
+					<BoardList />
+				</div>
+				<Book books={MOCK_BOOKS} />
+			</div>
+		</main>
 	);
 };
 
