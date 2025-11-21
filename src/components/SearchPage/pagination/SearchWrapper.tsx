@@ -19,7 +19,7 @@ export const SearchWrapper = ({ results }: SearchWrapperProps) => {
 					검색 결과가 없습니다.
 				</p>
 			) : (
-				<div className={cn("mt-4 flex flex-col")}>
+				<div className={cn("mt-4 flex flex-col", "border-t border-gray-400")}>
 					{results.map((item) => (
 						<div key={item.id} className={cn("h-[13rem] w-[73rem] border border-gray-300")}>
 							{JSON.stringify(item)}

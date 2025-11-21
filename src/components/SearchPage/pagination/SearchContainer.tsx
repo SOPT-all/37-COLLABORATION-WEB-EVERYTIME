@@ -30,7 +30,7 @@ export const SearchContainer = () => {
 	};
 
 	return (
-		<section className={cn("justify-centerpx-8 flex flex-col items-center py-10", "w-full")}>
+		<section className={cn("flex flex-col items-center justify-center px-8 py-10", "w-full")}>
 			<SearchWrapper results={currentPageResults} />
 			{totalElements !== 0 && (
 				<Pagination
