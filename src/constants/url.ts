@@ -1,4 +1,4 @@
-export BASE_URL = import.meta.env.VITE
+export const BASE_URL: string = import.meta.env.VITE_API_BASE_URL;
 
 export const END_URL = {
 	GET_REVIEWS: "reviews",
