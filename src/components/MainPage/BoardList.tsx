@@ -9,11 +9,11 @@ const BoardList = () => {
 	});
 
 	return (
-		<div className="grid grid-cols-2 gap-x-[0.4rem] gap-y-[0.086rem]">
+		<section aria-label="게시판 목록" className="grid grid-cols-2 gap-x-[0.4rem] gap-y-[0.086rem]">
 			{sortedBoards.map((board) => (
 				<Board key={board.category} category={board.category} posts={board.posts} />
 			))}
-		</div>
+		</section>
 	);
 };
 
