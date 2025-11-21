@@ -185,3 +185,26 @@
 		letter-spacing: var(--label01-track);
 	}
 }
+
+/* 필터 스크롤 인디케이터 바 */
+.filter-scroll {
+	scrollbar-width: none;
+}
+
+.filter-scroll::-webkit-scrollbar {
+	display: none;
+}
+
+.filter-scroll-show {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-gray-300) transparent;
+}
+
+.filter-scroll-show::-webkit-scrollbar {
+	width: 1px;
+}
+
+.filter-scroll-show::-webkit-scrollbar-thumb {
+	background: var(--color-gray-300);
+	border-radius: 3px;
+}
