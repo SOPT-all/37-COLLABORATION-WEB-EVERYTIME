@@ -20,7 +20,7 @@ const BoardItem = ({ content, createdAt }: ListProps) => {
 				"border-r border-b border-l border-[var(--color-gray-300)]",
 			)}
 		>
-			<p className={cn("body05 text-gray-700", "w-[28rem] truncate", "flex")}>{content}</p>
+			<p className={cn("body05 text-gray-700", "w-[28rem] min-w-0 truncate", "text-left")}>{content}</p>
 			<p className={cn("caption06 text-gray-500")}>{date}</p>
 		</button>
 	);

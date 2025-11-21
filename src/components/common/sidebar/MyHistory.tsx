@@ -36,10 +36,11 @@ const MyHistory = ({ variant, onClick }: MyHistoryProps) => {
 				"flex h-[4rem] w-[28rem] items-center gap-[0.4rem]",
 				"border border-gray-300 bg-gray-100",
 				"p-[1rem]",
+				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
 			<Icon width={ICON_SIZE} height={ICON_SIZE} aria-hidden="true" />
-			<span className="body05 text-gray-700">{label}</span>
+			<span className="body05 hover:text-primary-red text-gray-700">{label}</span>
 		</button>
 	);
 };
