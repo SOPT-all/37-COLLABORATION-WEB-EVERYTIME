@@ -1,4 +1,4 @@
-import { useState, useMemo, type KeyboardEvent, type ChangeEvent } from "react";
+import { useState, type KeyboardEvent, type ChangeEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
@@ -11,42 +11,43 @@ interface SearchTextFieldProps {
 const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
+
+	const urlKeyword = searchParams.get("keyword") || "";
+
+	const [tempKeyword, setTempKeyword] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 
-	const initialKeyword = searchParams.get("keyword") || "";
-	const [keyword, setKeyword] = useState(initialKeyword);
-
-	useMemo(() => {
-		const currentUrlKeyword = searchParams.get("keyword") || "";
-		if (currentUrlKeyword !== keyword && !isFocused) {
-			setKeyword(currentUrlKeyword);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [searchParams]);
+	const displayValue = isFocused ? tempKeyword : urlKeyword;
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setKeyword(e.target.value);
+		setTempKeyword(e.target.value);
 	};
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === "Enter" && keyword.trim()) {
-			const category = searchParams.get("category") || "전체";
-			navigate(`/search?category=${category}&keyword=${encodeURIComponent(keyword.trim())}&page=1`);
+		if (e.key === "Enter") {
+			const trimmedKeyword = tempKeyword.trim();
+
+			if (trimmedKeyword) {
+				const category = searchParams.get("category") || "전체";
+				navigate(`/search?category=${category}&keyword=${encodeURIComponent(trimmedKeyword)}&page=1`);
+			}
 		}
 	};
 
 	const handleFocus = () => {
 		setIsFocused(true);
+		setTempKeyword(urlKeyword);
 	};
 
 	const handleBlur = () => {
 		setIsFocused(false);
+		setTempKeyword("");
 	};
 
 	const getInputState = () => {
-		if (isFocused && keyword) return "typing";
-		if (isFocused && !keyword) return "focused";
-		if (!isFocused && keyword) return "filled";
+		if (isFocused && displayValue) return "typing";
+		if (isFocused && !displayValue) return "focused";
+		if (!isFocused && displayValue) return "filled";
 		return "default";
 	};
 
@@ -55,21 +56,21 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 	return (
 		<div
 			className={cn(
-				"flex items-center gap-[0.4rem] border px-[1.6rem] transition-colors",
+				"flex items-center gap-[0.4rem] border bg-white px-[1.6rem] transition-colors",
 				variant === "main" && "h-[4rem] w-[78rem]",
 				variant === "search" && "h-[4rem] w-[60.2rem]",
 
-				inputState === "default" && "border-gray-400 bg-white",
-				inputState === "typing" && "border-gray-700 bg-white",
-				inputState === "filled" && "border-gray-400 bg-white",
-				inputState === "focused" && "border-gray-700 bg-white",
+				inputState === "default" && "border-gray-400",
+				inputState === "typing" && "border-gray-700",
+				inputState === "filled" && "border-gray-400",
+				inputState === "focused" && "border-gray-700",
 			)}
 		>
 			<SearchIcon className={cn("h-[3.4rem] w-[3.4rem] shrink-0 transition-colors")} />
 
 			<input
 				type="text"
-				value={keyword}
+				value={displayValue}
 				onChange={handleInputChange}
 				onKeyDown={handleKeyDown}
 				onFocus={handleFocus}
