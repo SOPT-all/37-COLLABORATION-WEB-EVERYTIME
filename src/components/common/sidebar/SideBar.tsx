@@ -18,12 +18,28 @@ const AD_IMAGES = [
 	{ src: adImage4, alt: "광고 배너 4" },
 ];
 
+const SIDEBAR_VARIENT = {
+	main: {
+		showProfile: true,
+		showMyHistory: true,
+		showAds: true,
+	},
+	search: {
+		showProfile: false,
+		showMyHistory: false,
+		showAds: false,
+	},
+} as const;
+
+type SidebarVariant = keyof typeof SIDEBAR_VARIENT;
+
 interface SidebarProps {
-	showProfile?: boolean;
-	showMyHistory?: boolean;
+	variant: SidebarVariant;
 }
 
-function Sidebar({ showProfile = false, showMyHistory = false }: SidebarProps) {
+function Sidebar({ variant }: SidebarProps) {
+	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIENT[variant];
+
 	return (
 		<aside className={cn("w-[32rem]", "flex flex-col", "gap-[0.5rem]", "sticky", "top-[8rem]", "h-fit")}>
 			{showProfile && showMyHistory && (
@@ -62,9 +78,10 @@ function Sidebar({ showProfile = false, showMyHistory = false }: SidebarProps) {
 				<ReviewItem rate={5} lectureTitle={"테스트3"} professorName={"테스트3"} reviewContent={"테스트3"} />
 			</section>
 
-			{AD_IMAGES.map(({ src, alt }) => (
-				<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
-			))}
+			{showAds &&
+				AD_IMAGES.map(({ src, alt }) => (
+					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
+				))}
 		</aside>
 	);
 }
