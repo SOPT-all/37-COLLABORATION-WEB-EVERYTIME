@@ -1,4 +1,12 @@
-import type { LivePost } from "@/types/post";
+// 임시 타입 정의
+interface LivePost {
+	id: number;
+	category: string;
+	title: string;
+	content: string;
+	likeCount: number;
+	commentCount: number;
+}
 
 // 실시간 인기 글 목데이터
 export const MOCK_LIVE_POST: LivePost = {
