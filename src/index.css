@@ -187,19 +187,24 @@
 }
 
 /* 필터 스크롤 인디케이터 바 */
+.filter-scroll {
+	scrollbar-width: none;
+}
+
 .filter-scroll::-webkit-scrollbar {
-	width: 6px;
+	display: none;
 }
 
-.filter-scroll::-webkit-scrollbar-track {
-	background: transparent;
+.filter-scroll-show {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-gray-300) transparent;
 }
 
-.filter-scroll::-webkit-scrollbar-thumb {
-	background: #c6c6c6;
-	border-radius: 10px;
+.filter-scroll-show::-webkit-scrollbar {
+	width: 1px;
 }
 
-.filter-scroll::-webkit-scrollbar-thumb:hover {
-	background: #a0a0a0;
+.filter-scroll-show::-webkit-scrollbar-thumb {
+	background: var(--color-gray-300);
+	border-radius: 3px;
 }

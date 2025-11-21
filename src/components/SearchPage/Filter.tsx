@@ -17,7 +17,10 @@ export interface FilterOptionProps {
 
 const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isScrolling, setIsScrolling] = useState(false);
+
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
+	const scrollRef = useRef<HTMLDivElement | null>(null);
 
 	const currentItem = FILTER_CATEGORY.find((item) => item.name === selectedCategory) ?? FILTER_CATEGORY[0];
 
@@ -28,6 +31,14 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const handleSelect = (category: string) => {
 		onSelect(category);
 		setIsOpen(false);
+	};
+
+	const handleScroll = () => {
+		setIsScrolling(true);
+
+		setTimeout(() => {
+			setIsScrolling(false);
+		}, 600);
 	};
 
 	// 외부영역 클릭 시 드롭다운 닫힘
@@ -64,13 +75,15 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 			{/* 드롭다운 목록 */}
 			{isOpen && (
 				<div
+					ref={scrollRef}
+					onScroll={handleScroll}
 					className={cn(
 						"absolute top-full left-0 z-10",
 						"w-[17.4rem]",
 						"bg-[var(--color-white)]",
 						"border border-[var(--color-gray-300)]",
 						"flex h-[14rem] flex-col overflow-y-auto",
-						"filter-scroll",
+						isScrolling ? "filter-scroll-show" : "filter-scroll",
 					)}
 				>
 					{FILTER_CATEGORY.map((item) => {
