@@ -12,6 +12,12 @@ import { ProfileItem } from "./ProfileItem";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
+const AD_IMAGES = [
+	{ src: adImage2, alt: "광고 배너 2" },
+	{ src: adImage3, alt: "광고 배너 3" },
+	{ src: adImage4, alt: "광고 배너 4" },
+];
+
 interface SidebarProps {
 	showProfile?: boolean;
 	showMyHistory?: boolean;
@@ -32,29 +38,33 @@ function Sidebar({ showProfile = false, showMyHistory = false }: SidebarProps) {
 				</>
 			)}
 
-			<div>
+			<section>
 				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
 				<LivePostItem post={MOCK_LIVE_POST} />
-				<LivePostItem post={MOCK_LIVE_POST} />
-			</div>
+			</section>
 
-			<div>
+			<section>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
 				<SimplePostItem title={"테스트1"} createdAt={"1111-11-11T11:11:11"} />
 				<SimplePostItem title={"테스트2"} createdAt={"1111-11-11T11:11:11"} />
-			</div>
+				<SimplePostItem title={"테스트3"} createdAt={"1111-11-11T11:11:11"} />
+				<SimplePostItem title={"테스트4"} createdAt={"1111-11-11T11:11:11"} />
+			</section>
 
-			<SidebarHeader title={"BEST 게시판"} isMore={true} />
+			<section>
+				<SidebarHeader title={"BEST 게시판"} isMore={true} />
+			</section>
 
-			<div>
+			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
 				<ReviewItem rate={3} lectureTitle={"테스트"} professorName={"테스트"} reviewContent={"테스트"} />
-				<ReviewItem rate={3} lectureTitle={"테스트"} professorName={"테스트"} reviewContent={"테스트"} />
-			</div>
+				<ReviewItem rate={4} lectureTitle={"테스트2"} professorName={"테스트2"} reviewContent={"테스트2"} />
+				<ReviewItem rate={5} lectureTitle={"테스트3"} professorName={"테스트3"} reviewContent={"테스트3"} />
+			</section>
 
-			<img src={adImage2} alt="광고 배너 2" className="w-[28rem] object-contain" />
-			<img src={adImage3} alt="광고 배너 3" className="w-[28rem] object-contain" />
-			<img src={adImage4} alt="광고 배너 4" className="w-[28rem] object-contain" />
+			{AD_IMAGES.map(({ src, alt }) => (
+				<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
+			))}
 		</aside>
 	);
 }
