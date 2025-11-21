@@ -1,7 +1,7 @@
 import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
-import { truncateByLength } from "@/utils/truncate";
 import { cn } from "@/utils/cn";
+import { truncateByLength } from "@/utils/truncate";
 
 interface ReviewItemProps {
 	rate: number;

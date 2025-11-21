@@ -1,7 +1,6 @@
 import ArticleIcon from "@/assets/icons/icon_myarticle.svg?react";
 import CommentIcon from "@/assets/icons/icon_mycomment.svg?react";
 import ScrapIcon from "@/assets/icons/icon_myscrap.svg?react";
-
 import { cn } from "@/utils/cn";
 
 interface MyHistoryProps {

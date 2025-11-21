@@ -27,6 +27,7 @@ const LivePostItem = ({ post }: LivePostItemProps) => {
 				"border border-gray-400",
 				"bg-gray-100",
 				"cursor-pointer hover:bg-white",
+				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
 			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{post.title}</h3>
