@@ -1,4 +1,5 @@
 import { LivePostItem } from "@/components/common/sidebar/LivePostItem";
+import { Sidebar } from "@/components/common/sidebar/SideBar";
 import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
 import { MOCK_LIVE_POST, MOCK_EMPTY_LIVE_POST } from "@/mocks/posts";
 
@@ -12,6 +13,7 @@ const MainPage = () => {
 
 			{/* 조건에 맞는 게시글이 없는 경우 (아무것도 렌더링 안됨) */}
 			<LivePostItem post={MOCK_EMPTY_LIVE_POST} />
+			<Sidebar showProfile={true} showMyHistory={true} />
 		</div>
 	);
 };
