@@ -14,10 +14,10 @@ const BoardItem = ({ content, createdAt }: ListProps) => {
 			className={cn(
 				"flex items-center justify-between",
 				"p-[1rem]",
-				"bg-white hover:bg-[var(--color-gray-200)]",
-				"h-[3.8rem] w-[38.8rem]",
+				"bg-white hover:bg-gray-200",
+				"h-[3.8rem] w-[38.7rem]",
 				"whitespace-nowrap",
-				"border-r border-b border-l border-[var(--color-gray-300)]",
+				"border-r border-b border-gray-300",
 			)}
 		>
 			<p className={cn("body05 text-gray-700", "w-[28rem] min-w-0 truncate", "text-left")}>{content}</p>

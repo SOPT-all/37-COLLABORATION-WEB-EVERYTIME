@@ -22,12 +22,9 @@ const Board = ({ category, posts }: BoardData) => {
 			</div>
 			<div
 				className={cn(
-					"h-[15.2rem] w-[38.8rem] bg-white",
-					isPostsEmpty && [
-						"border-r border-b border-l border-gray-300",
-						"flex items-center p-[1rem]",
-						"hover:bg-gray-200",
-					],
+					"h-[15.2rem] w-[38.8rem] bg-gray-100",
+					"border-r border-b border-l border-gray-300",
+					isPostsEmpty && ["flex items-center p-[1rem]", "hover:bg-gray-200"],
 				)}
 			>
 				{isPostsEmpty ? (
