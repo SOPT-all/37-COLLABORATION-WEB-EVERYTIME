@@ -4,10 +4,7 @@ import { formatDateWithTime } from "@/utils/formatDate";
 import { truncateByLength } from "@/utils/truncate";
 
 const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
-	// 공백 포함 15번째부터 말줄임표
 	const slicedTitle = truncateByLength(title, 14);
-
-	// 날짜 포맷 변환
 	const formatDate = formatDateWithTime(createdAt);
 
 	return (
@@ -17,19 +14,18 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 				"flex items-center gap-[0.4rem]",
 				"w-[28rem]",
 				"px-[1rem] py-[0.85rem]",
-				"border border-[var(--color-gray-400)]",
-				"bg-[var(--color-gray-100)]",
-				"hover:bg-[var(--color-white)]",
+				"border border-gray-400",
+				"bg-gray-100",
+				"hover:bg-white",
 				"transition-colors duration-200",
+				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			{/* 제목 */}
-			<span className="body05 truncate text-left text-[var(--color-gray-800)]" title={title}>
+			<span className={cn("body05 truncate text-left text-gray-800", "flex-1")} title={title}>
 				{slicedTitle}
 			</span>
 
-			{/* 날짜 */}
-			<span className="caption04 text-[var(--color-gray-500)]">{formatDate}</span>
+			<span className="caption04 shrink-0 text-gray-500">{formatDate}</span>
 		</button>
 	);
 };
