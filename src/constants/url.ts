@@ -1,3 +1,5 @@
+export BASE_URL = import.meta.env.VITE
+
 export const END_URL = {
 	GET_REVIEWS: "reviews",
 	GET_POSTS: "/posts",
