@@ -1,6 +1,6 @@
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import AdImg from "@/assets/images/img_ad1.png";
-import { BoardList } from "@/components/MainPage/BoardList";
+import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import Book from "@/components/MainPage/Book";
 import { MOCK_BOOKS } from "@/mocks/books";
 
@@ -14,7 +14,7 @@ const MainPage = () => {
 					<aside>
 						<img src={AdImg} alt="광고 배너" className="h-[20.8rem] w-[78rem]" />
 					</aside>
-					<BoardList />
+					<BoardContainer />
 				</div>
 				<Book books={MOCK_BOOKS} />
 			</div>

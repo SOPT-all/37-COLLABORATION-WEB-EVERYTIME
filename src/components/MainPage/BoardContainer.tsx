@@ -2,7 +2,7 @@ import { Board } from "./Board";
 import { MAIN_PAGE_BOARD_CATEGORIES } from "@/constants/mainPageBoards";
 import { MOCK_MAIN_PAGE_BOARDS } from "@/mocks/mainPageBoards";
 
-const BoardList = () => {
+const BoardContainer = () => {
 	const sortedBoards = MAIN_PAGE_BOARD_CATEGORIES.map((category) => {
 		const boardData = MOCK_MAIN_PAGE_BOARDS.data.find((board) => board.category === category);
 		return boardData || { category, posts: [] };
@@ -17,4 +17,4 @@ const BoardList = () => {
 	);
 };
 
-export { BoardList };
+export { BoardContainer };
