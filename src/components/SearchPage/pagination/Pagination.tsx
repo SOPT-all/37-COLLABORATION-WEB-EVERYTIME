@@ -6,11 +6,9 @@ import IconDoubleArrowLeft from "@/assets/icons/icon_double_arrow_left.svg?react
 import IconDoubleArrowLeftGray from "@/assets/icons/icon_double_arrow_left_gray.svg?react";
 import IconDoubleArrowRight from "@/assets/icons/icon_double_arrow_right.svg?react";
 import IconDoubleArrowRightGray from "@/assets/icons/icon_double_arrow_right_gray.svg?react";
+import { usePagination } from "@/hooks/usePagination";
 import { cn } from "@/utils/cn";
 
-const BLOCK_SIZE = 10;
-
-const iconSizeClass = "h-[1.8rem] w-[1.8rem]";
 interface PaginationProps {
 	currentPage: number;
 	totalPages: number;
@@ -19,61 +17,30 @@ interface PaginationProps {
 	hasNext: boolean;
 }
 
-const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: PaginationProps) => {
+const iconSizeClass = "h-[1.8rem] w-[1.8rem]";
+
+export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: PaginationProps) => {
+	const {
+		pageNumbers,
+		hasPrevBlock,
+		hasNextBlock,
+		goPrevBlock,
+		goNextBlock,
+		goPrevPage,
+		goNextPage,
+		goToPage,
+		showDoubleArrows,
+	} = usePagination(currentPage, totalPages, onPageChange, hasPrevious, hasNext);
+
 	if (totalPages <= 0) return null;
 
-	// 현재 페이지가 속한 블럭 계산
-	const blockIndex = Math.floor((currentPage - 1) / BLOCK_SIZE);
-	const blockStart = blockIndex * BLOCK_SIZE + 1;
-	const blockEnd = Math.min(blockStart + BLOCK_SIZE - 1, totalPages);
-
-	// 쌍꺽쇠를 위한 정보
-	const hasPrevBlock = blockStart > 1;
-	const hasNextBlock = blockEnd < totalPages;
-
-	const showDoubleArrows = totalPages > BLOCK_SIZE;
-
-	const handleClickPage = (page: number) => {
-		if (page === currentPage) return;
-		if (page < 1 || page > totalPages) return;
-		onPageChange(page);
-	};
-
-	const handleClickPrevPage = () => {
-		if (!hasPrevious) return;
-		handleClickPage(currentPage - 1);
-	};
-
-	const handleClickNextPage = () => {
-		if (!hasNext) return;
-		handleClickPage(currentPage + 1);
-	};
-
-	const handleClickPrevBlock = () => {
-		if (!hasPrevBlock) return;
-		const target = Math.max(1, blockStart - BLOCK_SIZE);
-		handleClickPage(target);
-	};
-
-	const handleClickNextBlock = () => {
-		if (!hasNextBlock) return;
-		const target = blockStart + BLOCK_SIZE;
-		handleClickPage(target);
-	};
-
-	// 페이지 숫자 계산
-	const pageNumbers: number[] = [];
-	for (let p = blockStart; p <= blockEnd; p += 1) {
-		pageNumbers.push(p);
-	}
-
 	return (
-		<div className="flex w-[55.2rem] items-start justify-center gap-[0.8rem]">
+		<div className={cn("flex items-start justify-center", "w-[55.2rem] gap-[0.8rem]")}>
 			{/* 왼쪽 쌍꺾쇠 */}
 			{showDoubleArrows && (
 				<button
 					type="button"
-					onClick={handleClickPrevBlock}
+					onClick={goPrevBlock}
 					disabled={!hasPrevBlock}
 					className={cn("flex h-[3.2rem] w-[3.2rem] items-center justify-center", !hasPrevBlock && "cursor-default")}
 				>
@@ -88,20 +55,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNex
 			{/* 왼쪽 단꺾쇠 */}
 			<button
 				type="button"
-				onClick={handleClickPrevPage}
+				onClick={goPrevPage}
 				disabled={!hasPrevious}
 				className={cn("flex h-[3.2rem] w-[3.2rem] items-center justify-center", !hasPrevious && "cursor-default")}
 			>
 				{hasPrevious ? <IconArrowLeft className={iconSizeClass} /> : <IconArrowLeftGray className={iconSizeClass} />}
 			</button>
 
-			{/* 페이지 숫자들 */}
+			{/* 페이지 숫자 */}
 			{pageNumbers.map((page) => {
 				return (
 					<button
 						key={page}
 						type="button"
-						onClick={() => handleClickPage(page)}
+						onClick={() => goToPage(page)}
 						className={cn("body04 h-[3.2rem] w-[3.2rem]", page === currentPage ? "text-primary-red" : "text-gray-800")}
 					>
 						{page}
@@ -112,7 +79,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNex
 			{/* 오른쪽 단꺾쇠 */}
 			<button
 				type="button"
-				onClick={handleClickNextPage}
+				onClick={goNextPage}
 				disabled={!hasNext}
 				className={cn("flex h-[3.2rem] w-[3.2rem] items-center justify-center", !hasNext && "cursor-default")}
 			>
@@ -123,7 +90,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNex
 			{showDoubleArrows && (
 				<button
 					type="button"
-					onClick={handleClickNextBlock}
+					onClick={goNextBlock}
 					disabled={!hasNextBlock}
 					className={cn("flex h-[3.2rem] w-[3.2rem] items-center justify-center", !hasNextBlock && "cursor-default")}
 				>
@@ -137,5 +104,3 @@ const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNex
 		</div>
 	);
 };
-
-export { Pagination };
