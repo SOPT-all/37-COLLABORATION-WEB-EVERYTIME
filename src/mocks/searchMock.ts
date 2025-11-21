@@ -1,5 +1,5 @@
 import type { SearchResultType } from "@/types/search";
-export const PAGE_SIZE = 5; // 한 장에 보여지는 게시글 수
+export const PAGE_SIZE = 20; // 한 장에 보여지는 게시글 수
 
 export const ALL_MOCK_POSTS: SearchResultType[] = Array.from({ length: 97 }).map((_, idx) => {
 	const id = idx + 1;

@@ -9,8 +9,8 @@ import { cn } from "@/utils/cn";
 import { Filter } from "../Filter";
 import { SearchTextField } from "../SearchTextField";
 export const SearchContainer = () => {
-	const [category, setCategory] = useState("전체");
-	const [keyword, setKeyword] = useState("");
+	const [, setCategory] = useState("전체");
+	const [keyword, setKeyword] = useState("테스트");
 	// TODO: api 연동 시 response로부터 받아옴
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalElements] = useState(ALL_MOCK_POSTS.length);
@@ -43,7 +43,7 @@ export const SearchContainer = () => {
 				<Filter selectedCategory={"전체"} onSelect={setCategory} />
 				<SearchTextField variant="search" keyword={keyword} onKeywordChange={onKeywordChange} />
 			</div>
-			<SearchWrapper results={currentPageResults} />
+			<SearchWrapper keyword={keyword} results={currentPageResults} />
 			{totalElements !== 0 && (
 				<Pagination
 					currentPage={currentPage}

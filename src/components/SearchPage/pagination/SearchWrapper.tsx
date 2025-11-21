@@ -1,10 +1,12 @@
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
 
+import { SearchContent } from "../SearchContent";
 interface SearchWrapperProps {
+	keyword: string;
 	results: SearchResultType[];
 }
-export const SearchWrapper = ({ results }: SearchWrapperProps) => {
+export const SearchWrapper = ({ keyword, results }: SearchWrapperProps) => {
 	return (
 		<>
 			{results.length === 0 ? (
@@ -21,9 +23,7 @@ export const SearchWrapper = ({ results }: SearchWrapperProps) => {
 			) : (
 				<div className={cn("mt-4 flex flex-col", "border-t border-gray-400")}>
 					{results.map((item) => (
-						<div key={item.id} className={cn("h-[13rem] w-[73rem] border border-gray-300")}>
-							{JSON.stringify(item)}
-						</div>
+						<SearchContent key={item.id} searchTerm={keyword} searchResult={item} />
 					))}
 				</div>
 			)}
