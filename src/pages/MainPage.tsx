@@ -1,4 +1,3 @@
-import { LivePostItem } from "@/components/common/sidebar/LivePostItem";
 import { SimplePostItem } from "@/components/common/sidebar/SimplePostItem";
 import { MOCK_LIVE_POST, MOCK_EMPTY_LIVE_POST } from "@/mocks/posts";
 
