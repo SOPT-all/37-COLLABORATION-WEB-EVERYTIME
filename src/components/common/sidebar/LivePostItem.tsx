@@ -1,21 +1,14 @@
 import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { cn } from "@/utils/cn";
-import { truncateByLength } from "@/utils/truncate";
 
-export interface LivePost {
+interface LivePost {
 	id: number;
 	category: string;
 	title: string;
 	content: string;
 	likeCount: number;
 	commentCount: number;
-}
-
-export interface LivePostApiResponse {
-	code: number;
-	message: string;
-	data: LivePost | null;
 }
 
 interface LivePostItemProps {
@@ -25,13 +18,8 @@ interface LivePostItemProps {
 const LivePostItem = ({ post }: LivePostItemProps) => {
 	if (!post) return null;
 
-	const handleClick = () => {
-		// 클릭 이벤트 핸들러
-	};
-
 	return (
 		<article
-			onClick={handleClick}
 			className={cn(
 				"flex flex-col items-start justify-center gap-[0.3rem]",
 				"h-[9.5rem] w-[28rem]",
@@ -41,21 +29,21 @@ const LivePostItem = ({ post }: LivePostItemProps) => {
 				"cursor-pointer hover:bg-white",
 			)}
 		>
-			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{truncateByLength(post.title, 21)}</h3>
+			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{post.title}</h3>
 
-			<p className={cn("body06 text-gray-600")}>{post.content.slice(0, 42)}</p>
+			<p className={cn("body06 text-gray-600", "overflow-hidden", "max-h-[3.64rem]")}>{post.content}</p>
 
 			<div className={cn("flex items-center gap-[2.2rem]")}>
 				<span className={cn("caption01 text-gray-500")}>{post.category}</span>
 
 				<div className={cn("flex items-center gap-[0.4rem]")}>
 					<div className={cn("flex items-center gap-[0.1rem]")}>
-						<IconThumbsUp className={cn("h-[1.8rem] w-[1.8rem]")} />
+						<IconThumbsUp className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
 						<span className={cn("caption04 text-primary-red")}>{post.likeCount}</span>
 					</div>
 
 					<div className={cn("flex items-center gap-[0.01rem]")}>
-						<IconMyComment className={cn("h-[1.8rem] w-[1.8rem]")} />
+						<IconMyComment className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
 						<span className={cn("caption04 text-sub-green")}>{post.commentCount}</span>
 					</div>
 				</div>
