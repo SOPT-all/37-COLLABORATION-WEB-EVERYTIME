@@ -17,7 +17,6 @@ export interface FilterOptionProps {
 
 const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 
 	const currentItem = FILTER_CATEGORY.find((item) => item.name === selectedCategory) ?? FILTER_CATEGORY[0];
@@ -45,7 +44,7 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 
 	return (
 		<div ref={wrapperRef} className="relative inline-block">
-			{/* 드롭다운 닫힘 상태 (state=default) */}
+			{/* 드롭다운 버튼 */}
 			<button
 				type="button"
 				onClick={handleToggle}
@@ -53,23 +52,23 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 					"flex items-center justify-between",
 					"h-[4rem] w-[17.4rem]",
 					"py-[0.2rem] pr-[0.6rem] pl-[1.2rem]",
-					"border border-[var(--color-gray-400)]",
 					"bg-[var(--color-white)]",
 					"body05 text-[var(--color-gray-700)]",
+					isOpen ? "border border-[var(--color-sub-blue)]" : "border border-[var(--color-gray-400)]",
 				)}
 			>
 				<span>{currentItem.name}</span>
 				<img src={isOpen ? ArrowUpIcon : ArrowDownIcon} alt="옵션 토글" className="h-[1.8rem] w-[1.8rem] shrink-0" />
 			</button>
 
-			{/* 드롭다운 펼침 상태 (state=selected) */}
+			{/* 드롭다운 목록 */}
 			{isOpen && (
 				<div
 					className={cn(
 						"absolute top-full left-0 z-10",
 						"w-[17.4rem]",
-						"border border-t-0 border-[var(--color-gray-400)]",
 						"bg-[var(--color-white)]",
+						"border border-[var(--color-gray-300)]",
 						"flex h-[14rem] flex-col overflow-y-auto",
 						"filter-scroll",
 					)}
