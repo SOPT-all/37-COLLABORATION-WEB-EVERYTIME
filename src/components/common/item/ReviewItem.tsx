@@ -1,6 +1,7 @@
 import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
 import { truncateByLength } from "@/utils/truncate";
+import { cn } from "@/utils/cn";
 
 interface ReviewItemProps {
 	rate: number;
@@ -16,7 +17,14 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 	const inactiveStars = MAX_STARS - activeStars;
 
 	return (
-		<article className="flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem] border border-gray-400 bg-gray-100 px-[0.9rem] py-[0.8rem] [&:not(:first-child)]:-mt-[1px]">
+		<article
+			className={cn(
+				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem]",
+				"border border-gray-400 bg-gray-100",
+				"px-[0.9rem] py-[0.8rem]",
+				"[&:not(:first-child)]:-mt-[1px]",
+			)}
+		>
 			<div className="flex items-center gap-[0.2rem]" aria-label={`별점 ${rate}점 만점에 ${rate}점`}>
 				{Array.from({ length: activeStars }, (_, idx) => (
 					<StarActive key={`star-active-${idx}`} width={10} height={10} aria-hidden="true" />
@@ -33,4 +41,4 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 	);
 };
 
-export default ReviewItem;
+export { ReviewItem };

@@ -1,5 +1,9 @@
-import type { SidebarHeaderProps } from "@/types/sidebar";
 import { cn } from "@/utils/cn";
+interface SidebarHeaderProps {
+	title: string;
+	isMore: boolean;
+	onClick?: () => void;
+}
 
 const SidebarHeader = ({ title, isMore, onClick }: SidebarHeaderProps) => {
 	return (
@@ -25,4 +29,4 @@ const SidebarHeader = ({ title, isMore, onClick }: SidebarHeaderProps) => {
 	);
 };
 
-export default SidebarHeader;
+export { SidebarHeader };
