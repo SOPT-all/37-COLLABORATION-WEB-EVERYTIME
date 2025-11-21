@@ -30,7 +30,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious,
 		goNextPage,
 		goToPage,
 		showDoubleArrows,
-	} = usePagination(currentPage, totalPages, onPageChange, hasPrevious, hasNext);
+	} = usePagination({ currentPage, totalPages, onPageChange, hasPrevious, hasNext });
 
 	if (totalPages <= 0) return null;
 

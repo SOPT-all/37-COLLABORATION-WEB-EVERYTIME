@@ -3,13 +3,15 @@ import { useMemo } from "react";
 
 const BLOCK_SIZE = 10;
 
-export const usePagination = (
-	currentPage: number,
-	totalPages: number,
-	onPageChange: (page: number) => void,
-	hasPrevious: boolean,
-	hasNext: boolean,
-) => {
+interface UsePaginationArgs {
+	currentPage: number;
+	totalPages: number;
+	onPageChange: (page: number) => void;
+	hasPrevious: boolean;
+	hasNext: boolean;
+}
+
+export const usePagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: UsePaginationArgs) => {
 	// 현재 블럭 계산
 	const blockIndex = Math.floor((currentPage - 1) / BLOCK_SIZE);
 	const blockStart = blockIndex * BLOCK_SIZE + 1;
