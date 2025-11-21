@@ -33,8 +33,12 @@ const LivePostItem = ({ post }: LivePostItemProps) => {
 		<article
 			onClick={handleClick}
 			className={cn(
-				"flex h-[9.5rem] w-[28rem] flex-col items-start justify-center gap-[0.3rem] px-[1rem]",
-				"cursor-pointer border border-gray-400 bg-gray-100 hover:bg-white",
+				"flex flex-col items-start justify-center gap-[0.3rem]",
+				"h-[9.5rem] w-[28rem]",
+				"px-[1rem]",
+				"border border-gray-400",
+				"bg-gray-100",
+				"cursor-pointer hover:bg-white",
 			)}
 		>
 			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{truncateByLength(post.title, 21)}</h3>
