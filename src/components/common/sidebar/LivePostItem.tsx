@@ -1,8 +1,22 @@
 import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
-import type { LivePost } from "@/types/post";
 import { cn } from "@/utils/cn";
 import { truncateByLength } from "@/utils/truncate";
+
+export interface LivePost {
+	id: number;
+	category: string;
+	title: string;
+	content: string;
+	likeCount: number;
+	commentCount: number;
+}
+
+export interface LivePostApiResponse {
+	code: number;
+	message: string;
+	data: LivePost | null;
+}
 
 interface LivePostItemProps {
 	post: LivePost | null;
