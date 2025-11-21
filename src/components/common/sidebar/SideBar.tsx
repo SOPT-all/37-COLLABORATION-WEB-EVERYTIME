@@ -1,7 +1,12 @@
+import adImage2 from "@/assets/images/img_ad2.png";
+import adImage3 from "@/assets/images/img_ad3.png";
+import adImage4 from "@/assets/images/img_ad4.png";
+import { MOCK_LIVE_POST } from "@/mocks/posts";
 import { cn } from "@/utils/cn";
 
 import { ReviewItem } from "../item/ReviewItem";
 
+import { LivePostItem } from "./LivePostItem";
 import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
 import { SidebarHeader } from "./SidebarHeader";
@@ -27,8 +32,11 @@ function Sidebar({ showProfile = false, showMyHistory = false }: SidebarProps) {
 				</>
 			)}
 
-			<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-			{/* <LivePostItem /> */}
+			<div>
+				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
+				<LivePostItem post={MOCK_LIVE_POST} />
+				<LivePostItem post={MOCK_LIVE_POST} />
+			</div>
 
 			<div>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
@@ -36,9 +44,17 @@ function Sidebar({ showProfile = false, showMyHistory = false }: SidebarProps) {
 				<SimplePostItem title={"테스트2"} createdAt={"1111-11-11T11:11:11"} />
 			</div>
 
-			<SidebarHeader title={"BEST 게시판"} isMore={false} />
+			<SidebarHeader title={"BEST 게시판"} isMore={true} />
 
-			<ReviewItem rate={3} lectureTitle={"테스트"} professorName={"테스트"} reviewContent={"테스트"} />
+			<div>
+				<SidebarHeader title={"최근 강의평"} isMore={true} />
+				<ReviewItem rate={3} lectureTitle={"테스트"} professorName={"테스트"} reviewContent={"테스트"} />
+				<ReviewItem rate={3} lectureTitle={"테스트"} professorName={"테스트"} reviewContent={"테스트"} />
+			</div>
+
+			<img src={adImage2} alt="광고 배너 2" className="w-[28rem] object-contain" />
+			<img src={adImage3} alt="광고 배너 3" className="w-[28rem] object-contain" />
+			<img src={adImage4} alt="광고 배너 4" className="w-[28rem] object-contain" />
 		</aside>
 	);
 }
