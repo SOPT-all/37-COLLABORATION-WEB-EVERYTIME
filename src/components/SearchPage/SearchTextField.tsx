@@ -6,26 +6,28 @@ import { cn } from "@/utils/cn";
 
 interface SearchTextFieldProps {
 	variant: "main" | "search";
+	keyword: string;
+	onKeywordChange: (newKeyword: string) => void;
 }
 
-const SearchTextField = ({ variant }: SearchTextFieldProps) => {
+const SearchTextField = ({ variant, keyword, onKeywordChange }: SearchTextFieldProps) => {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
 
 	const urlKeyword = searchParams.get("keyword") || "";
 
-	const [tempKeyword, setTempKeyword] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 
-	const displayValue = isFocused ? tempKeyword : urlKeyword;
+	// focus 상태에 따라 표시값 설정
+	const displayValue = isFocused ? keyword : urlKeyword;
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setTempKeyword(e.target.value);
+		onKeywordChange(e.target.value);
 	};
 
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter") {
-			const trimmedKeyword = tempKeyword.trim();
+			const trimmedKeyword = keyword.trim();
 
 			if (trimmedKeyword.length < 2) {
 				alert("검색어를 두 글자 이상 입력하세요!");
@@ -41,12 +43,12 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 
 	const handleFocus = () => {
 		setIsFocused(true);
-		setTempKeyword(urlKeyword);
+		onKeywordChange(urlKeyword);
 	};
 
 	const handleBlur = () => {
 		setIsFocused(false);
-		setTempKeyword("");
+		onKeywordChange("");
 	};
 
 	const getInputState = () => {

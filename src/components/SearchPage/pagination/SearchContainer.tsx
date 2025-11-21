@@ -6,7 +6,11 @@ import { ALL_MOCK_POSTS, PAGE_SIZE } from "@/mocks/searchMock";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
 
+import { Filter } from "../Filter";
+import { SearchTextField } from "../SearchTextField";
 export const SearchContainer = () => {
+	const [category, setCategory] = useState("전체");
+	const [keyword, setKeyword] = useState("");
 	// TODO: api 연동 시 response로부터 받아옴
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalElements] = useState(ALL_MOCK_POSTS.length);
@@ -29,8 +33,16 @@ export const SearchContainer = () => {
 		setHasNext(page < totalPages);
 	};
 
+	const onKeywordChange = (newKeyword: string) => {
+		setKeyword(newKeyword);
+	};
+
 	return (
 		<section className={cn("flex flex-col items-center justify-center px-8 py-10", "w-full")}>
+			<div className={cn("flex gap-[0.4rem]")}>
+				<Filter selectedCategory={"전체"} onSelect={setCategory} />
+				<SearchTextField variant="search" keyword={keyword} onKeywordChange={onKeywordChange} />
+			</div>
 			<SearchWrapper results={currentPageResults} />
 			{totalElements !== 0 && (
 				<Pagination
