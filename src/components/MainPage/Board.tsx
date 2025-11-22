@@ -1,6 +1,6 @@
 import { EMPTY_POSTS } from "@/constants/postsCount";
-import { cn } from "@/utils/cn";
 import type { BoardData } from "@/types/board";
+import { cn } from "@/utils/cn";
 
 import { BoardItem } from "./BoardItem";
 
@@ -24,7 +24,7 @@ const Board = ({ category, posts }: BoardData) => {
 				className={cn(
 					"h-[15.2rem] w-[38.8rem] bg-gray-100",
 					"border-r border-b border-l border-gray-300",
-					isPostsEmpty && ["flex items-center p-[1rem]", "hover:bg-gray-200"],
+					isPostsEmpty && ["flex items-center p-[1rem]"],
 				)}
 			>
 				{isPostsEmpty ? (
