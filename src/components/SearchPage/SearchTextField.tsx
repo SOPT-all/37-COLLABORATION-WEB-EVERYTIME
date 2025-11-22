@@ -1,28 +1,33 @@
 import { useState, type KeyboardEvent, type ChangeEvent } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
 import { cn } from "@/utils/cn";
 
 interface SearchTextFieldProps {
 	variant: "main" | "search";
+	onKeywordChange: (newKeyword: string) => void;
 }
 
-const SearchTextField = ({ variant }: SearchTextFieldProps) => {
-	const navigate = useNavigate();
+const SearchTextField = ({ variant, onKeywordChange }: SearchTextFieldProps) => {
+	// const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
 
 	const urlKeyword = searchParams.get("keyword") || "";
 
+	// 내부 temp keyword 관리
 	const [tempKeyword, setTempKeyword] = useState("");
 	const [isFocused, setIsFocused] = useState(false);
 
+	// focus 중이면 tempKeyword, 아니면 URL keyword
 	const displayValue = isFocused ? tempKeyword : urlKeyword;
 
+	/** input 변경 */
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setTempKeyword(e.target.value);
 	};
 
+	/** 엔터 검색 */
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter") {
 			const trimmedKeyword = tempKeyword.trim();
@@ -32,23 +37,27 @@ const SearchTextField = ({ variant }: SearchTextFieldProps) => {
 				return;
 			}
 
-			if (trimmedKeyword) {
-				const category = searchParams.get("category") || "전체";
-				navigate(`/search?category=${category}&keyword=${encodeURIComponent(trimmedKeyword)}&page=1`);
-			}
+			// 엔터 시에만 외부 keyword 업데이트
+			onKeywordChange(trimmedKeyword);
+
+			// const category = searchParams.get("category") || "전체";
+			// navigate(`/search?category=${category}&keyword=${encodeURIComponent(trimmedKeyword)}&page=1`);
 		}
 	};
 
+	/** 포커스 */
 	const handleFocus = () => {
 		setIsFocused(true);
 		setTempKeyword(urlKeyword);
 	};
 
+	/** 포커스 해제 */
 	const handleBlur = () => {
 		setIsFocused(false);
 		setTempKeyword("");
 	};
 
+	/** 스타일 계산 */
 	const getInputState = () => {
 		if (isFocused && displayValue) return "typing";
 		if (isFocused && !displayValue) return "focused";

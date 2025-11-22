@@ -35,7 +35,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious,
 	if (totalPages <= 0) return null;
 
 	return (
-		<div className={cn("flex items-start justify-center", "w-[55.2rem] gap-[0.8rem]")}>
+		<div className={cn("flex items-start justify-center", "mt-[3rem] w-[55.2rem] gap-[0.8rem]")}>
 			{/* 왼쪽 쌍꺾쇠 */}
 			{showDoubleArrows && (
 				<button
