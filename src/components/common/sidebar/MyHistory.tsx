@@ -34,6 +34,7 @@ const MyHistory = ({ variant, onClick }: MyHistoryProps) => {
 			className={cn(
 				"flex h-[4rem] w-[28rem] items-center gap-[0.4rem]",
 				"border border-gray-300 bg-gray-100",
+				"cursor-pointer hover:bg-white",
 				"p-[1rem]",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}

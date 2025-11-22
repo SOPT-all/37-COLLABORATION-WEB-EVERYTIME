@@ -1,6 +1,4 @@
-import adImage2 from "@/assets/images/img_ad2.png";
-import adImage3 from "@/assets/images/img_ad3.png";
-import adImage4 from "@/assets/images/img_ad4.png";
+import { AD_IMAGES } from "@/constants/adImages";
 import { MOCK_LIVE_POST } from "@/mocks/posts";
 import { cn } from "@/utils/cn";
 
@@ -12,13 +10,8 @@ import { ProfileItem } from "./ProfileItem";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
-const AD_IMAGES = [
-	{ src: adImage2, alt: "광고 배너 2" },
-	{ src: adImage3, alt: "광고 배너 3" },
-	{ src: adImage4, alt: "광고 배너 4" },
-];
-
 const SIDEBAR_VARIENT = {
+	/* Todo: 수정 */
 	main: {
 		showProfile: true,
 		showMyHistory: true,
@@ -44,12 +37,12 @@ function Sidebar({ variant }: SidebarProps) {
 		<aside className={cn("w-[32rem]", "flex flex-col", "gap-[0.5rem]", "sticky", "top-[8rem]", "h-fit")}>
 			{showProfile && showMyHistory && (
 				<>
-					<ProfileItem nickname={"테스트"} name={"테스트"} userId={"test01"} />
+					<ProfileItem nickname={"전설의 맛"} name={"김솝트"} userId={"soptalien"} />
 
 					<div>
-						<MyHistory variant={"article"} onClick={() => console.log("article clicked")} />
-						<MyHistory variant={"comment"} onClick={() => console.log("comment clicked")} />
-						<MyHistory variant={"scrap"} onClick={() => console.log("scrap clicked")} />
+						<MyHistory variant={"article"} onClick={() => {}} />
+						<MyHistory variant={"comment"} onClick={() => {}} />
+						<MyHistory variant={"scrap"} onClick={() => {}} />
 					</div>
 				</>
 			)}

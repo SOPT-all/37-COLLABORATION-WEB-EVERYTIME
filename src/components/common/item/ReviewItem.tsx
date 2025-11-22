@@ -21,6 +21,7 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 			className={cn(
 				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem]",
 				"border border-gray-400 bg-gray-100",
+				"cursor-pointer hover:bg-white",
 				"px-[0.9rem] py-[0.8rem]",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
