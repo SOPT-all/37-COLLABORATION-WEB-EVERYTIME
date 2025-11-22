@@ -1,7 +1,7 @@
-import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import AdImg from "@/assets/images/img_ad1.png";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import Book from "@/components/MainPage/Book";
+import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { MOCK_BOOKS } from "@/mocks/books";
 
 const MainPage = () => {
