@@ -1,4 +1,4 @@
-export interface ReviewItem {
+export interface ReviewsDataType {
 	id: number;
 	rate: number;
 	lecture: string;
@@ -6,4 +6,4 @@ export interface ReviewItem {
 	content: string;
 }
 
-export type ReviewsResponseTypes = ReviewItem[];
+export type ReviewsResponseTypes = ReviewsDataType[];
