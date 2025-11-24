@@ -1,6 +1,6 @@
+import { useGetPostsRealtime } from "@/apis/queries";
 import { AD_IMAGES } from "@/constants/adImages";
 import { SIDEBAR_VARIANT, type SidebarVariant } from "@/constants/sidebarVariant";
-import { MOCK_LIVE_POST } from "@/mocks/posts";
 import { cn } from "@/utils/cn";
 
 import { ReviewItem } from "../item/ReviewItem";
@@ -18,6 +18,9 @@ interface SidebarProps {
 function Sidebar({ variant }: SidebarProps) {
 	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIANT[variant];
 
+	const { data: response } = useGetPostsRealtime();
+	const realtimePost = response?.data ?? null;
+
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
 			{showProfile && showMyHistory && (
@@ -32,10 +35,12 @@ function Sidebar({ variant }: SidebarProps) {
 				</>
 			)}
 
-			<section>
-				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-				<LivePostItem post={MOCK_LIVE_POST} />
-			</section>
+			{realtimePost && (
+				<section>
+					<SidebarHeader title={"실시간 인기 글"} isMore={false} />
+					<LivePostItem post={realtimePost} />
+				</section>
+			)}
 
 			<section>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
