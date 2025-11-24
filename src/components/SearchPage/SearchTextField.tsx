@@ -12,10 +12,7 @@ interface SearchTextFieldProps {
 }
 
 const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTextFieldProps) => {
-	// const location = useLocation();
-	// const navigate = useNavigate();
-	/** 엔터 검색 */
-	const handleSearch = (e: KeyboardEvent<HTMLInputElement>) => {
+	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter") {
 			if (keyword.length < 2) {
 				alert("검색어를 두 글자 이상 입력하세요!");
@@ -40,7 +37,7 @@ const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTe
 				type="text"
 				value={keyword}
 				onChange={onKeywordChange}
-				onKeyDown={handleSearch}
+				onKeyDown={handleKeyDown}
 				placeholder="전체 게시판의 글을 검색하세요!"
 				className={cn("body05 text-primary-black flex-1 placeholder:text-gray-600", "focus:outline-none")}
 			/>

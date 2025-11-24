@@ -12,9 +12,9 @@ const MainPage = () => {
 	const navigate = useNavigate();
 
 	const handleSearch = () => {
-		// TODO: api 연동 예정
-		console.log("main page search:", `/search?keyword=${keyword}`);
-		navigate(`/search?keyword=${keyword}`);
+		const trimmedKeyword = keyword.trim();
+		// console.log("main page search:", `/search?keyword=${trimmedKeyword}`);
+		navigate(`/search?category=전체&keyword=${trimmedKeyword}`);
 	};
 	return (
 		<div className="mx-auto flex w-[78rem] flex-col gap-[1.5rem]">
