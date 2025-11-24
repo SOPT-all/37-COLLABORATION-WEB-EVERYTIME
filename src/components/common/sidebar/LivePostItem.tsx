@@ -3,11 +3,19 @@ import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { cn } from "@/utils/cn";
 
+import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
+
 const LivePostItem = () => {
-	const { data } = useGetPostsRealtime();
+	const { data, isLoading } = useGetPostsRealtime();
 	const realtimePost = data?.data ?? null;
 
-	if (!realtimePost) return null;
+	if (isLoading) {
+		return <LivePostItemSkeleton />;
+	}
+
+	if (!realtimePost) {
+		return null;
+	}
 
 	return (
 		<button
