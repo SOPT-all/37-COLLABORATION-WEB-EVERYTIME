@@ -38,7 +38,7 @@ export const SearchContainer = () => {
 	};
 
 	return (
-		<section className={cn("flex flex-col items-center justify-center", "px-8 py-10", "w-full")}>
+		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>
 			<div className={cn("flex gap-[0.4rem]")}>
 				<Filter selectedCategory={category} onSelect={setCategory} />
 				<SearchTextField variant="search" onKeywordChange={onKeywordChange} />
