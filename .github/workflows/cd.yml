@@ -27,7 +27,7 @@ jobs:
           destination-github-username: "hummingbbird"
           destination-repository-name: "37-COLLABORATION-WEB-EVERYTIME"
           user-email: ${{ secrets.EMAIL }}
-          commit-message: ${{ github.event.commits[0].message }}
+          commit-message: ${{ github.event.commits.message }}
           target-branch: main
 
       - name: Test cloned repository
