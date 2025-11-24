@@ -52,7 +52,7 @@ const Header = () => {
 				</button>
 				<div className={cn("items-left flex flex-col")}>
 					<span className={cn("body02 text-primary-red whitespace-nowrap")}>에브리타임</span>
-					<span className={cn("label01 text-primary-black whitespace-nowrap")}>솝트대</span>
+					<span className={cn("label01 text-primary-black whitespace-nowrap")}>아주대</span>
 				</div>
 			</div>
 

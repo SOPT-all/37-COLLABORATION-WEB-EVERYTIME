@@ -1,21 +1,13 @@
 import { EMPTY_POSTS } from "@/constants/postsCount";
+import type { BoardData } from "@/types/board";
 import { cn } from "@/utils/cn";
 
 import { BoardItem } from "./BoardItem";
-interface PostsItem {
-	id: number;
-	title: string;
-	createdAt: string;
-}
-interface BoardProps {
-	category: string;
-	posts: PostsItem[];
-}
 
-const Board = ({ category, posts }: BoardProps) => {
+const Board = ({ category, posts }: BoardData) => {
 	const isPostsEmpty = posts.length === EMPTY_POSTS;
 	return (
-		<>
+		<div>
 			<div className={cn("h-[4rem] w-[38.8rem]", "bg-white", "border border-gray-300", "p-[1rem]")}>
 				<p
 					className={cn(
@@ -30,12 +22,9 @@ const Board = ({ category, posts }: BoardProps) => {
 			</div>
 			<div
 				className={cn(
-					"h-[15.2rem] w-[38.8rem] bg-white",
-					isPostsEmpty && [
-						"border-r border-b border-l border-gray-300",
-						"flex items-center p-[1rem]",
-						"hover:bg-gray-200",
-					],
+					"h-[15.2rem] w-[38.8rem] bg-gray-100",
+					"border-r border-b border-l border-gray-300",
+					isPostsEmpty && ["flex items-center p-[1rem]"],
 				)}
 			>
 				{isPostsEmpty ? (
@@ -44,7 +33,7 @@ const Board = ({ category, posts }: BoardProps) => {
 					posts.map((post) => <BoardItem key={post.id} content={post.title} createdAt={post.createdAt} />)
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 
