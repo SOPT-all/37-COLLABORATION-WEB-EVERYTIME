@@ -1,0 +1,34 @@
+name: Deploy
+on:
+  push:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Create output
+        run: |
+          rm -rf output
+          mkdir -p output
+          cp -R dist/* output/
+
+      - name: Push to forked repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@main
+
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.AUTO_ACTIONS }}
+
+        with:
+          source-directory: "output"
+          destination-github-username: "hummingbbird"
+          destination-repository-name: "37-COLLABORATION-WEB-EVERYTIME"
+          user-email: ${{ secrets.EMAIL }}
+          commit-message: ${{ github.event.commits.message }}
+          target-branch: main
+
+      - name: Test cloned repository
+        run: echo $DESTINATION_CLONED_DIRECTORY

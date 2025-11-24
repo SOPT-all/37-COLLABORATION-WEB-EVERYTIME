@@ -1,7 +1,6 @@
 import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
 import { cn } from "@/utils/cn";
-import { truncateByLength } from "@/utils/truncate";
 
 interface ReviewItemProps {
 	rate: number;
@@ -27,7 +26,7 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			<div className="flex items-center gap-[0.2rem]" aria-label={`별점 ${rate}점 만점에 ${rate}점`}>
+			<div className={cn("flex items-center gap-[0.2rem]")} aria-label={`별점 ${rate}점 만점에 ${rate}점`}>
 				{Array.from({ length: activeStars }, (_, idx) => (
 					<StarActive key={`star-active-${idx}`} width={10} height={10} aria-hidden="true" />
 				))}
@@ -35,10 +34,10 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 					<StarInactive key={`star-inactive-${idx}`} width={10} height={10} aria-hidden="true" />
 				))}
 			</div>
-			<p className="title07 text-gray-800">
+			<p className={cn("title07 text-gray-800")}>
 				{lectureTitle}: {professorName}
 			</p>
-			<p className="body07 text-gray-600">{truncateByLength(reviewContent, 56)}</p>
+			<p className={cn("body07 h-[3.12rem] w-[26.2rem] overflow-hidden text-gray-600")}>{reviewContent}</p>
 		</button>
 	);
 };
