@@ -27,7 +27,7 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 			<span className={cn("body05 truncate text-left text-gray-800", "w-[19.7rem]")} title={title}>
 				{title}
 			</span>
-			<span className={cn("caption04 ml-auto shrink-0 text-right text-gray-500")}>{formatDate}</span>{" "}
+			<span className={cn("caption04 ml-auto shrink-0 text-right text-gray-500")}>{formatDate}</span>
 		</button>
 	);
 };
