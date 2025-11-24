@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 
-import { useGetPostsRealtime } from "@/apis/queries";
 import { AD_IMAGES } from "@/constants/adImages";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
@@ -16,9 +15,6 @@ function Sidebar() {
 	const { pathname } = useLocation();
 	const isHomePage = pathname === ROUTES.HOME;
 
-	const { data } = useGetPostsRealtime();
-	const realtimePost = data?.data ?? null;
-
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
 			{isHomePage && (
@@ -33,12 +29,10 @@ function Sidebar() {
 				</>
 			)}
 
-			{realtimePost && (
-				<section>
-					<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-					<LivePostItem post={realtimePost} />
-				</section>
-			)}
+			<section>
+				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
+				<LivePostItem />
+			</section>
 
 			<section>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
