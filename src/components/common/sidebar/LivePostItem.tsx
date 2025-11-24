@@ -1,18 +1,10 @@
 import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
+import type { PostsRealTimeDataType } from "@/types/getPostsRealtimeResponse";
 import { cn } from "@/utils/cn";
 
-interface LivePost {
-	id: number;
-	category: string;
-	title: string;
-	content: string;
-	likeCount: number;
-	commentCount: number;
-}
-
 interface LivePostItemProps {
-	post: LivePost | null;
+	post: PostsRealTimeDataType | null;
 }
 
 const LivePostItem = ({ post }: LivePostItemProps) => {

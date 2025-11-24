@@ -18,8 +18,8 @@ interface SidebarProps {
 function Sidebar({ variant }: SidebarProps) {
 	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIANT[variant];
 
-	const { data: response } = useGetPostsRealtime();
-	const realtimePost = response?.data ?? null;
+	const { data } = useGetPostsRealtime();
+	const realtimePost = data?.data ?? null;
 
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
