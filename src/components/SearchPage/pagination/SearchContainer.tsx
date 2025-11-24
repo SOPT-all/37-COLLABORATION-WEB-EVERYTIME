@@ -53,6 +53,7 @@ export const SearchContainer = () => {
 		// TODO: 검색 api 연동
 		console.log("search api url:", `/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`);
 		navigate(`/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`, { replace: true });
+		window.scrollTo(0, 0);
 	}, [searchParams]);
 
 	return (

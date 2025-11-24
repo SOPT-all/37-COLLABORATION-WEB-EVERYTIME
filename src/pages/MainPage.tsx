@@ -15,6 +15,7 @@ const MainPage = () => {
 		const trimmedKeyword = keyword.trim();
 		// console.log("main page search:", `/search?keyword=${trimmedKeyword}`);
 		navigate(`/search?category=전체&keyword=${trimmedKeyword}`);
+		window.scrollTo(0, 0);
 	};
 	return (
 		<div className="mx-auto flex w-[78rem] flex-col gap-[1.5rem]">
