@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import type { BookProps } from "@/mocks/books";
+import type { MarketDataType } from "@/types/getMarketResponse";
 import { BookItem } from "../common/item/BookItem";
 import Logo from "@/assets/images/logo.svg?react";
 
 interface BookComponentProps {
-	books: BookProps[];
+	books: MarketDataType[];
 }
 
 const Book = ({ books }: BookComponentProps) => {
