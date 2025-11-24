@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 
 import { Pagination } from "@/components/SearchPage/pagination/Pagination";
 import { SearchWrapper } from "@/components/SearchPage/pagination/SearchWrapper";
+import { useSearchForm } from "@/hooks/useSearchForm";
 import { ALL_MOCK_POSTS, PAGE_SIZE } from "@/mocks/searchMock";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
@@ -9,9 +10,8 @@ import { cn } from "@/utils/cn";
 import { Filter } from "../Filter";
 import { SearchTextField } from "../SearchTextField";
 export const SearchContainer = () => {
-	const [category, setCategory] = useState("전체");
-	const [keyword, setKeyword] = useState("테스트");
-	// TODO: api 연동 시 response로부터 받아옴
+	const { category, keyword, onCategoryChange, onKeywordChange } = useSearchForm();
+	// TODO: api 연동 시 response로부터 받아오는 값들입니다.
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalElements] = useState(ALL_MOCK_POSTS.length);
 	const [totalPages] = useState(Math.ceil(totalElements / PAGE_SIZE));
@@ -25,23 +25,18 @@ export const SearchContainer = () => {
 		return ALL_MOCK_POSTS.slice(start, end);
 	}, [currentPage]);
 
-	const handlePageChange = (page: number) => {
-		// TODO: post api 호출 예정
-		if (page === currentPage) return;
+	const handlePageChange = (page: number = 1) => {
+		// TODO: post api 호출하면 사라질 아이들
 		setCurrentPage(page);
 		setHasPrevious(page > 1);
 		setHasNext(page < totalPages);
 	};
 
-	const onKeywordChange = (newKeyword: string) => {
-		setKeyword(newKeyword);
-	};
-
 	return (
 		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>
 			<div className={cn("flex gap-[0.4rem]")}>
-				<Filter selectedCategory={category} onSelect={setCategory} />
-				<SearchTextField variant="search" onKeywordChange={onKeywordChange} />
+				<Filter selectedCategory={category} onSelect={onCategoryChange} />
+				<SearchTextField usage="search" onKeywordChange={onKeywordChange} keyword={keyword} />
 			</div>
 			<SearchWrapper keyword={keyword} results={currentPageResults} />
 			{totalElements !== 0 && (
