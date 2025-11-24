@@ -8,5 +8,5 @@ export const getReviews = () => {
 };
 
 export const getPostsRealtime = async () => {
-	return await get<GetPostsRealTimeResponse>("/posts/realtime");
+	return await get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
 };
