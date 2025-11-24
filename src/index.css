@@ -205,6 +205,22 @@
 }
 
 .filter-scroll-show::-webkit-scrollbar-thumb {
-	background: var(--color-gray-300);
-	border-radius: 3px;
+	background: var(--color-gray-200);
+	border-radius: 4px;
+}
+
+/* Skeleton UI */
+@keyframes shimmer {
+	0% {
+		background-position: -400px 0;
+	}
+	100% {
+		background-position: 400px 0;
+	}
+}
+
+.skeleton-shimmer {
+	background: linear-gradient(90deg, #e5e5e5 0%, #f3f3f3 40%, #e5e5e5 80%);
+	background-size: 400px 100%;
+	animation: shimmer 1.5s infinite linear;
 }
