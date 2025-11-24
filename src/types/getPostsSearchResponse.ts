@@ -1,4 +1,4 @@
-import type { BaseResponse } from "./baseResponse";
+import type { BaseResponse } from "./api";
 
 export interface PostsSearchPostsType {
 	category: string;
@@ -23,9 +23,7 @@ export interface PostsSearchDataType {
 	posts: PostsSearchPostsType[];
 }
 
-export interface GetPostsSearchResponse extends BaseResponse {
-	data: PostsSearchDataType[];
-}
+export type GetPostsSearchResponse = BaseResponse<PostsSearchDataType[]>;
 
 export interface GetPostsSearchErrorResponse {
 	status: number;

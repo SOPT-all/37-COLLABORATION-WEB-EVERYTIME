@@ -1,4 +1,4 @@
-import type { BaseResponse } from "./baseResponse";
+import type { BaseResponse } from "./api";
 
 export interface MarketDataType {
 	id: number;
@@ -7,6 +7,4 @@ export interface MarketDataType {
 	price: number;
 }
 
-export interface GetMarketResponse extends BaseResponse {
-	data: MarketDataType[];
-}
+export type GetMarketResponse = BaseResponse<MarketDataType[]>;

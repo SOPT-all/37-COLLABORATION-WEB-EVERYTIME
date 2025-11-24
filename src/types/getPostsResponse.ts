@@ -1,4 +1,4 @@
-import type { BaseResponse } from "./baseResponse";
+import type { BaseResponse } from "./api";
 
 export interface PostsPostsType {
 	id: number;
@@ -11,6 +11,4 @@ export interface PostsDataType {
 	posts: PostsPostsType[];
 }
 
-export interface GetPostsResponse extends BaseResponse {
-	data: PostsDataType[];
-}
+export type GetPostsResponse = BaseResponse<PostsDataType[]>;

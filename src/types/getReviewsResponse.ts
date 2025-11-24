@@ -1,4 +1,4 @@
-import type { BaseResponse } from "./baseResponse";
+import type { BaseResponse } from "./api";
 
 export interface ReviewsDataType {
 	id: number;
@@ -8,6 +8,4 @@ export interface ReviewsDataType {
 	content: string;
 }
 
-export interface GetReviewsResponse extends BaseResponse {
-	data: ReviewsDataType[];
-}
+export type GetReviewsResponse = BaseResponse<ReviewsDataType[]>;
