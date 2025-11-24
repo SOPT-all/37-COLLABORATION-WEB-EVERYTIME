@@ -13,9 +13,9 @@ const LivePostItem = () => {
 		<button
 			type="button"
 			className={cn(
-				"flex flex-col items-start justify-center gap-[0.3rem]",
+				"flex flex-col items-start justify-center gap-[0.3rem] text-left",
 				"h-[9.5rem] w-[28rem]",
-				"px-[1rem]",
+				"pr-[1.45rem] pl-[1rem]",
 				"border border-gray-400",
 				"bg-gray-100",
 				"hover:bg-white",
