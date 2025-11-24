@@ -1,8 +1,10 @@
 import { useState, type KeyboardEvent, type ChangeEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import SearchIcon from "@/assets/icons/icon_search.svg?react";
 import { cn } from "@/utils/cn";
+
+import SearchIcon from "@/assets/icons/icon_search.svg?react";
+
 
 interface SearchTextFieldProps {
 	variant: "main" | "search";
