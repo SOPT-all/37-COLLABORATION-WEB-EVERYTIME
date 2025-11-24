@@ -1,4 +1,4 @@
-import MyComment from "@/assets/icons/icon_mycomment.svg?react";
+import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
@@ -58,14 +58,14 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 					>
 						{hasLike && (
 							<li className={cn("flex items-center gap-[0.4rem]")}>
-								<ThumbsUp width={12} height={12} />
+								<ThumbsUp width={18} height={18} />
 								<span className={cn("caption04 text-primary-red")}>{searchResult.likeCount}</span>
 							</li>
 						)}
 
 						{hasComment && (
 							<li className={cn("flex items-center gap-[0.4rem]")}>
-								<MyComment width={12} height={12} />
+								<Comment width={18} height={18} />
 								<span className={cn("caption04 text-sub-green")}>{searchResult.commentCount}</span>
 							</li>
 						)}
