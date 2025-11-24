@@ -22,19 +22,18 @@ const ICONS = {
 
 const ICON_SIZE = 18;
 
-const MyHistory = ({ variant, onClick }: MyHistoryProps) => {
+const MyHistory = ({ variant }: MyHistoryProps) => {
 	const label = LABELS[variant];
 	const Icon = ICONS[variant];
 
 	return (
 		<button
-			onClick={onClick}
 			aria-label={label}
 			type="button"
 			className={cn(
 				"flex h-[4rem] w-[28rem] items-center gap-[0.4rem]",
 				"border border-gray-300 bg-gray-100",
-				"cursor-pointer hover:bg-white",
+				"hover:bg-white",
 				"p-[1rem]",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}

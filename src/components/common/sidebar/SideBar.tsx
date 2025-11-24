@@ -5,11 +5,10 @@ import { AD_IMAGES } from "@/constants/adImages";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
-import { ReviewItem } from "../item/ReviewItem";
-
 import { LivePostItem } from "./LivePostItem";
 import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
+import { ReviewItem } from "./ReviewItem";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
