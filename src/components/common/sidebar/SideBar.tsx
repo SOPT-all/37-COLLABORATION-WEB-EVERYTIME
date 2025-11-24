@@ -1,4 +1,5 @@
 import { AD_IMAGES } from "@/constants/adImages";
+import { SIDEBAR_VARIANT, type SidebarVariant } from "@/constants/sidebarVariant";
 import { MOCK_LIVE_POST } from "@/mocks/posts";
 import { cn } from "@/utils/cn";
 
@@ -9,21 +10,6 @@ import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
-
-const SIDEBAR_VARIANT = {
-	main: {
-		showProfile: true,
-		showMyHistory: true,
-		showAds: true,
-	},
-	search: {
-		showProfile: false,
-		showMyHistory: false,
-		showAds: false,
-	},
-} as const;
-
-type SidebarVariant = keyof typeof SIDEBAR_VARIANT;
 
 interface SidebarProps {
 	variant: SidebarVariant;
