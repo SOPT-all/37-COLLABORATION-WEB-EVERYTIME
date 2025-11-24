@@ -10,7 +10,7 @@ export const instance = axios.create({
 export const get = async <T>(...args: Parameters<typeof instance.get>) => {
 	try {
 		const response = await instance.get<ApiResponse<T>>(...args);
-		return response.data.data;
+		return response.data;
 	} catch (error) {
 		console.error(error);
 		throw error;
