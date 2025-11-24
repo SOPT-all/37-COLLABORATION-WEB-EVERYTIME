@@ -1,10 +1,13 @@
-import type { SimplePostItemProps } from "@/types/simplePostItem";
 import { cn } from "@/utils/cn";
 import { formatDateWithTime } from "@/utils/formatDate";
-import { truncateByLength } from "@/utils/truncate";
+
+interface SimplePostItemProps {
+	title: string;
+	createdAt: string;
+	onClick?: () => void;
+}
 
 const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
-	const slicedTitle = truncateByLength(title, 14);
 	const formatDate = formatDateWithTime(createdAt);
 
 	return (
@@ -21,11 +24,10 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			<span className={cn("body05 truncate text-left text-gray-800", "flex-1")} title={title}>
-				{slicedTitle}
+			<span className={cn("body05 truncate text-left text-gray-800", "w-[19.7rem]")} title={title}>
+				{title}
 			</span>
-
-			<span className="caption04 shrink-0 text-gray-500">{formatDate}</span>
+			<span className={cn("caption04 ml-auto shrink-0 text-right text-gray-500")}>{formatDate}</span>
 		</button>
 	);
 };
