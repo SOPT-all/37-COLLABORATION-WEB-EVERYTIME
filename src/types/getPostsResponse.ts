@@ -1,4 +1,4 @@
-import type { BaseResponse } from "./api";
+import type { ApiResponse } from "./api";
 
 export interface PostsPostsType {
 	id: number;
@@ -11,4 +11,4 @@ export interface PostsDataType {
 	posts: PostsPostsType[];
 }
 
-export type GetPostsResponse = BaseResponse<PostsDataType[]>;
+export type GetPostsResponse = ApiResponse<PostsDataType[]>;
