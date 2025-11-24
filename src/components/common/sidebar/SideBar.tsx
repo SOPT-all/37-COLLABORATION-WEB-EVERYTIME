@@ -28,9 +28,9 @@ function Sidebar({ variant }: SidebarProps) {
 					<ProfileItem nickname={"전설의 맛"} name={"김솝트"} userId={"soptalien"} />
 
 					<div>
-						<MyHistory variant={"article"} onClick={() => {}} />
-						<MyHistory variant={"comment"} onClick={() => {}} />
-						<MyHistory variant={"scrap"} onClick={() => {}} />
+						<MyHistory variant={"article"} />
+						<MyHistory variant={"comment"} />
+						<MyHistory variant={"scrap"} />
 					</div>
 				</>
 			)}

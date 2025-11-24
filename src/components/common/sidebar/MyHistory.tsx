@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 
 interface MyHistoryProps {
 	variant: "article" | "comment" | "scrap";
-	onClick: () => void;
+	onClick?: () => void;
 }
 
 const LABELS = {
