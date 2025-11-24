@@ -1,13 +1,14 @@
 import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
+import type { ReviewsDataType } from "@/types/getReviewsResponse";
 import { cn } from "@/utils/cn";
 import { truncateByLength } from "@/utils/truncate";
 
 interface ReviewItemProps {
-	rate: number;
-	lectureTitle: string;
-	professorName: string;
-	reviewContent: string;
+	rate: ReviewsDataType["rate"];
+	lectureTitle: ReviewsDataType["lecture"];
+	professorName: ReviewsDataType["professor"];
+	reviewContent: ReviewsDataType["content"];
 }
 
 const MAX_STARS = 5;
@@ -23,6 +24,7 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 				"border border-gray-400 bg-gray-100",
 				"cursor-pointer hover:bg-white",
 				"px-[0.9rem] py-[0.8rem]",
+				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
