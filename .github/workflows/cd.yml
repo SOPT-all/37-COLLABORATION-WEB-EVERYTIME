@@ -13,8 +13,7 @@ jobs:
         run: |
           rm -rf output
           mkdir -p output
-          cp -R ./37-COLLABORATION-WEB-EVERYTIME/* ./output/
-          cp -R ./output ./37-COLLABORATION-WEB-EVERYTIME/
+          cp -R dist/* output/
 
       - name: Push to forked repository
         id: push_directory
