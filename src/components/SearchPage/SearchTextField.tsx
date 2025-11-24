@@ -1,5 +1,5 @@
 import type { ChangeEvent, KeyboardEvent } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
 import { cn } from "@/utils/cn";
@@ -8,11 +8,12 @@ interface SearchTextFieldProps {
 	usage: "main" | "search";
 	keyword: string;
 	onKeywordChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onSearch: () => void;
 }
 
-const SearchTextField = ({ usage, keyword, onKeywordChange }: SearchTextFieldProps) => {
-	const location = useLocation();
-	const navigate = useNavigate();
+const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTextFieldProps) => {
+	// const location = useLocation();
+	// const navigate = useNavigate();
 	/** 엔터 검색 */
 	const handleSearch = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter") {
@@ -20,9 +21,7 @@ const SearchTextField = ({ usage, keyword, onKeywordChange }: SearchTextFieldPro
 				alert("검색어를 두 글자 이상 입력하세요!");
 				return;
 			}
-			if (usage === "main") {
-				navigate(`/search?category=전체&keyword=${keyword}`);
-			}
+			onSearch();
 		}
 	};
 
