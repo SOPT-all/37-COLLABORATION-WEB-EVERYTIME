@@ -18,4 +18,4 @@ const SimplePostItemSkeleton = () => {
 	);
 };
 
-export default SimplePostItemSkeleton;
+export { SimplePostItemSkeleton };

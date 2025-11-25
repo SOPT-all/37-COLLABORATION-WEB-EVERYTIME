@@ -2,7 +2,7 @@ import { useGetPostsHot } from "@/apis/queries";
 
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
-import SimplePostItemSkeleton from "./SimplePostItemSkeleton";
+import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 
 const PostsHotContainer = () => {
 	const { data, isPending } = useGetPostsHot();
