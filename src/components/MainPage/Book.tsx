@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import type { BookProps } from "@/mocks/books";
-import { BookItem } from "../common/item/BookItem";
 import Logo from "@/assets/images/logo.svg?react";
+import type { BookProps } from "@/mocks/books";
+
+import { BookItem } from "../common/item/BookItem";
 
 interface BookComponentProps {
 	books: BookProps[];
