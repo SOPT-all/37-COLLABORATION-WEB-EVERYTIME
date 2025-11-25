@@ -1,40 +1,37 @@
-import { AD_IMAGES } from "@/constants/adImages";
-import { SIDEBAR_VARIANT, type SidebarVariant } from "@/constants/sidebarVariant";
-import { MOCK_LIVE_POST } from "@/mocks/posts";
-import { cn } from "@/utils/cn";
+import { useLocation } from "react-router-dom";
 
-import { ReviewItem } from "../item/ReviewItem";
+import { AD_IMAGES } from "@/constants/adImages";
+import { ROUTES } from "@/constants/routes";
+import { cn } from "@/utils/cn";
 
 import { LivePostItem } from "./LivePostItem";
 import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
 import { ProfileItem } from "./ProfileItem";
+import { ReviewItem } from "./ReviewItem";
 import { SidebarHeader } from "./SidebarHeader";
 
-interface SidebarProps {
-	variant: SidebarVariant;
-}
-
-function Sidebar({ variant }: SidebarProps) {
-	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIANT[variant];
+function Sidebar() {
+	const { pathname } = useLocation();
+	const isHomePage = pathname === ROUTES.HOME;
 
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
-			{showProfile && showMyHistory && (
+			{isHomePage && (
 				<>
-					<ProfileItem nickname={"전설의 맛"} name={"김솝트"} userId={"soptalien"} />
+					<ProfileItem nickname="전설의 맛" name="김솝트" userId="soptalien" />
 
 					<div>
-						<MyHistory variant={"article"} onClick={() => {}} />
-						<MyHistory variant={"comment"} onClick={() => {}} />
-						<MyHistory variant={"scrap"} onClick={() => {}} />
+						<MyHistory variant="article" />
+						<MyHistory variant="comment" />
+						<MyHistory variant="scrap" />
 					</div>
 				</>
 			)}
 
 			<section>
 				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-				<LivePostItem post={MOCK_LIVE_POST} />
+				<LivePostItem />
 			</section>
 
 			<section>
@@ -71,7 +68,7 @@ function Sidebar({ variant }: SidebarProps) {
 				/>
 			</section>
 
-			{showAds &&
+			{isHomePage &&
 				AD_IMAGES.map(({ src, alt }) => (
 					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
 				))}
