@@ -1,11 +1,16 @@
 import { get } from "@/apis/axiosInstance";
 import { END_URL } from "@/constants/url";
 import type { GetMarketResponse } from "@/types/getMarketResponse";
+import type { GetPostsHotResponse } from "@/types/getPostsHotResponse";
 import type { GetPostsRealTimeResponse } from "@/types/getPostsRealtimeResponse";
 import type { GetPostsResponse } from "@/types/getPostsResponse";
 import type { GetPostsSearchResponse } from "@/types/getPostsSearchResponse";
 import type { GetReviewsResponse } from "@/types/getReviewsResponse";
 import { changeLabelToCode } from "@/utils/changeLabelToCode";
+
+const getPostsHot = () => {
+	return get<GetPostsHotResponse>(END_URL.GET_POSTS_HOT);
+};
 
 const getReviews = () => {
 	return get<GetReviewsResponse>(END_URL.GET_REVIEWS);
