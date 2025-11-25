@@ -9,6 +9,7 @@ import { changeLabelToCode } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 
 import { Filter } from "./Filter";
+import { SearchResult } from "./SearchResult";
 import { SearchResultList } from "./SearchResultList";
 import { SearchTextField } from "./SearchTextField";
 
@@ -51,7 +52,7 @@ export const SearchContainer = () => {
 	}, [searchParams]);
 
 	return (
-		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>
+		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full gap-[0.4rem]")}>
 			<div className={cn("flex gap-[0.4rem]")}>
 				<Filter selectedCategory={category} onSelect={onCategoryChange} />
 				<SearchTextField
@@ -61,7 +62,7 @@ export const SearchContainer = () => {
 					onSearch={() => handleSearch}
 				/>
 			</div>
-
+			<SearchResult keyword={appliedKeyword} />
 			<SearchResultList keyword={appliedKeyword} results={responseData?.posts || []} />
 
 			{responseData?.totalSize !== 0 && (
