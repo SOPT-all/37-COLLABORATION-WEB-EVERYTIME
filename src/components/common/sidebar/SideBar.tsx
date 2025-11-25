@@ -1,6 +1,7 @@
-import { useGetPostsRealtime } from "@/apis/queries";
+import { useLocation } from "react-router-dom";
+
 import { AD_IMAGES } from "@/constants/adImages";
-import { SIDEBAR_VARIANT, type SidebarVariant } from "@/constants/sidebarVariant";
+import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 
 import { LivePostItem } from "./LivePostItem";
@@ -10,36 +11,28 @@ import { ReviewContainer } from "./ReviewContainer";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
-interface SidebarProps {
-	variant: SidebarVariant;
-}
-
-function Sidebar({ variant }: SidebarProps) {
-	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIANT[variant];
-
-	const { data: response } = useGetPostsRealtime();
-	const realtimePost = response?.data ?? null;
+function Sidebar() {
+	const { pathname } = useLocation();
+	const isHomePage = pathname === ROUTES.HOME;
 
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
-			{showProfile && showMyHistory && (
+			{isHomePage && (
 				<>
-					<ProfileItem nickname={"전설의 맛"} name={"김솝트"} userId={"soptalien"} />
+					<ProfileItem nickname="전설의 맛" name="김솝트" userId="soptalien" />
 
 					<div>
-						<MyHistory variant={"article"} onClick={() => {}} />
-						<MyHistory variant={"comment"} onClick={() => {}} />
-						<MyHistory variant={"scrap"} onClick={() => {}} />
+						<MyHistory variant="article" />
+						<MyHistory variant="comment" />
+						<MyHistory variant="scrap" />
 					</div>
 				</>
 			)}
 
-			{realtimePost && (
-				<section>
-					<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-					<LivePostItem post={realtimePost} />
-				</section>
-			)}
+			<section>
+				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
+				<LivePostItem />
+			</section>
 
 			<section>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
@@ -58,7 +51,7 @@ function Sidebar({ variant }: SidebarProps) {
 				<ReviewContainer />
 			</section>
 
-			{showAds &&
+			{isHomePage &&
 				AD_IMAGES.map(({ src, alt }) => (
 					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
 				))}

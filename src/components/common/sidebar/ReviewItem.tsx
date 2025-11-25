@@ -15,11 +15,12 @@ const ReviewItem = ({ review }: ReviewsItemProps) => {
 	const inactiveStars = MAX_STARS - activeStars;
 
 	return (
-		<article
+		<button
+			type="button"
 			className={cn(
-				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem]",
+				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem] text-left",
 				"border border-gray-400 bg-gray-100",
-				"cursor-pointer hover:bg-white",
+				"hover:bg-white",
 				"px-[0.9rem] py-[0.8rem]",
 				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
@@ -37,7 +38,7 @@ const ReviewItem = ({ review }: ReviewsItemProps) => {
 				{lecture}: {professor}
 			</p>
 			<p className={cn("body07 h-[3.12rem] w-[26.2rem] overflow-hidden text-gray-600")}>{content}</p>
-		</article>
+		</button>
 	);
 };
 
