@@ -25,7 +25,7 @@ const ReviewItem = ({ review }: ReviewsItemProps) => {
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			<div className="flex items-center gap-[0.2rem]" aria-label={`별점 ${rate}점 만점에 ${rate}점`}>
+			<div className={cn("flex items-center gap-[0.2rem]")} aria-label={`별점 ${rate}점 만점에 ${rate}점`}>
 				{Array.from({ length: activeStars }, (_, idx) => (
 					<StarActive key={`star-active-${idx}`} width={10} height={10} aria-hidden="true" />
 				))}

@@ -39,8 +39,8 @@ function Sidebar({ variant }: SidebarProps) {
 			<section>
 				<SidebarHeader title={"HOT 게시물"} isMore={true} />
 				<SimplePostItem title={"학교에 푸드트럭 왔대"} createdAt={"2025-11-11T23:11:11"} />
-				<SimplePostItem title={"다들 시험 공부"} createdAt={"2025-11-11T15:14:11"} />
-				<SimplePostItem title={"[홍보] 제 37회 학생대표자 선거 "} createdAt={"2025-11-09T10:21:11"} />
+				<SimplePostItem title={"다들 시험 공부"} createdAt={"2025-11-10T15:14:11"} />
+				<SimplePostItem title={"[홍보] 제 37회 학생대표자 선거 안내입니다. "} createdAt={"2025-11-09T10:21:11"} />
 				<SimplePostItem title={"단과대학 로고 공모전 안내"} createdAt={"2025-11-09T01:00:11"} />
 			</section>
 
