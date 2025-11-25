@@ -7,4 +7,8 @@ const changeLabelToCode = (label: string): CategoryCode => {
 	return code ?? "ALL";
 };
 
-export { changeLabelToCode };
+const changeCodeToLabel = (code: string): CategoryLabel => {
+	const entry = Object.entries(LABEL_TO_CODE).find(([, value]) => value === code);
+	return (entry ? (entry[0] as CategoryLabel) : LABEL_TO_CODE["전체"]) as CategoryLabel;
+};
+export { changeLabelToCode, changeCodeToLabel };

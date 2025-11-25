@@ -12,7 +12,7 @@ export const useGetReviews = () => {
 
 export const useGetPostsSearch = (keyword: string, category: string = "전체", page: number = 1) => {
 	return useQuery({
-		queryKey: [QUERY_KEYS.POSTS_SEARCH],
+		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
 		queryFn: () => getPostsSearch(keyword, category, page),
 	});
 };
