@@ -15,7 +15,8 @@ const SearchResultList = ({ keyword, results }: SearchWrapperProps) => {
 		return (
 			<div
 				className={cn(
-					"flex h-[13rem] w-[78rem] items-center justify-center",
+					"flex flex-col",
+					"h-[13rem] w-[78rem] items-center justify-center",
 					"body05 text-gray-600",
 					"border border-gray-400",
 				)}
