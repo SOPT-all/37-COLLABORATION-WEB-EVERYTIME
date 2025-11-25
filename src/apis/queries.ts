@@ -21,6 +21,7 @@ export const useGetPostsRealtime = () => {
 	return useQuery({
 		queryKey: [QUERY_KEYS.POSTS_REALTIME],
 		queryFn: getPostsRealtime,
-		staleTime: 1000 * 60 * 5,
+		staleTime: 1000 * 30,
+		gcTime: 1000 * 60 * 5,
 	});
 };

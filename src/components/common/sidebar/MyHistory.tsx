@@ -20,7 +20,7 @@ const ICONS = {
 	scrap: ScrapIcon,
 } as const;
 
-const ICON_SIZE = 18;
+const ICON_SIZE = "1.8rem";
 
 const MyHistory = ({ variant }: MyHistoryProps) => {
 	const label = LABELS[variant];
