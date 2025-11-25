@@ -37,7 +37,7 @@ const ReviewItem = ({ review }: ReviewsItemProps) => {
 			<p className="title07 text-gray-800">
 				{lecture}: {professor}
 			</p>
-			<p className="body07 text-gray-600">{truncateByLength(content, 56)}</p>
+			<p className={cn("body07 h-[3.12rem] w-[26.2rem] overflow-hidden text-gray-600")}>{content}</p>
 		</article>
 	);
 };
