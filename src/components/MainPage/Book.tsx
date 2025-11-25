@@ -4,9 +4,10 @@ import type { MarketDataType } from "@/types/getMarketResponse";
 import { BookItem } from "../common/item/BookItem";
 import Logo from "@/assets/images/logo.svg?react";
 import { useGetMarket } from "@/apis/queries";
+import BookSkeleton from "./BookSkeleton";
 
 const Book = () => {
-	const { data: marketResponse } = useGetMarket();
+	const { data: marketResponse, isLoading } = useGetMarket();
 	const bookList = (marketResponse?.data ?? []) as MarketDataType[];
 
 	const [imageErrors, setImageErrors] = useState<Map<number, boolean>>(new Map());
@@ -18,6 +19,10 @@ const Book = () => {
 			return newMap;
 		});
 	};
+
+	if (isLoading) {
+		return <BookSkeleton />;
+	}
 
 	return (
 		<div className="flex gap-[0.5rem]">
