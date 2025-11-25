@@ -38,13 +38,12 @@ export const SearchContainer = () => {
 		setAppliedKeyword(keyword);
 		setAppliedPage(page);
 
-		// 2) URL 쿼리 동기화
+		// URL 쿼리 동기화
 		setSearchParams({
 			category: changeLabelToCode(category),
 			keyword,
 			page: String(page),
 		});
-		console.log("검색 실행:", { category: changeLabelToCode(category), keyword, page });
 	};
 
 	useEffect(() => {
@@ -59,8 +58,7 @@ export const SearchContainer = () => {
 					usage="search"
 					onKeywordChange={onKeywordChange}
 					keyword={keyword}
-					// 엔터 시 page=1부터 검색
-					onSearch={() => handleSearch(1)}
+					onSearch={() => handleSearch}
 				/>
 			</div>
 
