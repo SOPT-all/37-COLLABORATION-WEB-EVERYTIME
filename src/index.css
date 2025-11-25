@@ -205,11 +205,10 @@
 }
 
 .filter-scroll-show::-webkit-scrollbar-thumb {
-	background: var(--color-gray-200);
-	border-radius: 4px;
+	background: var(--color-gray-300);
+	border-radius: 3px;
 }
 
-/* Skeleton UI */
 @keyframes shimmer {
 	0% {
 		background-position: -400px 0;
@@ -219,8 +218,14 @@
 	}
 }
 
-.skeleton-shimmer {
-	background: linear-gradient(90deg, #e5e5e5 0%, #f3f3f3 40%, #e5e5e5 80%);
-	background-size: 400px 100%;
+.shimmer {
 	animation: shimmer 1.5s infinite linear;
+	background: linear-gradient(
+		to right,
+		var(--color-gray-200) 0%,
+		var(--color-gray-300) 20%,
+		var(--color-gray-200) 40%,
+		var(--color-gray-200) 100%
+	);
+	background-size: 40rem 100%;
 }
