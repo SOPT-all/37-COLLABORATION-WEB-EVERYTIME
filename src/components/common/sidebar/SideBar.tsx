@@ -1,15 +1,12 @@
-import { useGetReviews } from "@/apis/queries";
 import { AD_IMAGES } from "@/constants/adImages";
 import { SIDEBAR_VARIANT, type SidebarVariant } from "@/constants/sidebarVariant";
 import { MOCK_LIVE_POST } from "@/mocks/posts";
 import { cn } from "@/utils/cn";
 
-import { ReviewItem } from "../item/ReviewItem";
-import ReviewItemSkeleton from "../item/ReviewItemSkeleton";
-
 import { LivePostItem } from "./LivePostItem";
 import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
+import { ReviewContainer } from "./ReviewContainer";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
@@ -19,10 +16,6 @@ interface SidebarProps {
 
 function Sidebar({ variant }: SidebarProps) {
 	const { showProfile, showMyHistory, showAds } = SIDEBAR_VARIANT[variant];
-
-	const { data, isLoading, isError } = useGetReviews();
-
-	const reviews = data?.data ?? [];
 
 	return (
 		<aside className={cn("flex flex-col", "gap-[0.5rem]", "top-[8rem]")}>
@@ -57,30 +50,7 @@ function Sidebar({ variant }: SidebarProps) {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-
-				{isLoading && (
-					<div className="flex flex-col">
-						<ReviewItemSkeleton />
-						<ReviewItemSkeleton />
-						<ReviewItemSkeleton />
-					</div>
-				)}
-
-				{isError && <p className="text-[1.2rem] text-red-500">강의평을 불러오지 못했습니다.</p>}
-
-				{!isLoading && !isError && (
-					<div className="flex flex-col">
-						{reviews.map((review) => (
-							<ReviewItem
-								key={review.id}
-								rate={review.rate}
-								lectureTitle={review.lecture}
-								professorName={review.professor}
-								reviewContent={review.content}
-							/>
-						))}
-					</div>
-				)}
+				<ReviewContainer />
 			</section>
 
 			{showAds &&

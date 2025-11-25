@@ -4,16 +4,14 @@ import type { ReviewsDataType } from "@/types/getReviewsResponse";
 import { cn } from "@/utils/cn";
 import { truncateByLength } from "@/utils/truncate";
 
-interface ReviewItemProps {
-	rate: ReviewsDataType["rate"];
-	lectureTitle: ReviewsDataType["lecture"];
-	professorName: ReviewsDataType["professor"];
-	reviewContent: ReviewsDataType["content"];
+interface ReviewsItemProps {
+	review: ReviewsDataType;
 }
 
 const MAX_STARS = 5;
 
-const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: ReviewItemProps) => {
+const ReviewItem = ({ review }: ReviewsItemProps) => {
+	const { rate, lecture, professor, content } = review;
 	const activeStars = Math.floor(rate);
 	const inactiveStars = MAX_STARS - activeStars;
 
@@ -37,9 +35,9 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 				))}
 			</div>
 			<p className="title07 text-gray-800">
-				{lectureTitle}: {professorName}
+				{lecture}: {professor}
 			</p>
-			<p className="body07 text-gray-600">{truncateByLength(reviewContent, 56)}</p>
+			<p className="body07 text-gray-600">{truncateByLength(content, 56)}</p>
 		</article>
 	);
 };
