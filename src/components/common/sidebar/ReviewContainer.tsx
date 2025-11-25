@@ -1,7 +1,7 @@
 import { useGetReviews } from "@/apis/queries";
 
-import { ReviewItem } from "../item/ReviewItem";
-import ReviewItemSkeleton from "../item/ReviewItemSkeleton";
+import { ReviewItem } from "./ReviewItem";
+import ReviewItemSkeleton from "./ReviewItemSkeleton";
 
 const ReviewContainer = () => {
 	const { data, isLoading, isError } = useGetReviews();
