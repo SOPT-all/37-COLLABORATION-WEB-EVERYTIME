@@ -59,7 +59,7 @@ export const SearchContainer = () => {
 					usage="search"
 					onKeywordChange={onKeywordChange}
 					keyword={keyword}
-					onSearch={() => handleSearch}
+					onSearch={() => handleSearch(1)}
 				/>
 			</div>
 			<SearchResult keyword={appliedKeyword} />
