@@ -11,19 +11,19 @@ interface UsePaginationArgs {
 }
 
 export const usePagination = ({ currentPage, totalPages, onPageChange }: UsePaginationArgs) => {
-	/** 현재 블럭 계산 */
+	// 현재 블럭 계산
 	const blockIndex = Math.floor((currentPage - 1) / BLOCK_SIZE);
 	const blockStart = blockIndex * BLOCK_SIZE + 1;
 	const blockEnd = Math.min(blockStart + BLOCK_SIZE - 1, totalPages);
 
-	/** 이동 가능 여부 */
+	// 이동 가능 여부
 	const hasPrevious = currentPage > 1;
 	const hasNext = currentPage < totalPages;
 
 	const hasPrevBlock = blockStart > 1;
 	const hasNextBlock = blockEnd < totalPages;
 
-	/** 페이지 숫자 배열 */
+	// 페이지 숫자 배열
 	const pageNumbers = useMemo(
 		() => Array.from({ length: blockEnd - blockStart + 1 }, (_, i) => blockStart + i),
 		[blockStart, blockEnd],
