@@ -14,7 +14,7 @@ export const useGetPostsSearch = (keyword: string, category: string = "전체", 
 	return useQuery({
 		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
 		queryFn: () => getPostsSearch(keyword, category, page),
-  });
+	});
 };
 
 export const useGetPosts = () => {
