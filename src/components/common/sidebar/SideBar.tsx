@@ -38,7 +38,6 @@ function Sidebar({ variant }: SidebarProps) {
 			</section>
 
 			<section>
-				<SidebarHeader title={"HOT 게시물"} isMore={true} />
 				<PostsHotContainer />
 			</section>
 
