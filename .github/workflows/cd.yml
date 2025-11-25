@@ -9,11 +9,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Create output
-        run: |
-          rm -rf output
-          mkdir -p output
-          cp -R dist/* output/
+      - name: creates output
+        run: sh ./build.sh
 
       - name: Push to forked repository
         id: push_directory
