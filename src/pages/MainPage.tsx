@@ -2,13 +2,8 @@ import AdImg from "@/assets/images/img_ad1.png";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import Book from "@/components/MainPage/Book";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
-import { useGetMarket } from "@/apis/queries";
-import type { MarketDataType } from "@/types/getMarketResponse";
 
 const MainPage = () => {
-	const { data: marketResponse } = useGetMarket();
-	const bookList = (marketResponse?.data ?? []) as MarketDataType[];
-
 	return (
 		<div className="mx-auto flex w-[78rem] flex-col gap-[1.5rem]">
 			<div className="flex flex-col gap-[0.4rem]">
@@ -23,7 +18,7 @@ const MainPage = () => {
 				</aside>
 				<BoardContainer />
 			</div>
-			<Book books={bookList} />
+			<Book />
 		</div>
 	);
 };
