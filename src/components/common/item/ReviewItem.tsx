@@ -2,7 +2,6 @@ import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
 import type { ReviewsDataType } from "@/types/getReviewsResponse";
 import { cn } from "@/utils/cn";
-import { truncateByLength } from "@/utils/truncate";
 
 interface ReviewsItemProps {
 	review: ReviewsDataType;
