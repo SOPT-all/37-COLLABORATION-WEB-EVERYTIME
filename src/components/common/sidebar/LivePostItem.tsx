@@ -1,55 +1,53 @@
-import IconComment from "@/assets/icons/icon_comment.svg?react";
+import { useGetPostsRealtime } from "@/apis/queries";
+import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { cn } from "@/utils/cn";
 
-interface LivePost {
-	id: number;
-	category: string;
-	title: string;
-	content: string;
-	likeCount: number;
-	commentCount: number;
-}
+import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
 
-interface LivePostItemProps {
-	post: LivePost | null;
-}
+const LivePostItem = () => {
+	const { data, isLoading } = useGetPostsRealtime();
+	const realtimePost = data?.data ?? null;
 
-const LivePostItem = ({ post }: LivePostItemProps) => {
-	if (!post) return null;
+	if (isLoading) {
+		return <LivePostItemSkeleton />;
+	}
+
+	if (!realtimePost) {
+		return null;
+	}
 
 	return (
-		<article
+		<button
+			type="button"
 			className={cn(
-				"flex flex-col items-start justify-center gap-[0.3rem]",
+				"flex flex-col items-start justify-center gap-[0.3rem] text-left",
 				"h-[9.5rem] w-[28rem]",
-				"px-[1rem]",
+				"pr-[1.45rem] pl-[1rem]",
 				"border border-gray-400",
 				"bg-gray-100",
-				"cursor-pointer hover:bg-white",
+				"hover:bg-white",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{post.title}</h3>
-
-			<p className={cn("body06 text-gray-600", "overflow-hidden", "max-h-[3.64rem]")}>{post.content}</p>
+			<h3 className={cn("title04 max-w-[26rem] truncate text-gray-800")}>{realtimePost.title}</h3>
+			<p className={cn("body06 text-gray-600", "overflow-hidden", "max-h-[3.64rem]")}>{realtimePost.content}</p>
 
 			<div className={cn("flex items-center gap-[2.2rem]")}>
-				<span className={cn("caption01 text-gray-500")}>{post.category}</span>
-
+				<span className={cn("caption01 text-gray-500")}>{realtimePost.category}</span>
 				<div className={cn("flex items-center gap-[0.4rem]")}>
 					<div className={cn("flex items-center gap-[0.1rem]")}>
-						<IconThumbsUp width={18} height={18} aria-hidden="true" />
-						<span className={cn("caption04 text-primary-red")}>{post.likeCount}</span>
+						<IconThumbsUp className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
+						<span className={cn("caption04 text-primary-red")}>{realtimePost.likeCount}</span>
 					</div>
 
 					<div className={cn("flex items-center gap-[0.01rem]")}>
-						<IconComment width={18} height={18} aria-hidden="true" />
-						<span className={cn("caption04 text-sub-green")}>{post.commentCount}</span>
+						<IconMyComment className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
+						<span className={cn("caption04 text-sub-green")}>{realtimePost.commentCount}</span>
 					</div>
 				</div>
 			</div>
-		</article>
+		</button>
 	);
 };
 
