@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-import type { BookProps } from "@/mocks/books";
+import type { MarketDataType } from "@/types/getMarketResponse";
 import { BookItem } from "../common/item/BookItem";
 import Logo from "@/assets/images/logo.svg?react";
+import { useGetMarket } from "@/apis/queries";
+import BookSkeleton from "./BookSkeleton";
 
-interface BookComponentProps {
-	books: BookProps[];
-}
+const Book = () => {
+	const { data: marketResponse, isLoading } = useGetMarket();
+	const bookList = (marketResponse?.data ?? []) as MarketDataType[];
 
-const Book = ({ books }: BookComponentProps) => {
 	const [imageErrors, setImageErrors] = useState<Map<number, boolean>>(new Map());
 
 	const handleImageError = (bookId: number) => {
@@ -19,9 +20,13 @@ const Book = ({ books }: BookComponentProps) => {
 		});
 	};
 
+	if (isLoading) {
+		return <BookSkeleton />;
+	}
+
 	return (
 		<div className="flex gap-[0.5rem]">
-			{books.map((book) => {
+			{bookList.map((book) => {
 				const hasError = imageErrors.get(book.id) ?? false;
 
 				return (

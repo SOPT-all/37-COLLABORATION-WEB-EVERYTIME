@@ -1,4 +1,4 @@
-import IconMyComment from "@/assets/icons/icon_mycomment.svg?react";
+import IconComment from "@/assets/icons/icon_comment.svg?react";
 import IconThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { cn } from "@/utils/cn";
 
@@ -39,12 +39,12 @@ const LivePostItem = ({ post }: LivePostItemProps) => {
 
 				<div className={cn("flex items-center gap-[0.4rem]")}>
 					<div className={cn("flex items-center gap-[0.1rem]")}>
-						<IconThumbsUp className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
+						<IconThumbsUp width={18} height={18} aria-hidden="true" />
 						<span className={cn("caption04 text-primary-red")}>{post.likeCount}</span>
 					</div>
 
 					<div className={cn("flex items-center gap-[0.01rem]")}>
-						<IconMyComment className={cn("h-[1.8rem] w-[1.8rem]")} aria-hidden="true" />
+						<IconComment width={18} height={18} aria-hidden="true" />
 						<span className={cn("caption04 text-sub-green")}>{post.commentCount}</span>
 					</div>
 				</div>
