@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-import type { MarketDataType } from "@/types/getMarketResponse";
-import { BookItem } from "../common/item/BookItem";
-import Logo from "@/assets/images/logo.svg?react";
 import { useGetMarket } from "@/apis/queries";
+import Logo from "@/assets/images/logo.svg?react";
+import type { MarketDataType } from "@/types/getMarketResponse";
+
+import { BookItem } from "../common/item/BookItem";
+
 import BookSkeleton from "./BookSkeleton";
 
 const Book = () => {
