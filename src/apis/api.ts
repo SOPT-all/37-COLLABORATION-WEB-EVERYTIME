@@ -10,7 +10,6 @@ export const getReviews = () => {
 
 export const getPostsSearch = (keyword: string, category: string, page: number) => {
 	const categoryCode = changeLabelToCode(category);
-	console.log("categoryCode: ", categoryCode); // TODO: 삭제 예정
 	return get<GetPostsSearchResponse>(
 		`${END_URL.GET_POSTS_SEARCH}?category=${categoryCode}&keyword=${encodeURIComponent(keyword)}&page=${page}`,
 	);
