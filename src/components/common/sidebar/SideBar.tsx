@@ -7,7 +7,7 @@ import { cn } from "@/utils/cn";
 import { LivePostItem } from "./LivePostItem";
 import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
-import { ReviewItem } from "./ReviewItem";
+import { ReviewContainer } from "./ReviewContainer";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItem } from "./SimplePostItem";
 
@@ -48,28 +48,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<ReviewItem
-					rate={3}
-					lectureTitle={"데이터베이스"}
-					professorName={"송충건"}
-					reviewContent={
-						"교수님 진짜 친절하시고 학생들 배려 많이 해주십니다. 근데 시험은 전부 서술형이라 꼼꼼하게 공부하시는게 좋아요."
-					}
-				/>
-				<ReviewItem
-					rate={5}
-					lectureTitle={"융합프로그래밍1"}
-					professorName={"한웅진"}
-					reviewContent={
-						"시험 난이도도 괜찮고 무엇보다 교수님 강의력이 정말 좋아요. 조교님도 실습시간때마다 잘 설명해주셔서 감사했습니다~"
-					}
-				/>
-				<ReviewItem
-					rate={1}
-					lectureTitle={"파이썬 프로그래밍"}
-					professorName={"조성균"}
-					reviewContent={"하.... 그냥 안습 ㅋㅋㅋ"}
-				/>
+				<ReviewContainer />
 			</section>
 
 			{isHomePage &&
