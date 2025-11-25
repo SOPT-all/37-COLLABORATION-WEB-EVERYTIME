@@ -1,25 +1,31 @@
+import { useNavigate } from "react-router-dom";
+
 import AdImg from "@/assets/images/img_ad1.png";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import Book from "@/components/MainPage/Book";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
-import { MOCK_BOOKS } from "@/mocks/books";
+import { useSearchForm } from "@/hooks/useSearchForm";
 
 const MainPage = () => {
+	const { keyword, onKeywordChange } = useSearchForm();
+	const navigate = useNavigate();
+
+	const handleSearch = () => {
+		const trimmedKeyword = keyword.trim();
+		// console.log("main page search:", `/search?keyword=${trimmedKeyword}`);
+		navigate(`/search?category=전체&keyword=${trimmedKeyword}`);
+		window.scrollTo(0, 0);
+	};
 	return (
 		<div className="mx-auto flex w-[78rem] flex-col gap-[1.5rem]">
 			<div className="flex flex-col gap-[0.4rem]">
-				<SearchTextField
-					variant="main"
-					onKeywordChange={function (): void {
-						throw new Error("Function not implemented.");
-					}}
-				/>
+				<SearchTextField usage="main" keyword={keyword} onKeywordChange={onKeywordChange} onSearch={handleSearch} />
 				<aside>
 					<img src={AdImg} alt="광고 배너" className="h-[20.8rem] w-[78rem]" />
 				</aside>
 				<BoardContainer />
 			</div>
-			<Book books={MOCK_BOOKS} />
+			<Book />
 		</div>
 	);
 };
