@@ -5,7 +5,6 @@ import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import Book from "@/components/MainPage/Book";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
-import { MOCK_BOOKS } from "@/mocks/books";
 
 const MainPage = () => {
 	const { keyword, onKeywordChange } = useSearchForm();
@@ -26,7 +25,7 @@ const MainPage = () => {
 				</aside>
 				<BoardContainer />
 			</div>
-			<Book books={MOCK_BOOKS} />
+			<Book />
 		</div>
 	);
 };
