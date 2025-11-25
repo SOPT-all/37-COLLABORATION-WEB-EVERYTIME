@@ -1,6 +1,6 @@
 import type { ApiResponse } from "./api";
 
-export interface PostsRealtimeDataType {
+export interface PostsRealTimeDataType {
 	id: number;
 	category: string;
 	title: string;
@@ -9,4 +9,4 @@ export interface PostsRealtimeDataType {
 	commentCount: number;
 }
 
-export type GetPostsRealTimeResponse = ApiResponse<PostsRealtimeDataType[]>;
+export type GetPostsRealTimeResponse = ApiResponse<PostsRealTimeDataType | null>;
