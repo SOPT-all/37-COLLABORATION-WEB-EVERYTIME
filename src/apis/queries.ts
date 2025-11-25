@@ -14,7 +14,7 @@ export const useGetPosts = () => {
 	return useQuery({
 		queryKey: [QUERY_KEYS.POSTS],
 		queryFn: getPosts,
-  });
+	});
 };
 
 export const useGetMarket = () => {
