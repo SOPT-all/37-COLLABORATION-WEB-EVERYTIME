@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 
 const SearchContentSkeleton = () => {
-	const skeletonStyleClass = "shimmer h-[1.8rem] rounded-[4px] bg-gray-200";
+	const SKELETON_STYLE_CLASS = "shimmer h-[1.8rem] rounded-[4px] bg-gray-200";
 	return (
 		<div
 			aria-hidden="true"
@@ -14,10 +14,10 @@ const SearchContentSkeleton = () => {
 			)}
 		>
 			<span className="sr-only">게시글 목록을 불러오는 중입니다.</span>
-			<div className={cn(skeletonStyleClass, "w-[6.5rem]")} />
-			<div className={cn(skeletonStyleClass, "w-[49.5rem]")} />
-			<div className={cn(skeletonStyleClass, "w-[73.2rem]")} />
-			<div className={cn(skeletonStyleClass, "w-[11.8rem]")} />
+			<div className={cn(SKELETON_STYLE_CLASS, "w-[6.5rem]")} />
+			<div className={cn(SKELETON_STYLE_CLASS, "w-[49.5rem]")} />
+			<div className={cn(SKELETON_STYLE_CLASS, "w-[73.2rem]")} />
+			<div className={cn(SKELETON_STYLE_CLASS, "w-[11.8rem]")} />
 		</div>
 	);
 };
