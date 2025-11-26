@@ -64,6 +64,22 @@
 	background-size: 40rem 100%;
 }
 
+.skeleton-base {
+	animation:
+		shimmer 1.5s infinite linear,
+		pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	background: linear-gradient(
+		to right,
+		var(--color-gray-200) 0%,
+		var(--color-gray-300) 20%,
+		var(--color-gray-200) 40%,
+		var(--color-gray-200) 100%
+	);
+	background-size: 40rem 100%;
+	background-color: var(--color-gray-200);
+	border-radius: var(--radius-4);
+}
+
 /* Typography Utilities (weight, line-height, letter-spacing 포함) */
 @layer utilities {
 	/* Title */
@@ -228,25 +244,4 @@
 .filter-scroll-show::-webkit-scrollbar-thumb {
 	background: var(--color-gray-300);
 	border-radius: 3px;
-}
-
-@keyframes shimmer {
-	0% {
-		background-position: -400px 0;
-	}
-	100% {
-		background-position: 400px 0;
-	}
-}
-
-.shimmer {
-	animation: shimmer 1.5s infinite linear;
-	background: linear-gradient(
-		to right,
-		var(--color-gray-200) 0%,
-		var(--color-gray-300) 20%,
-		var(--color-gray-200) 40%,
-		var(--color-gray-200) 100%
-	);
-	background-size: 40rem 100%;
 }

@@ -1,14 +1,12 @@
 import { cn } from "@/utils/cn";
 
-const SKELETON_BASE_CLASSES = "shimmer animate-pulse rounded-[0.4rem] bg-gray-200";
-
 const BookSkeleton = () => {
 	return (
 		<section aria-label="책 목록 로딩 중" className="flex gap-[0.5rem]">
 			{Array.from({ length: 5 }).map((_, idx) => (
 				<article key={idx} aria-busy="true">
 					{/* 책 이미지 스켈레톤 */}
-					<figure className={cn(SKELETON_BASE_CLASSES, "h-[19.2rem] w-[15.2rem]")} aria-label="책 이미지 로딩 중" />
+					<figure className={cn("skeleton-base", "h-[19.2rem] w-[15.2rem]")} aria-label="책 이미지 로딩 중" />
 					{/* 책 정보 스켈레톤 */}
 					<div
 						className={cn(
@@ -18,9 +16,9 @@ const BookSkeleton = () => {
 						)}
 						aria-label="책 정보 로딩 중"
 					>
-						<div className={cn(SKELETON_BASE_CLASSES, "h-[1.8rem] w-[13.2rem]")} />
-						<div className={cn(SKELETON_BASE_CLASSES, "h-[1.8rem] w-[10.4rem]")} />
-						<div className={cn(SKELETON_BASE_CLASSES, "h-[1.6rem] w-[5.6rem]")} />
+						<div className={cn("skeleton-base", "h-[1.8rem] w-[13.2rem]")} />
+						<div className={cn("skeleton-base", "h-[1.8rem] w-[10.4rem]")} />
+						<div className={cn("skeleton-base", "h-[1.6rem] w-[5.6rem]")} />
 					</div>
 				</article>
 			))}

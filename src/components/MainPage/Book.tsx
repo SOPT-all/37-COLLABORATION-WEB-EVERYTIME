@@ -6,10 +6,8 @@ import type { MarketDataType } from "@/types/getMarketResponse";
 
 import { BookItem } from "../common/item/BookItem";
 
-import BookSkeleton from "./BookSkeleton";
-
 const Book = () => {
-	const { data: marketResponse, isLoading } = useGetMarket();
+	const { data: marketResponse } = useGetMarket();
 	const bookList = (marketResponse?.data ?? []) as MarketDataType[];
 
 	const [imageErrors, setImageErrors] = useState<Map<number, boolean>>(new Map());
@@ -21,10 +19,6 @@ const Book = () => {
 			return newMap;
 		});
 	};
-
-	if (isLoading) {
-		return <BookSkeleton />;
-	}
 
 	return (
 		<div className="flex gap-[0.5rem]">

@@ -1,45 +1,45 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 import { getMarket, getPostsRealtime, getPosts, getReviews, getPostsSearch, getPostsHot } from "@/apis/api";
 import { QUERY_KEYS } from "@/constants/queryKey";
 
 export const useGetPostsHot = () => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.POSTS_HOT],
 		queryFn: getPostsHot,
 	});
 };
 
 export const useGetReviews = () => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.REVIEWS],
 		queryFn: getReviews,
 	});
 };
 
 export const useGetPostsSearch = (keyword: string, category: string = "전체", page: number = 1) => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
 		queryFn: () => getPostsSearch(keyword, category, page),
 	});
 };
 
 export const useGetPosts = () => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.POSTS],
 		queryFn: getPosts,
 	});
 };
 
 export const useGetMarket = () => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.MARKET],
 		queryFn: getMarket,
 	});
 };
 
 export const useGetPostsRealtime = () => {
-	return useQuery({
+	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.POSTS_REALTIME],
 		queryFn: getPostsRealtime,
 		staleTime: 1000 * 30,
