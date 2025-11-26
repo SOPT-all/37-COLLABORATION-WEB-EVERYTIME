@@ -24,7 +24,7 @@ const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTe
 	return (
 		<div
 			className={cn(
-				"flex items-center gap-[0.4rem] border bg-white px-[1.6rem] transition-colors",
+				"flex items-center gap-[0.4rem] border bg-white px-[1.2rem] transition-colors",
 				"border border-gray-400 focus-within:border-gray-700",
 				usage === "main" && "h-[4rem] w-[78rem]",
 				usage === "search" && "h-[4rem] w-[60.2rem]",

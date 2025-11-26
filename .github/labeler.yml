@@ -23,6 +23,12 @@ labels:
 
   "🛠️REFACTOR":
     include: ['\bRefactor\b', '\bREFACTOR\b', '\brefactor\b']
-  
+
   "🆙PERF":
     include: ['\bPerf\b', '\bPERF\b', '\bperf\b']
+
+  "🔎UPDATE":
+    include: ['\bUpdate\b', '\bUPDATE\b', '\bupdate\b']
+
+  "🚀DEPLOY":
+    include: ['\bDeploy\b', '\bDEPLOY\b', '\bdeploy\b']
