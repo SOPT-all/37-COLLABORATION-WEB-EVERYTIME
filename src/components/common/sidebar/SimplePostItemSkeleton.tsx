@@ -13,7 +13,7 @@ const SimplePostItemSkeleton = () => {
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
-			<div className={cn("shimmer h-[1.8rem] w-full rounded-[0.4rem] bg-gray-200")} />
+			<div className={cn("skeleton-base", "h-[1.8rem] w-full")} />
 		</div>
 	);
 };

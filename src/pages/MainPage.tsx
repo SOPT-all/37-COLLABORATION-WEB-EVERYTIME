@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
 import AdImg from "@/assets/images/img_ad1.png";
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
+import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
 import Book from "@/components/MainPage/Book";
+import BookSkeleton from "@/components/MainPage/BookSkeleton";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 
@@ -22,9 +25,13 @@ const MainPage = () => {
 				<aside>
 					<img src={AdImg} alt="광고 배너" className="h-[20.8rem] w-[78rem]" />
 				</aside>
-				<BoardContainer />
+				<DelayedSuspense fallback={<BoardContainerSkeleton />} delay={200}>
+					<BoardContainer />
+				</DelayedSuspense>
 			</div>
-			<Book />
+			<DelayedSuspense fallback={<BookSkeleton />} delay={200}>
+				<Book />
+			</DelayedSuspense>
 		</div>
 	);
 };
