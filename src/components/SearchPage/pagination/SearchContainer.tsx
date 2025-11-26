@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 import { Pagination } from "@/components/SearchPage/pagination/Pagination";
-import { SearchWrapper } from "@/components/SearchPage/pagination/SearchWrapper";
+import { SearchResultList } from "@/components/SearchPage/SearchResultList";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import { ALL_MOCK_POSTS, PAGE_SIZE } from "@/mocks/searchMock";
 import type { SearchResultType } from "@/types/search";
@@ -24,15 +24,13 @@ export const SearchContainer = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalElements] = useState(ALL_MOCK_POSTS.length);
 	const [totalPages] = useState(Math.ceil(totalElements / PAGE_SIZE));
-	const [hasPrevious, setHasPrevious] = useState(currentPage > 1);
-	const [hasNext, setHasNext] = useState(currentPage < totalPages);
 	const currentPageResults: SearchResultType[] = useMemo(() => {
 		const start = (currentPage - 1) * PAGE_SIZE;
 		const end = start + PAGE_SIZE;
 		return ALL_MOCK_POSTS.slice(start, end);
 	}, [currentPage]);
 
-	const handleSearch = (page: number = 1) => {
+	const handleSearch = (page: number) => {
 		setSearchParams({
 			category,
 			keyword,
@@ -41,8 +39,6 @@ export const SearchContainer = () => {
 
 		// TODO: api 연동 시 삭제
 		setCurrentPage(page);
-		setHasPrevious(page > 1);
-		setHasNext(page < totalPages);
 	};
 
 	useEffect(() => {
@@ -54,7 +50,7 @@ export const SearchContainer = () => {
 		console.log("search api url:", `/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`);
 		navigate(`/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`, { replace: true });
 		window.scrollTo(0, 0);
-	}, [searchParams]);
+	}, [searchParams, navigate]);
 
 	return (
 		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>
@@ -67,15 +63,9 @@ export const SearchContainer = () => {
 					onSearch={() => handleSearch(1)}
 				/>
 			</div>
-			<SearchWrapper keyword={keyword} results={currentPageResults} />
+			<SearchResultList keyword={keyword} results={currentPageResults} />
 			{totalElements !== 0 && (
-				<Pagination
-					currentPage={currentPage}
-					totalPages={totalPages}
-					onPageChange={handleSearch}
-					hasPrevious={hasPrevious}
-					hasNext={hasNext}
-				/>
+				<Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handleSearch} />
 			)}
 		</section>
 	);

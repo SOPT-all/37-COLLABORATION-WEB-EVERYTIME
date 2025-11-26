@@ -1,14 +1,15 @@
+import type { PostsHotDataType } from "@/types/getPostsHotResponse";
 import { cn } from "@/utils/cn";
 import { formatDateWithTime } from "@/utils/formatDate";
 
 interface SimplePostItemProps {
-	title: string;
-	createdAt: string;
+	post: PostsHotDataType;
 	onClick?: () => void;
 }
 
-const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
-	const formatDate = formatDateWithTime(createdAt);
+const SimplePostItem = ({ post, onClick }: SimplePostItemProps) => {
+	const { title, createdAt } = post;
+	const formattedDate = formatDateWithTime(createdAt);
 
 	return (
 		<button
@@ -18,16 +19,16 @@ const SimplePostItem = ({ title, createdAt, onClick }: SimplePostItemProps) => {
 				"w-[28rem]",
 				"px-[1rem] py-[0.85rem]",
 				"border border-gray-400",
-				"bg-gray-100",
-				"hover:bg-white",
+				"bg-gray-100 hover:bg-white",
 				"transition-colors duration-200",
+				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
 			<span className={cn("body05 truncate text-left text-gray-800", "w-[19.7rem]")} title={title}>
 				{title}
 			</span>
-			<span className={cn("caption04 ml-auto shrink-0 text-right text-gray-500")}>{formatDate}</span>
+			<span className="caption04 ml-auto shrink-0 text-right text-gray-500">{formattedDate}</span>
 		</button>
 	);
 };

@@ -23,7 +23,7 @@ export interface PostsSearchDataType {
 	posts: PostsSearchPostsType[];
 }
 
-export type GetPostsSearchResponse = ApiResponse<PostsSearchDataType[]>;
+export type GetPostsSearchResponse = ApiResponse<PostsSearchDataType>;
 
 export interface GetPostsSearchErrorResponse {
 	status: number;
