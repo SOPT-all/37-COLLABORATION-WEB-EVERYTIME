@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { useGetPostsSearch } from "@/apis/queries";
-import { Pagination } from "@/components/SearchPage/pagination/Pagination";
+import { Pagination } from "@/components/SearchPage/Pagination";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { changeLabelToCode } from "@/utils/changeLabelToCode";
