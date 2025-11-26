@@ -54,7 +54,7 @@ export const SearchContainer = () => {
 		console.log("search api url:", `/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`);
 		navigate(`/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`, { replace: true });
 		window.scrollTo(0, 0);
-	}, [searchParams]);
+	}, [searchParams, navigate]);
 
 	return (
 		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>

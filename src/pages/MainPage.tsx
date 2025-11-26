@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import AdImg from "@/assets/images/img_ad1.png";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
 import Book from "@/components/MainPage/Book";
 import BookSkeleton from "@/components/MainPage/BookSkeleton";
-import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 

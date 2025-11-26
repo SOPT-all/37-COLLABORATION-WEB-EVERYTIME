@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { AD_IMAGES } from "@/constants/adImages";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
-import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 
 import { LivePostItem } from "./LivePostItem";
 import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
