@@ -23,3 +23,6 @@ labels:
 
   "🛠️REFACTOR":
     include: ['\bRefactor\b', '\bREFACTOR\b', '\brefactor\b']
+  
+  "🆙PERF":
+    include: ['\bPerf\b', '\bPERF\b', '\bperf\b']

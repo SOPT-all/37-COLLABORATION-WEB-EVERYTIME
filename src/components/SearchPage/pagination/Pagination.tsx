@@ -13,24 +13,24 @@ interface PaginationProps {
 	currentPage: number;
 	totalPages: number;
 	onPageChange: (page: number) => void;
-	hasPrevious: boolean;
-	hasNext: boolean;
 }
 
 const iconSizeClass = "h-[1.8rem] w-[1.8rem]";
 
-export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious, hasNext }: PaginationProps) => {
+export const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
 	const {
 		pageNumbers,
 		hasPrevBlock,
 		hasNextBlock,
+		hasPrevious,
+		hasNext,
 		goPrevBlock,
 		goNextBlock,
 		goPrevPage,
 		goNextPage,
 		goToPage,
 		showDoubleArrows,
-	} = usePagination({ currentPage, totalPages, onPageChange, hasPrevious, hasNext });
+	} = usePagination({ currentPage, totalPages, onPageChange });
 
 	if (totalPages <= 0) return null;
 
@@ -63,18 +63,16 @@ export const Pagination = ({ currentPage, totalPages, onPageChange, hasPrevious,
 			</button>
 
 			{/* 페이지 숫자 */}
-			{pageNumbers.map((page) => {
-				return (
-					<button
-						key={page}
-						type="button"
-						onClick={() => goToPage(page)}
-						className={cn("body04 h-[3.2rem] w-[3.2rem]", page === currentPage ? "text-primary-red" : "text-gray-800")}
-					>
-						{page}
-					</button>
-				);
-			})}
+			{pageNumbers.map((page) => (
+				<button
+					key={page}
+					type="button"
+					onClick={() => goToPage(page)}
+					className={cn("body04 h-[3.2rem] w-[3.2rem]", page === currentPage ? "text-primary-red" : "text-gray-800")}
+				>
+					{page}
+				</button>
+			))}
 
 			{/* 오른쪽 단꺾쇠 */}
 			<button

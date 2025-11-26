@@ -15,8 +15,7 @@ const MainPage = () => {
 
 	const handleSearch = () => {
 		const trimmedKeyword = keyword.trim();
-		// console.log("main page search:", `/search?keyword=${trimmedKeyword}`);
-		navigate(`/search?category=전체&keyword=${trimmedKeyword}`);
+		navigate(`/search?category=ALL&keyword=${trimmedKeyword}&page=1`);
 		window.scrollTo(0, 0);
 	};
 	return (

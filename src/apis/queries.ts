@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-import { getPosts, getPostsRealtime, getPostsHot, getReviews, getMarket } from "@/apis/api";
+import { getMarket, getPostsRealtime, getPosts, getReviews, getPostsSearch, getPostsHot } from "@/apis/api";
 import { QUERY_KEYS } from "@/constants/queryKey";
 
 export const useGetPostsHot = () => {
@@ -14,6 +14,13 @@ export const useGetReviews = () => {
 	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.REVIEWS],
 		queryFn: getReviews,
+	});
+};
+
+export const useGetPostsSearch = (keyword: string, category: string = "전체", page: number = 1) => {
+	return useSuspenseQuery({
+		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
+		queryFn: () => getPostsSearch(keyword, category, page),
 	});
 };
 

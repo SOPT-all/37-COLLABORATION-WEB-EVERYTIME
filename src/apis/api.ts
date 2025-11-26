@@ -4,24 +4,35 @@ import type { GetMarketResponse } from "@/types/getMarketResponse";
 import type { GetPostsHotResponse } from "@/types/getPostsHotResponse";
 import type { GetPostsRealTimeResponse } from "@/types/getPostsRealtimeResponse";
 import type { GetPostsResponse } from "@/types/getPostsResponse";
+import type { GetPostsSearchResponse } from "@/types/getPostsSearchResponse";
 import type { GetReviewsResponse } from "@/types/getReviewsResponse";
+import { changeLabelToCode } from "@/utils/changeLabelToCode";
 
-export const getPostsHot = () => {
+const getPostsHot = () => {
 	return get<GetPostsHotResponse>(END_URL.GET_POSTS_HOT);
 };
 
-export const getReviews = () => {
+const getReviews = () => {
 	return get<GetReviewsResponse>(END_URL.GET_REVIEWS);
 };
 
-export const getPosts = () => {
+const getPostsSearch = (keyword: string, category: string, page: number) => {
+	const categoryCode = changeLabelToCode(category);
+	return get<GetPostsSearchResponse>(
+		`${END_URL.GET_POSTS_SEARCH}?category=${categoryCode}&keyword=${encodeURIComponent(keyword)}&page=${page}`,
+	);
+};
+
+const getPosts = () => {
 	return get<GetPostsResponse>(END_URL.GET_POSTS);
 };
 
-export const getMarket = () => {
+const getMarket = () => {
 	return get<GetMarketResponse>(END_URL.GET_MARKET);
 };
 
-export const getPostsRealtime = async () => {
+const getPostsRealtime = async () => {
 	return await get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
 };
+
+export { getReviews, getPostsSearch, getPosts, getMarket, getPostsRealtime, getPostsHot };
