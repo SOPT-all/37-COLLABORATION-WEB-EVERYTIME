@@ -35,4 +35,4 @@ const getPostsRealtime = async () => {
 	return await get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
 };
 
-export { getReviews, getPostsSearch, getPosts, getMarket, getPostsRealtime };
+export { getReviews, getPostsSearch, getPosts, getMarket, getPostsRealtime, getPostsHot };

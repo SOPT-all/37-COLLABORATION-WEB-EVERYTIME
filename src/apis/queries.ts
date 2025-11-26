@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getMarket, getPostsRealtime, getPosts, getReviews, getPostsSearch } from "@/apis/api";
+import { getMarket, getPostsRealtime, getPosts, getReviews, getPostsSearch, getPostsHot } from "@/apis/api";
 import { QUERY_KEYS } from "@/constants/queryKey";
 
 export const useGetPostsHot = () => {
