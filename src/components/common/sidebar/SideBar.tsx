@@ -13,7 +13,7 @@ import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
 import { ReviewItemSkeletonList } from "./ReviewItemSkeletonList";
 import { SidebarHeader } from "./SidebarHeader";
-import { PostsHotSkeletonList } from "./SimplePostItemSkeletonList";
+import { SimplePostItemSkeletonList } from "./SimplePostItemSkeletonList";
 
 function Sidebar() {
 	const { pathname } = useLocation();
@@ -42,7 +42,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title="HOT 게시물" isMore={true} />
-				<DelayedSuspense fallback={<PostsHotSkeletonList />} delay={200}>
+				<DelayedSuspense fallback={<SimplePostItemSkeletonList />} delay={200}>
 					<PostsHotContainer />
 				</DelayedSuspense>
 			</section>
