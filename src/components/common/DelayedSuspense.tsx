@@ -4,7 +4,7 @@ import { Suspense } from "react";
 interface DelayedSuspenseProps {
 	children: ReactNode;
 	fallback: ReactNode;
-	delay?: number;
+	delay: number;
 }
 
 const DelayedSuspense = ({ children, fallback, delay = 200 }: DelayedSuspenseProps) => {
