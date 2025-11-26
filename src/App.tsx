@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 
 import "@/index.css";
 import "@/theme.css";
@@ -21,10 +22,12 @@ const queryClient = new QueryClient({
 
 const App = () => {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={router} />
-			<ReactQueryDevtools />
-		</QueryClientProvider>
+		<ErrorBoundary fallback={<p>문제가 발생했습니다.</p>}>
+			<QueryClientProvider client={queryClient}>
+				<RouterProvider router={router} />
+				<ReactQueryDevtools />
+			</QueryClientProvider>
+		</ErrorBoundary>
 	);
 };
 
