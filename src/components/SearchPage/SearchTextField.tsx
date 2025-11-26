@@ -18,7 +18,6 @@ const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTe
 				return;
 			}
 			onSearch();
-			console.log("검색완료");
 		}
 	};
 
