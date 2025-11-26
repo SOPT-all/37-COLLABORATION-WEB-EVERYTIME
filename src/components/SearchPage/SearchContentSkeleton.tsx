@@ -10,7 +10,8 @@ const SearchContentSkeleton = () => {
 				"bg-white",
 				"border-r border-b border-l border-gray-400",
 				"h-[13rem] w-[78rem]",
-				"items-left flex flex-col justify-center gap-[0.4rem]",
+				"flex flex-col gap-[0.6rem]",
+				"hover:bg-gray-100",
 			)}
 		>
 			<span className="sr-only">게시글 목록을 불러오는 중입니다.</span>

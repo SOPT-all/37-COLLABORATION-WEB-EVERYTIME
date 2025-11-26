@@ -1,6 +1,6 @@
 import { useState, useCallback, type ChangeEvent } from "react";
 
-export const useSearchForm = (initialCategory: string = "전체", initialKeyword: string = "") => {
+export const useSearchForm = (initialCategory: string = "ALL", initialKeyword: string = "") => {
 	const [category, setCategory] = useState(initialCategory);
 	const [keyword, setKeyword] = useState(initialKeyword);
 

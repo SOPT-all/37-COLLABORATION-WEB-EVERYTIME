@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery, useQuery } from "@tanstack/react-query";
 
 import { getMarket, getPostsRealtime, getPosts, getReviews, getPostsSearch, getPostsHot } from "@/apis/api";
 import { QUERY_KEYS } from "@/constants/queryKey";
@@ -17,8 +17,9 @@ export const useGetReviews = () => {
 	});
 };
 
-export const useGetPostsSearch = (keyword: string, category: string = "전체", page: number = 1) => {
-	return useSuspenseQuery({
+export const useGetPostsSearch = (keyword: string, category: string = "ALL", page: number = 1) => {
+	// TODO: useSuspenseQuery로 변경
+	return useQuery({
 		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
 		queryFn: () => getPostsSearch(keyword, category, page),
 	});

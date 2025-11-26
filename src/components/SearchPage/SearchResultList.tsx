@@ -13,14 +13,7 @@ const SearchResultList = ({ keyword, results }: SearchWrapperProps) => {
 
 	if (isLoading) {
 		return (
-			<div
-				className={cn(
-					"flex flex-col",
-					"h-[13rem] w-[78rem] items-center justify-center",
-					"body05 text-gray-600",
-					"border border-gray-400",
-				)}
-			>
+			<div className={cn("flex flex-col", "body05 text-gray-600", "border-t border-gray-400")}>
 				<SearchContentSkeleton />
 				<SearchContentSkeleton />
 				<SearchContentSkeleton />
