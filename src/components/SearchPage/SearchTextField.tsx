@@ -1,5 +1,4 @@
 import type { ChangeEvent, KeyboardEvent } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
 import { cn } from "@/utils/cn";
