@@ -13,7 +13,7 @@ import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
 import ReviewItemSkeleton from "./ReviewItemSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
-import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
+import { PostsHotSkeletonList } from "./SimplePostItemSkeletonList";
 
 function Sidebar() {
 	const { pathname } = useLocation();
@@ -41,20 +41,8 @@ function Sidebar() {
 			</section>
 
 			<section>
-				<DelayedSuspense
-					fallback={
-						<>
-							<SidebarHeader title="HOT 게시물" isMore={true} />
-							<div className="flex flex-col">
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-							</div>
-						</>
-					}
-					delay={200}
-				>
+				<SidebarHeader title="HOT 게시물" isMore={true} />
+				<DelayedSuspense fallback={<PostsHotSkeletonList />} delay={200}>
 					<PostsHotContainer />
 				</DelayedSuspense>
 			</section>

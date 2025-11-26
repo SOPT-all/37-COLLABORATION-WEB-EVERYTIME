@@ -11,6 +11,7 @@ const SimplePostItemSkeleton = () => {
 				"bg-gray-100",
 				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
+				"animate-pulse",
 			)}
 		>
 			<div className={cn("skeleton-base", "h-[1.8rem] w-full")} />
