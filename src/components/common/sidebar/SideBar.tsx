@@ -11,6 +11,8 @@ import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
+import ReviewItemSkeleton from "./ReviewItemSkeleton";
+import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
 
 function Sidebar() {
@@ -39,7 +41,22 @@ function Sidebar() {
 			</section>
 
 			<section>
-				<PostsHotContainer />
+				<DelayedSuspense
+					fallback={
+						<>
+							<SidebarHeader title="HOT 게시물" isMore={true} />
+							<div className="flex flex-col">
+								<SimplePostItemSkeleton />
+								<SimplePostItemSkeleton />
+								<SimplePostItemSkeleton />
+								<SimplePostItemSkeleton />
+							</div>
+						</>
+					}
+					delay={200}
+				>
+					<PostsHotContainer />
+				</DelayedSuspense>
 			</section>
 
 			<section>
@@ -48,7 +65,18 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<ReviewContainer />
+				<DelayedSuspense
+					fallback={
+						<div className="flex flex-col">
+							<ReviewItemSkeleton />
+							<ReviewItemSkeleton />
+							<ReviewItemSkeleton />
+						</div>
+					}
+					delay={200}
+				>
+					<ReviewContainer />
+				</DelayedSuspense>
 			</section>
 
 			{isHomePage &&
