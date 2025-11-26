@@ -1,94 +1,42 @@
-import { useState, type KeyboardEvent, type ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import type { ChangeEvent, KeyboardEvent } from "react";
 
 import SearchIcon from "@/assets/icons/icon_search.svg?react";
 import { cn } from "@/utils/cn";
 
 interface SearchTextFieldProps {
-	variant: "main" | "search";
-	onKeywordChange: (newKeyword: string) => void;
+	usage: "main" | "search";
+	keyword: string;
+	onKeywordChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onSearch: () => void;
 }
 
-const SearchTextField = ({ variant, onKeywordChange }: SearchTextFieldProps) => {
-	// const navigate = useNavigate();
-	const [searchParams] = useSearchParams();
-
-	const urlKeyword = searchParams.get("keyword") || "";
-
-	// 내부 temp keyword 관리
-	const [tempKeyword, setTempKeyword] = useState("");
-	const [isFocused, setIsFocused] = useState(false);
-
-	// focus 중이면 tempKeyword, 아니면 URL keyword
-	const displayValue = isFocused ? tempKeyword : urlKeyword;
-
-	/** input 변경 */
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setTempKeyword(e.target.value);
-	};
-
-	/** 엔터 검색 */
+const SearchTextField = ({ usage, keyword, onKeywordChange, onSearch }: SearchTextFieldProps) => {
 	const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter") {
-			const trimmedKeyword = tempKeyword.trim();
-
-			if (trimmedKeyword.length < 2) {
+			if (keyword.length < 2) {
 				alert("검색어를 두 글자 이상 입력하세요!");
 				return;
 			}
-
-			// 엔터 시에만 외부 keyword 업데이트
-			onKeywordChange(trimmedKeyword);
-
-			// const category = searchParams.get("category") || "전체";
-			// navigate(`/search?category=${category}&keyword=${encodeURIComponent(trimmedKeyword)}&page=1`);
+			onSearch();
 		}
 	};
-
-	/** 포커스 */
-	const handleFocus = () => {
-		setIsFocused(true);
-		setTempKeyword(urlKeyword);
-	};
-
-	/** 포커스 해제 */
-	const handleBlur = () => {
-		setIsFocused(false);
-		setTempKeyword("");
-	};
-
-	/** 스타일 계산 */
-	const getInputState = () => {
-		if (isFocused && displayValue) return "typing";
-		if (isFocused && !displayValue) return "focused";
-		if (!isFocused && displayValue) return "filled";
-		return "default";
-	};
-
-	const inputState = getInputState();
 
 	return (
 		<div
 			className={cn(
 				"flex items-center gap-[0.4rem] border bg-white px-[1.6rem] transition-colors",
-				variant === "main" && "h-[4rem] w-[78rem]",
-				variant === "search" && "h-[4rem] w-[60.2rem]",
-
-				inputState === "default" && "border-gray-400",
-				inputState === "typing" && "border-gray-700",
-				inputState === "filled" && "border-gray-400",
-				inputState === "focused" && "border-gray-700",
+				"border border-gray-400 focus-within:border-gray-700",
+				usage === "main" && "h-[4rem] w-[78rem]",
+				usage === "search" && "h-[4rem] w-[60.2rem]",
 			)}
 		>
 			<SearchIcon className={cn("h-[3.4rem] w-[3.4rem] shrink-0 transition-colors")} />
 
 			<input
 				type="text"
-				value={displayValue}
-				onChange={handleInputChange}
+				value={keyword}
+				onChange={onKeywordChange}
 				onKeyDown={handleKeyDown}
-				onFocus={handleFocus}
-				onBlur={handleBlur}
 				placeholder="전체 게시판의 글을 검색하세요!"
 				className={cn("body05 text-primary-black flex-1 placeholder:text-gray-600", "focus:outline-none")}
 			/>

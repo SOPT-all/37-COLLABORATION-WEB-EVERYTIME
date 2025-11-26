@@ -1,4 +1,4 @@
-import { SearchContainer } from "@/components/SearchPage/pagination/SearchContainer";
+import { SearchContainer } from "@/components/SearchPage/SearchContainer";
 import { cn } from "@/utils/cn";
 const SearchPage = () => {
 	return (

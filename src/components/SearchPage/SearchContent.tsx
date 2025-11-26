@@ -1,12 +1,12 @@
 import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import type { SearchResultType } from "@/types/search";
+import { changeCodeToLabel } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 import { formatDateForSearch } from "@/utils/formatDate";
 import { splitIntoTwoLines } from "@/utils/highlight";
 
 import { SearchHighlight } from "./SearchHighlight";
-
 interface SearchContentProps {
 	searchTerm: string;
 	searchResult: SearchResultType;
@@ -17,7 +17,7 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	const hasComment = searchResult.commentCount > 0;
 	const { firstLine, secondLine } = splitIntoTwoLines(searchResult.content);
 	const date = formatDateForSearch(searchResult.createdAt);
-
+	const label = changeCodeToLabel(searchResult.category);
 	return (
 		<div
 			className={cn(
@@ -31,7 +31,7 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 			)}
 		>
 			<div className={cn("h-[7.6rem] w-[73.2rem]", "flex flex-col gap-[0.4rem]")}>
-				<p className={cn("title05 text-sub-blue text-left")}>{searchResult.category}</p>
+				<p className={cn("title05 text-sub-blue text-left")}>{label}</p>
 				<div>
 					<SearchHighlight
 						searchTerm={searchTerm}

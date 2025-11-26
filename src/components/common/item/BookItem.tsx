@@ -1,12 +1,12 @@
-import { truncateByLength } from "@/utils/truncate";
 import { cn } from "@/utils/cn";
+import { truncateByLength } from "@/utils/truncate";
 
 interface BookItemProps {
 	title: string;
 	price: number;
 }
 
-const MAX_TITLE_LENGTH = 8;
+const MAX_TITLE_LENGTH = 10;
 
 const BookItem = ({ title, price }: BookItemProps) => {
 	const truncatedTitle = truncateByLength(title, MAX_TITLE_LENGTH);

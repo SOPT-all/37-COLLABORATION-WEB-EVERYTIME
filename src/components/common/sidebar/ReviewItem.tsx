@@ -1,27 +1,28 @@
 import StarActive from "@/assets/icons/icon_star_active.svg?react";
 import StarInactive from "@/assets/icons/icon_star_inactive.svg?react";
+import type { ReviewsDataType } from "@/types/getReviewsResponse";
 import { cn } from "@/utils/cn";
 
-interface ReviewItemProps {
-	rate: number;
-	lectureTitle: string;
-	professorName: string;
-	reviewContent: string;
+interface ReviewsItemProps {
+	review: ReviewsDataType;
 }
 
 const MAX_STARS = 5;
 
-const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: ReviewItemProps) => {
+const ReviewItem = ({ review }: ReviewsItemProps) => {
+	const { rate, lecture, professor, content } = review;
 	const activeStars = Math.floor(rate);
 	const inactiveStars = MAX_STARS - activeStars;
 
 	return (
-		<article
+		<button
+			type="button"
 			className={cn(
-				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem]",
+				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem] text-left",
 				"border border-gray-400 bg-gray-100",
-				"cursor-pointer hover:bg-white",
+				"hover:bg-white",
 				"px-[0.9rem] py-[0.8rem]",
+				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
@@ -33,11 +34,11 @@ const ReviewItem = ({ rate, lectureTitle, professorName, reviewContent }: Review
 					<StarInactive key={`star-inactive-${idx}`} width={10} height={10} aria-hidden="true" />
 				))}
 			</div>
-			<p className={cn("title07 text-gray-800")}>
-				{lectureTitle}: {professorName}
+			<p className="title07 text-gray-800">
+				{lecture}: {professor}
 			</p>
-			<p className={cn("body07 h-[3.12rem] w-[26.2rem] overflow-hidden text-gray-600")}>{reviewContent}</p>
-		</article>
+			<p className={cn("body07 h-[3.12rem] w-[26.2rem] overflow-hidden text-gray-600")}>{content}</p>
+		</button>
 	);
 };
 

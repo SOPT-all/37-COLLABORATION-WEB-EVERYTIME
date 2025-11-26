@@ -10,11 +10,6 @@ interface FilterProps {
 	onSelect: (category: string) => void;
 }
 
-export interface FilterOptionProps {
-	id: number;
-	name: string;
-}
-
 const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isScrolling, setIsScrolling] = useState(false);
@@ -22,7 +17,7 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
 	const scrollRef = useRef<HTMLDivElement | null>(null);
 
-	const currentItem = FILTER_CATEGORY.find((item) => item.name === selectedCategory) ?? FILTER_CATEGORY[0];
+	const currentItem = FILTER_CATEGORY.find((item) => item.label === selectedCategory) ?? FILTER_CATEGORY[0];
 
 	const handleToggle = () => {
 		setIsOpen((prev) => !prev);
@@ -68,7 +63,7 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 					isOpen ? "border border-[var(--color-sub-blue)]" : "border border-[var(--color-gray-400)]",
 				)}
 			>
-				<span>{currentItem.name}</span>
+				<span>{currentItem.label}</span>
 				<img src={isOpen ? ArrowUpIcon : ArrowDownIcon} alt="옵션 토글" className="h-[1.8rem] w-[1.8rem] shrink-0" />
 			</button>
 
@@ -87,13 +82,13 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 					)}
 				>
 					{FILTER_CATEGORY.map((item) => {
-						const isSelected = item.name === currentItem.name;
+						const isSelected = item.label === currentItem.label;
 
 						return (
 							<button
 								key={item.id}
 								type="button"
-								onClick={() => handleSelect(item.name)}
+								onClick={() => handleSelect(item.label)}
 								className={cn(
 									"flex items-center",
 									"h-[4rem] w-full",
@@ -105,7 +100,7 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 									"shrink-0 self-stretch",
 								)}
 							>
-								{item.name}
+								{item.label}
 							</button>
 						);
 					})}

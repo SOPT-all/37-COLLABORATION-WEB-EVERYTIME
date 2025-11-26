@@ -1,57 +1,71 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 import { Pagination } from "@/components/SearchPage/pagination/Pagination";
-import { SearchWrapper } from "@/components/SearchPage/pagination/SearchWrapper";
+import { SearchResultList } from "@/components/SearchPage/SearchResultList";
+import { useSearchForm } from "@/hooks/useSearchForm";
 import { ALL_MOCK_POSTS, PAGE_SIZE } from "@/mocks/searchMock";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
 
 import { Filter } from "../Filter";
 import { SearchTextField } from "../SearchTextField";
+
 export const SearchContainer = () => {
-	const [category, setCategory] = useState("전체");
-	const [keyword, setKeyword] = useState("테스트");
-	// TODO: api 연동 시 response로부터 받아옴
+	const [searchParams, setSearchParams] = useSearchParams();
+	const navigate = useNavigate();
+
+	const initialCategory = searchParams.get("category") || "전체";
+	const initialKeyword = searchParams.get("keyword") || "";
+
+	const { category, keyword, onCategoryChange, onKeywordChange } = useSearchForm(initialCategory, initialKeyword);
+
+	// TODO: api 연동 시 삭제할 부분
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalElements] = useState(ALL_MOCK_POSTS.length);
 	const [totalPages] = useState(Math.ceil(totalElements / PAGE_SIZE));
-	const [hasPrevious, setHasPrevious] = useState(false);
-	const [hasNext, setHasNext] = useState(totalPages > 1);
-
-	// TODO: api 연동시 contents로 받아옴(지금은 임의로 slicing해서 구현)
 	const currentPageResults: SearchResultType[] = useMemo(() => {
 		const start = (currentPage - 1) * PAGE_SIZE;
 		const end = start + PAGE_SIZE;
 		return ALL_MOCK_POSTS.slice(start, end);
 	}, [currentPage]);
 
-	const handlePageChange = (page: number) => {
-		// TODO: post api 호출 예정
-		if (page === currentPage) return;
+	const handleSearch = (page: number) => {
+		setSearchParams({
+			category,
+			keyword,
+			page: String(page),
+		});
+
+		// TODO: api 연동 시 삭제
 		setCurrentPage(page);
-		setHasPrevious(page > 1);
-		setHasNext(page < totalPages);
 	};
 
-	const onKeywordChange = (newKeyword: string) => {
-		setKeyword(newKeyword);
-	};
+	useEffect(() => {
+		const urlCategory = searchParams.get("category") || "전체";
+		const urlKeyword = searchParams.get("keyword") || "";
+		const urlPage = Number(searchParams.get("page") || "1");
+
+		// TODO: 검색 api 연동
+		console.log("search api url:", `/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`);
+		navigate(`/search?category=${urlCategory}&keyword=${urlKeyword}&page=${urlPage}`, { replace: true });
+		window.scrollTo(0, 0);
+	}, [searchParams, navigate]);
 
 	return (
 		<section className={cn("flex flex-col items-center justify-center", "px-8", "w-full")}>
 			<div className={cn("flex gap-[0.4rem]")}>
-				<Filter selectedCategory={category} onSelect={setCategory} />
-				<SearchTextField variant="search" onKeywordChange={onKeywordChange} />
-			</div>
-			<SearchWrapper keyword={keyword} results={currentPageResults} />
-			{totalElements !== 0 && (
-				<Pagination
-					currentPage={currentPage}
-					totalPages={totalPages}
-					onPageChange={handlePageChange}
-					hasPrevious={hasPrevious}
-					hasNext={hasNext}
+				<Filter selectedCategory={category} onSelect={onCategoryChange} />
+				<SearchTextField
+					usage="search"
+					onKeywordChange={onKeywordChange}
+					keyword={keyword}
+					onSearch={() => handleSearch(1)}
 				/>
+			</div>
+			<SearchResultList keyword={keyword} results={currentPageResults} />
+			{totalElements !== 0 && (
+				<Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handleSearch} />
 			)}
 		</section>
 	);
