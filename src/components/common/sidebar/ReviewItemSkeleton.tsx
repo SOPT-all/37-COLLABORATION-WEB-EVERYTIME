@@ -14,4 +14,4 @@ const ReviewItemSkeleton = () => {
 	);
 };
 
-export default ReviewItemSkeleton;
+export { ReviewItemSkeleton };

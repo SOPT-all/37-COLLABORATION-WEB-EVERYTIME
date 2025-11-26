@@ -11,7 +11,7 @@ import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
-import ReviewItemSkeleton from "./ReviewItemSkeleton";
+import { ReviewItemSkeletonList } from "./ReviewItemSkeletonList";
 import { SidebarHeader } from "./SidebarHeader";
 import { PostsHotSkeletonList } from "./SimplePostItemSkeletonList";
 
@@ -53,16 +53,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<DelayedSuspense
-					fallback={
-						<div className="flex flex-col">
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-						</div>
-					}
-					delay={200}
-				>
+				<DelayedSuspense fallback={<ReviewItemSkeletonList />} delay={200}>
 					<ReviewContainer />
 				</DelayedSuspense>
 			</section>
