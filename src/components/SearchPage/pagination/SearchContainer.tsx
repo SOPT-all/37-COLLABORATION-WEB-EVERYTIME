@@ -15,7 +15,7 @@ export const SearchContainer = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const navigate = useNavigate();
 
-	const initialCategory = searchParams.get("category") || "전체";
+	const initialCategory = searchParams.get("category") || "ALL";
 	const initialKeyword = searchParams.get("keyword") || "";
 
 	const { category, keyword, onCategoryChange, onKeywordChange } = useSearchForm(initialCategory, initialKeyword);
@@ -42,7 +42,7 @@ export const SearchContainer = () => {
 	};
 
 	useEffect(() => {
-		const urlCategory = searchParams.get("category") || "전체";
+		const urlCategory = searchParams.get("category") || "ALL";
 		const urlKeyword = searchParams.get("keyword") || "";
 		const urlPage = Number(searchParams.get("page") || "1");
 

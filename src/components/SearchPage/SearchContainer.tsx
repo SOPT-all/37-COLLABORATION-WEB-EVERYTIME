@@ -17,7 +17,7 @@ export const SearchContainer = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	// 초기값 설정
-	const initialCategory = searchParams.get("category") || "전체";
+	const initialCategory = searchParams.get("category") || "ALL";
 	const initialKeyword = searchParams.get("keyword") || "";
 	const initialPage = Number(searchParams.get("page") || "1");
 
@@ -30,7 +30,6 @@ export const SearchContainer = () => {
 
 	const { data } = useGetPostsSearch(appliedKeyword, appliedCategory, appliedPage);
 	const responseData = data?.data as PostsSearchDataType | undefined;
-	console.log("search data:", data?.data);
 
 	// 엔터 또는 페이지네이션 클릭 시에만 호출
 	const handleSearch = (page: number = 1) => {
