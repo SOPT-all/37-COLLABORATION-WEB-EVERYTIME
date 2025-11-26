@@ -3,8 +3,10 @@ import { useLocation } from "react-router-dom";
 import { AD_IMAGES } from "@/constants/adImages";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 
 import { LivePostItem } from "./LivePostItem";
+import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
 import { MyHistory } from "./MyHistory";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewItem } from "./ReviewItem";
@@ -31,7 +33,9 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"실시간 인기 글"} isMore={false} />
-				<LivePostItem />
+				<DelayedSuspense fallback={<LivePostItemSkeleton />} delay={200}>
+					<LivePostItem />
+				</DelayedSuspense>
 			</section>
 
 			<section>
