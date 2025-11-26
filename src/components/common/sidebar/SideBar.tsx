@@ -12,8 +12,8 @@ import { PostsHotContainer } from "./PostsHotContainer";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
 import ReviewItemSkeleton from "./ReviewItemSkeleton";
-import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
+import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 
 function Sidebar() {
 	const { pathname } = useLocation();
