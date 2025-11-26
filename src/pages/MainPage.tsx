@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
-import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import AdImg from "@/assets/images/img_ad1.png";
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
 import Book from "@/components/MainPage/Book";
