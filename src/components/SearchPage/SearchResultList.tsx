@@ -3,7 +3,7 @@ import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
 
 import { SearchContent } from "./SearchContent";
-import { SearchContentSkeleton } from "./SearchContentSkeleton";
+import { SearchContentSkeletonList } from "./SearchContentSkeleton";
 interface SearchWrapperProps {
 	keyword: string;
 	results: SearchResultType[];
@@ -12,16 +12,7 @@ const SearchResultList = ({ keyword, results }: SearchWrapperProps) => {
 	const { isLoading } = useGetPostsSearch(keyword);
 
 	if (isLoading) {
-		return (
-			<div className={cn("flex flex-col", "body05 text-gray-600", "border-t border-gray-400")}>
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-			</div>
-		);
+		return <SearchContentSkeletonList />;
 	}
 
 	return (
