@@ -9,11 +9,11 @@ import { LivePostItem } from "./LivePostItem";
 import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
 import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
+import { PostsHotContainerSkeleton } from "./PostsHotContainerSkeleton";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
-import { ReviewItemSkeleton } from "./ReviewItemSkeleton";
+import { ReviewContainerSkeleton } from "./ReviewContainerSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
-import { SimplePostItemSkeletonList } from "./SimplePostItemSkeletonList";
 
 function Sidebar() {
 	const { pathname } = useLocation();
@@ -42,7 +42,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title="HOT 게시물" isMore={true} />
-				<DelayedSuspense fallback={<SimplePostItemSkeletonList />} delay={200}>
+				<DelayedSuspense fallback={<PostsHotContainerSkeleton />} delay={200}>
 					<PostsHotContainer />
 				</DelayedSuspense>
 			</section>
@@ -53,7 +53,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<DelayedSuspense fallback={<ReviewItemSkeleton />} delay={200}>
+				<DelayedSuspense fallback={<ReviewContainerSkeleton />} delay={200}>
 					<ReviewContainer />
 				</DelayedSuspense>
 			</section>

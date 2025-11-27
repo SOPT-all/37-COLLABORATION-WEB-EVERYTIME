@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 
-const ReviewItemSkeleton = () => {
+const ReviewContainerSkeleton = () => {
 	const ReviewItemSkeletonItem = () => (
 		<article
 			className={cn(
@@ -23,4 +23,4 @@ const ReviewItemSkeleton = () => {
 	);
 };
 
-export { ReviewItemSkeleton };
+export { ReviewContainerSkeleton };
