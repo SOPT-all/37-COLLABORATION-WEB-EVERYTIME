@@ -1,6 +1,6 @@
 import type { BoardGroupsItemType } from "@/types/lnb";
 
-export const BADGE_BOARDS: string[] = [
+const BADGES: string[] = [
 	"자유게시판",
 	"비밀게시판",
 	"졸업생게시판",
@@ -16,7 +16,7 @@ export const BADGE_BOARDS: string[] = [
 	"교환학생 게시판🌏",
 ] as const;
 
-export const BOARD_GROUPS: BoardGroupsItemType[] = [
+const BOARD_GROUPS: BoardGroupsItemType[] = [
 	{
 		groupName: "general",
 		boards: [
@@ -48,3 +48,17 @@ export const BOARD_GROUPS: BoardGroupsItemType[] = [
 		boards: ["퀴어 게시판", "아대중고나라", "아대세끼", "교환학생 게시판🌏", "주식↗"],
 	},
 ] as const;
+
+const FOOTER_LIST = [
+	{ label: "이용약관", className: "caption02" },
+	{ label: "개인정보처리방침", className: "body02" },
+	{ label: "청소년보호정책", className: "caption02" },
+	{ label: "커뮤니티이용규칙", className: "caption02" },
+	{ label: "공지사항", className: "caption02" },
+	{ label: "문의하기", className: "caption02" },
+	{ label: "© 에브리타임", className: "body02" },
+];
+
+const NAV_LIST = ["게시판", "시간표", "강의실", "학점계산기", "친구", "책방", "캠퍼스픽"];
+
+export { BOARD_GROUPS, BADGES, FOOTER_LIST, NAV_LIST };

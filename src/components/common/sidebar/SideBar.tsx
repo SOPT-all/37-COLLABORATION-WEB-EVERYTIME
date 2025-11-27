@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
-import { AD_IMAGES } from "@/constants/adImages";
+import { AD_IMAGES } from "@/constants/adImageList";
 import { ROUTES } from "@/constants/routes";
 import { cn } from "@/utils/cn";
 

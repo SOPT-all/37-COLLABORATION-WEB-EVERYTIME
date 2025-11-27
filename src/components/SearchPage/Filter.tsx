@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import ArrowDownIcon from "@/assets/icons/icon_down.svg";
 import ArrowUpIcon from "@/assets/icons/icon_up.svg";
-import { FILTER_CATEGORY } from "@/constants/filterCategory";
+import { FILTER_CATEGORY } from "@/constants/category";
 import { cn } from "@/utils/cn";
 
 interface FilterProps {

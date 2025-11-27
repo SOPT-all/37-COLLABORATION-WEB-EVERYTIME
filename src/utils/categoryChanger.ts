@@ -1,6 +1,6 @@
-import type { CategoryCode } from "@/constants/filterCategory";
-import type { CategoryLabel } from "@/constants/filterCategory";
-import { LABEL_TO_CODE } from "@/constants/filterCategory";
+import type { CategoryCode } from "@/constants/category";
+import type { CategoryLabel } from "@/constants/category";
+import { LABEL_TO_CODE } from "@/constants/category";
 
 const categoryKorToEng = (label: string): CategoryCode => {
 	const code = LABEL_TO_CODE[label as CategoryLabel];
