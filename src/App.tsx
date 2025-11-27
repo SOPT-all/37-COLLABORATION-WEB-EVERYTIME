@@ -6,7 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import "@/index.css";
 import "@/theme.css";
 
-import { router } from "@/routes";
+import { router } from "@/routes/appRoutes";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
