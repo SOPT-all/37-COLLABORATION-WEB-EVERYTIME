@@ -9,8 +9,8 @@ import { changeLabelToCode } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 
 import { Filter } from "./Filter";
-import { SearchResult } from "./SearchResult";
 import { SearchContentSkeletonList } from "./SearchContentSkeleton";
+import { SearchResult } from "./SearchResult";
 import { SearchResultList } from "./SearchResultList";
 import { SearchTextField } from "./SearchTextField";
 
