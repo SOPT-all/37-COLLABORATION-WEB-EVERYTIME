@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { useGetPostsSearch } from "@/apis/queries";
-import { Filter } from "@/components/SearchPage/Filter";
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
+import { Filter } from "@/components/SearchPage/Filter";
 import { Pagination } from "@/components/SearchPage/Pagination";
+import { SearchContentSkeletonList } from "@/components/SearchPage/SearchContentSkeleton";
 import { SearchResult } from "@/components/SearchPage/SearchResult";
 import { SearchResultList } from "@/components/SearchPage/SearchResultList";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
-import { SearchContentSkeletonList } from "@/components/SearchPage/SearchContentSkeleton";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { changeLabelToCode } from "@/utils/changeLabelToCode";
