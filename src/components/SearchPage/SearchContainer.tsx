@@ -5,7 +5,7 @@ import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { Pagination } from "@/components/SearchPage/Pagination";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
-import { changeLabelToCode } from "@/utils/changeLabelToCode";
+import { categoryKorToEng } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 
 import { Filter } from "./Filter";
@@ -41,7 +41,7 @@ export const SearchContainer = () => {
 
 		// URL 쿼리 동기화
 		setSearchParams({
-			category: changeLabelToCode(category),
+			category: categoryKorToEng(category),
 			keyword,
 			page: String(page),
 		});
