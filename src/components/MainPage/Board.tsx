@@ -1,10 +1,10 @@
 import { EMPTY_POSTS } from "@/constants/postsCount";
-import type { BoardData } from "@/types/board";
+import type { PostsDataType } from "@/types/getPostsResponse";
 import { cn } from "@/utils/cn";
 
 import { BoardItem } from "./BoardItem";
 
-const Board = ({ category, posts }: BoardData) => {
+const Board = ({ category, posts }: PostsDataType) => {
 	const isPostsEmpty = posts.length === EMPTY_POSTS;
 	return (
 		<div>
