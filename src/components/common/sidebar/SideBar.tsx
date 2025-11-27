@@ -11,7 +11,7 @@ import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
-import ReviewItemSkeleton from "./ReviewItemSkeleton";
+import { ReviewItemSkeleton } from "./ReviewItemSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
 import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 

@@ -59,8 +59,8 @@ const Filter = ({ selectedCategory, onSelect }: FilterProps) => {
 					"h-[4rem] w-[17.4rem]",
 					"py-[0.2rem] pr-[0.6rem] pl-[1.2rem]",
 					"bg-[var(--color-white)]",
-					"body05 text-[var(--color-gray-700)]",
-					isOpen ? "border border-[var(--color-sub-blue)]" : "border border-[var(--color-gray-400)]",
+					"body05 text-gray-700]",
+					isOpen ? "border border-[var(--color-sub-blue)]" : "border border-gray-400",
 				)}
 			>
 				<span>{currentItem.label}</span>
