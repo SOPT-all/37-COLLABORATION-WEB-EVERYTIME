@@ -59,8 +59,18 @@ function Sidebar() {
 			</section>
 
 			{isHomePage &&
-				AD_IMAGES.map(({ src, alt }) => (
-					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
+				AD_IMAGES.map(({ src1x, src2x, src3x, alt }) => (
+					<img
+						key={alt}
+						src={src1x}
+						srcSet={`${src1x} 1x, ${src2x} 2x, ${src3x} 3x`}
+						alt={alt}
+						width={280}
+						height={187}
+						loading="lazy"
+						decoding="async"
+						className="h-auto w-[28rem] object-contain"
+					/>
 				))}
 		</aside>
 	);

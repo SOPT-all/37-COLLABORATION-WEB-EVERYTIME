@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import AdImg from "@/assets/images/img_ad1.png";
+import AdImg1x from "@/assets/images/img_ad1-1x.webp";
+import AdImg2x from "@/assets/images/img_ad1-2x.webp";
+import AdImg3x from "@/assets/images/img_ad1-3x.webp";
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
@@ -23,7 +25,17 @@ const MainPage = () => {
 			<div className="flex flex-col gap-[0.4rem]">
 				<SearchTextField usage="main" keyword={keyword} onKeywordChange={onKeywordChange} onSearch={handleSearch} />
 				<aside>
-					<img src={AdImg} alt="광고 배너" className="h-[20.8rem] w-[78rem]" />
+					<img
+						src={AdImg1x}
+						srcSet={`${AdImg1x} 1x, ${AdImg2x} 2x, ${AdImg3x} 3x`}
+						alt="광고 배너"
+						width={780}
+						height={208}
+						fetchPriority="high"
+						loading="eager"
+						decoding="async"
+						className="h-[20.8rem] w-[78rem]"
+					/>
 				</aside>
 				<DelayedSuspense fallback={<BoardContainerSkeleton />} delay={200}>
 					<BoardContainer />
