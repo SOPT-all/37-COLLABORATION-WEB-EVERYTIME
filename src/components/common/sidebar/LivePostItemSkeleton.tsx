@@ -10,6 +10,8 @@ const LivePostItemSkeleton = () => {
 				"border border-gray-400",
 				"bg-gray-100",
 				"animate-pulse",
+				"[&:first-child]:border-t-0",
+				"[&:not(:first-child)]:-mt-[1px]",
 			)}
 		>
 			{/* 제목 스켈레톤 */}
