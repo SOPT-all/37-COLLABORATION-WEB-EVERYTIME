@@ -31,8 +31,8 @@ const getMarket = () => {
 	return get<GetMarketResponse>(END_URL.GET_MARKET);
 };
 
-const getPostsRealtime = async () => {
-	return await get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
+const getPostsRealtime = () => {
+	return get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
 };
 
 export { getReviews, getPostsSearch, getPosts, getMarket, getPostsRealtime, getPostsHot };
