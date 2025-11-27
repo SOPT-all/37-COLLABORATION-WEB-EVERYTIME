@@ -1,5 +1,5 @@
 import DividerIcon from "@/assets/icons/footer_divider.svg";
-import { FOOTER_LIST } from "@/constants/header";
+import { FOOTER_LIST } from "@/constants/footer";
 import { cn } from "@/utils/cn";
 
 const Footer = () => {
@@ -27,12 +27,12 @@ const Footer = () => {
 			</div>
 
 			<div className="mt-[1.7rem] flex flex-wrap items-center gap-[0.8rem]">
-				{FOOTER_LIST.map((item, i) => (
+				{FOOTER_LIST.map((item, idx) => (
 					<div key={item.label} className="flex items-center gap-[0.8rem]">
 						<button type="button" className={item.className}>
 							{item.label}
 						</button>
-						{i !== FOOTER_LIST.length - 1 && <img src={DividerIcon} alt="구분선" className="h-[1rem]" />}
+						{idx !== FOOTER_LIST.length - 1 && <img src={DividerIcon} alt="구분선" className="h-[1rem]" />}
 					</div>
 				))}
 			</div>
