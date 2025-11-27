@@ -1,8 +1,7 @@
+import { BoardItem } from "@/components/MainPage/BoardItem";
 import { EMPTY_POSTS } from "@/constants/postsCount";
 import type { BoardData } from "@/types/board";
 import { cn } from "@/utils/cn";
-
-import { BoardItem } from "./BoardItem";
 
 const Board = ({ category, posts }: BoardData) => {
 	const isPostsEmpty = posts.length === EMPTY_POSTS;

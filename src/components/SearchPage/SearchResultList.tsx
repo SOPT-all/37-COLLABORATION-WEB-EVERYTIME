@@ -1,9 +1,9 @@
 import { useGetPostsSearch } from "@/apis/queries";
+import { SearchContent } from "@/components/SearchPage/SearchContent";
+import { SearchContentSkeleton } from "@/components/SearchPage/SearchContentSkeleton";
 import type { SearchResultType } from "@/types/search";
 import { cn } from "@/utils/cn";
 
-import { SearchContent } from "./SearchContent";
-import { SearchContentSkeleton } from "./SearchContentSkeleton";
 interface SearchWrapperProps {
 	keyword: string;
 	results: SearchResultType[];

@@ -2,16 +2,15 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { useGetPostsSearch } from "@/apis/queries";
+import { Filter } from "@/components/SearchPage/Filter";
 import { Pagination } from "@/components/SearchPage/Pagination";
+import { SearchResult } from "@/components/SearchPage/SearchResult";
+import { SearchResultList } from "@/components/SearchPage/SearchResultList";
+import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { changeLabelToCode } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
-
-import { Filter } from "./Filter";
-import { SearchResult } from "./SearchResult";
-import { SearchResultList } from "./SearchResultList";
-import { SearchTextField } from "./SearchTextField";
 
 export const SearchContainer = () => {
 	const [searchParams, setSearchParams] = useSearchParams();

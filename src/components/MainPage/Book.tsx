@@ -2,9 +2,8 @@ import { useState } from "react";
 
 import { useGetMarket } from "@/apis/queries";
 import Logo from "@/assets/images/logo.svg?react";
+import { BookItem } from "@/components/common/item/BookItem";
 import type { MarketDataType } from "@/types/getMarketResponse";
-
-import { BookItem } from "../common/item/BookItem";
 
 const Book = () => {
 	const { data: marketResponse } = useGetMarket();
