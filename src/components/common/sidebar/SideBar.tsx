@@ -60,7 +60,15 @@ function Sidebar() {
 
 			{isHomePage &&
 				AD_IMAGES.map(({ src, alt }) => (
-					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
+					<img
+						key={alt}
+						src={src}
+						alt={alt}
+						height={748}
+						loading="lazy"
+						decoding="async"
+						className="h-auto w-[28rem] object-contain"
+					/>
 				))}
 		</aside>
 	);
