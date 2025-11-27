@@ -18,7 +18,7 @@ const Header = () => {
 	const [isLnbOpen, setIsLnbOpen] = useState(false);
 
 	// lnb 오픈 가능 여부 판단
-	const isValidBoardContext = (() => {
+	const isValidLNBContext = (() => {
 		const path = location.pathname;
 		if (path === "/") return true;
 
@@ -36,12 +36,12 @@ const Header = () => {
 	};
 
 	const handleBoardHover = () => {
-		if (!isValidBoardContext) return;
+		if (!isValidLNBContext) return;
 		if (!isLnbOpen) setIsLnbOpen(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (!isValidBoardContext) return;
+		if (!isValidLNBContext) return;
 		if (isLnbOpen) setIsLnbOpen(false);
 	};
 
@@ -73,7 +73,7 @@ const Header = () => {
 			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
 			<UserButtonGroup />
 
-			{isValidBoardContext && <Lnb isOpen={isLnbOpen} />}
+			{isValidLNBContext && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
 };
