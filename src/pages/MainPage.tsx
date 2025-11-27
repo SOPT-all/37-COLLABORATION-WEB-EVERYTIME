@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
+import AdImg1x from "@/assets/images/img_ad1-1x.webp";
+import AdImg2x from "@/assets/images/img_ad1-2x.webp";
+import AdImg3x from "@/assets/images/img_ad1-3x.webp";
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
@@ -7,8 +10,6 @@ import Book from "@/components/MainPage/Book";
 import BookSkeleton from "@/components/MainPage/BookSkeleton";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
-
-import AdImg from "@/assets/images/img_ad1.webp";
 
 const MainPage = () => {
 	const { keyword, onKeywordChange } = useSearchForm();
@@ -25,10 +26,11 @@ const MainPage = () => {
 				<SearchTextField usage="main" keyword={keyword} onKeywordChange={onKeywordChange} onSearch={handleSearch} />
 				<aside>
 					<img
-						src={AdImg}
+						src={AdImg1x}
+						srcSet={`${AdImg1x} 1x, ${AdImg2x} 2x, ${AdImg3x} 3x`}
 						alt="광고 배너"
-						width={3120}
-						height={832}
+						width={780}
+						height={208}
 						fetchPriority="high"
 						loading="eager"
 						decoding="async"
