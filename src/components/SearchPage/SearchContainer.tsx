@@ -36,7 +36,7 @@ export const SearchContainer = () => {
 	const handleSearch = (page: number = 1) => {
 		// applied- 값들 업데이트 -> API 재호출
 		setAppliedCategory(category);
-		setAppliedKeyword(keyword);
+		setAppliedKeyword(keyword.trim());
 		setAppliedPage(page);
 
 		// URL 쿼리 동기화
