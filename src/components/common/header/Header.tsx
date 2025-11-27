@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
@@ -12,12 +12,23 @@ import { UserButtonGroup } from "./UserButtonGroup";
 const Header = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
+	const [searchParams] = useSearchParams();
 
 	const currentPage = "게시판";
 	const [isLnbOpen, setIsLnbOpen] = useState(false);
 
-	// 메인 or 검색 결과 페이지에서만 LNB 활성
-	const isBoardEnabled = location.pathname === ROUTES.HOME || location.pathname.startsWith(ROUTES.SEARCH); // 예: "/search"
+	// lnb 오픈 가능 여부 판단
+	const isValidBoardContext = (() => {
+		const path = location.pathname;
+		if (path === "/") return true;
+
+		if (path === "/search") {
+			const keyword = searchParams.get("keyword") ?? "";
+			return keyword.trim().length > 0;
+		}
+
+		return false;
+	})();
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
@@ -25,17 +36,13 @@ const Header = () => {
 	};
 
 	const handleBoardHover = () => {
-		if (!isBoardEnabled) return;
-		if (!isLnbOpen) {
-			setIsLnbOpen(true);
-		}
+		if (!isValidBoardContext) return;
+		if (!isLnbOpen) setIsLnbOpen(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (!isBoardEnabled) return;
-		if (isLnbOpen) {
-			setIsLnbOpen(false);
-		}
+		if (!isValidBoardContext) return;
+		if (isLnbOpen) setIsLnbOpen(false);
 	};
 
 	return (
@@ -63,13 +70,10 @@ const Header = () => {
 				</div>
 			</div>
 
-			{/* 게시판 메뉴 hover 시에만 LNB 열기 (비활성 페이지에서는 no-op) */}
-			<Navbar currentPage={currentPage} onBoardHover={isBoardEnabled ? handleBoardHover : undefined} />
-
+			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
 			<UserButtonGroup />
 
-			{/* LNB도 활성 페이지에서만 렌더링 + 상태 true일 때만 열기 */}
-			{isBoardEnabled && <Lnb isOpen={isLnbOpen} />}
+			{isValidBoardContext && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
 };

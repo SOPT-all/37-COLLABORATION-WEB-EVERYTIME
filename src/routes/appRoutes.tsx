@@ -3,7 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/layouts/MainLayout";
 import { ErrorPage } from "@/pages/ErrorPage";
 import { MainPage } from "@/pages/MainPage";
-import { SearchRoute } from "@/routes/searchRoute";
+import { SearchPage } from "@/pages/SearchPage";
+import { searchLoader } from "@/utils/searchLoader";
 
 export const router = createBrowserRouter([
 	{
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "search",
-				element: <SearchRoute />,
+				element: <SearchPage />,
+				loader: searchLoader,
 			},
 		],
 	},
@@ -27,6 +29,9 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: "*",
-		element: <ErrorPage />,
+		lazy: async () => {
+			const { ErrorPage } = await import("@/pages/ErrorPage");
+			return { Component: ErrorPage };
+		},
 	},
 ]);
