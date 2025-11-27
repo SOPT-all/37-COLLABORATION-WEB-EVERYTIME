@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { AD_IMAGES } from "@/constants/adImageList";
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants/paths";
 import { cn } from "@/utils/cn";
 
 import { LivePostItem } from "./LivePostItem";

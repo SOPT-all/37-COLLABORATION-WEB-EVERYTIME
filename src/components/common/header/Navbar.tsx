@@ -1,4 +1,4 @@
-import { NAV_LIST } from "@/constants/constants";
+import { NAV_LIST } from "@/constants/header";
 import { cn } from "@/utils/cn";
 
 interface NavbarProps {

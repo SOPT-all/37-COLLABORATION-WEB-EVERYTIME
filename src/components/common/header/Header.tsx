@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants/paths";
 import { cn } from "@/utils/cn";
 
 import { Navbar } from "./Navbar";

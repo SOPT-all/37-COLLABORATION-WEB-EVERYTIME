@@ -1,5 +1,5 @@
 import DividerIcon from "@/assets/icons/footer_divider.svg";
-import { FOOTER_LIST } from "@/constants/constants";
+import { FOOTER_LIST } from "@/constants/header";
 import { cn } from "@/utils/cn";
 
 const Footer = () => {

@@ -1,6 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
 
-import { BOARD_GROUPS, BADGES } from "@/constants/constants";
+import { BOARD_GROUPS, BADGES } from "@/constants/header";
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
 import { splitGroupBoards } from "@/utils/splitGroupBoards";
