@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 
-export const PostsHotContainerSkeleton = () => {
+const PostsHotContainerSkeleton = () => {
 	const SimplePostItemSkeleton = () => (
 		<div
 			className={cn(
@@ -26,3 +26,5 @@ export const PostsHotContainerSkeleton = () => {
 		</div>
 	);
 };
+
+export { PostsHotContainerSkeleton };

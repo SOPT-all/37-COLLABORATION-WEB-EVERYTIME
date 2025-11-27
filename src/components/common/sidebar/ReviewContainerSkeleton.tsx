@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 
 const ReviewContainerSkeleton = () => {
-	const ReviewItemSkeletonItem = () => (
+	const ReviewItemSkeleton = () => (
 		<article
 			className={cn(
 				"flex h-[9.8rem] w-[28rem] flex-col gap-[0.8rem] border border-gray-400 bg-gray-100 px-[0.9rem] py-[0.8rem]",
@@ -17,7 +17,7 @@ const ReviewContainerSkeleton = () => {
 	return (
 		<div className="flex flex-col">
 			{Array.from({ length: 3 }).map((_, idx) => (
-				<ReviewItemSkeletonItem key={idx} />
+				<ReviewItemSkeleton key={idx} />
 			))}
 		</div>
 	);
