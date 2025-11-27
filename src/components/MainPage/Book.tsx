@@ -34,6 +34,8 @@ const Book = () => {
 									alt={book.title}
 									width={152}
 									height={192}
+									loading="lazy"
+									decoding="async"
 									className="h-full w-full object-cover"
 									onError={() => handleImageError(book.id)}
 								/>
