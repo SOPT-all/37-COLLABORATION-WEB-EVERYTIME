@@ -157,34 +157,34 @@
 
 ### Coding Convention
 
-### 컴포넌트
+#### 컴포넌트
 
 - 공통 컴포넌트는 `common`에, 나머지는 페이지 별로 구분
 - 컴포넌트 명은 모두 **파스칼케이스**(ex)`LivePostItem`
 
-### 변수/상수
+#### 변수/상수
 
 - var 금지!
 - 상수의 경우 대문자 스네이크케이스(ex) `FILTER_CATEGORY`
 
-### 함수 & 훅
+#### 함수 & 훅
 
 - hooks: `use-` 접두어 사용
 - **화살표** 함수 우선 사용
 - utils: 함**수 export는 마지막 줄에 한 번에, name export** 방식
 - 이벤트 핸들러 함수는 `handle-` 접두어 사용(카멜케이스)
 
-### 타입
+#### 타입
 
 - interface 사용
 - 공통적으로 사용되는 타입(서버 api response, request, 배열 아이템 타입 등)은 types 폴더에 `~Type` 로 작성
 - **1회성 props 타입은 `~Props` 로 네이밍 통일**
 
-### API
+#### API
 
 - 네이밍: getReviews, getPostsSearch(카멜케이스)
 
-### 기타
+#### 기타
 
 - 유틸, 상수, 커스텀훅은 확장자 `.ts`
 - 시맨틱 태그 사용 지향, 단위는 `rem` 사용 (border와 같은 고정 크기는 `px`)
