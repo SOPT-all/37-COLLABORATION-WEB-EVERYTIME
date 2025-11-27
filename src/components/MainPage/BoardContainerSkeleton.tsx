@@ -2,7 +2,7 @@ import { cn } from "@/utils/cn";
 
 const BoardContainerSkeleton = () => {
 	return (
-		<section aria-label="게시판 목록" className="grid grid-cols-2 space-y-4 gap-x-[0.4rem]">
+		<section aria-label="게시판 목록" className="grid grid-cols-2 gap-x-[0.4rem]">
 			{Array.from({ length: 13 }).map((_, idx) => (
 				<div key={idx}>
 					{/* 카테고리 */}

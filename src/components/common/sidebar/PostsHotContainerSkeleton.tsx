@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 
-const SimplePostItemSkeleton = () => {
-	return (
+const PostsHotContainerSkeleton = () => {
+	const PostsHotItemSkeleton = () => (
 		<div
 			className={cn(
 				"flex items-center",
@@ -11,11 +11,20 @@ const SimplePostItemSkeleton = () => {
 				"bg-gray-100",
 				"[&:first-child]:border-t-0",
 				"[&:not(:first-child)]:-mt-[1px]",
+				"animate-pulse",
 			)}
 		>
 			<div className={cn("skeleton-base", "h-[1.8rem] w-full")} />
 		</div>
 	);
+
+	return (
+		<div className="flex flex-col">
+			{Array.from({ length: 4 }).map((_, idx) => (
+				<PostsHotItemSkeleton key={idx} />
+			))}
+		</div>
+	);
 };
 
-export { SimplePostItemSkeleton };
+export { PostsHotContainerSkeleton };

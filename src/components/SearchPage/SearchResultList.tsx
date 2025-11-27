@@ -1,28 +1,27 @@
+import { useEffect } from "react";
+
 import { useGetPostsSearch } from "@/apis/queries";
 import { SearchContent } from "@/components/SearchPage/SearchContent";
-import { SearchContentSkeleton } from "@/components/SearchPage/SearchContentSkeleton";
-import type { SearchResultType } from "@/types/search";
+import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { cn } from "@/utils/cn";
 
-interface SearchWrapperProps {
+interface SearchResultListProps {
 	keyword: string;
-	results: SearchResultType[];
+	category: string;
+	page: number;
+	onDataLoad: (data: PostsSearchDataType) => void;
 }
-const SearchResultList = ({ keyword, results }: SearchWrapperProps) => {
-	const { isLoading } = useGetPostsSearch(keyword);
 
-	if (isLoading) {
-		return (
-			<div className={cn("flex flex-col", "body05 text-gray-600", "border-t border-gray-400")}>
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-				<SearchContentSkeleton />
-			</div>
-		);
-	}
+const SearchResultList = ({ keyword, category, page, onDataLoad }: SearchResultListProps) => {
+	const { data } = useGetPostsSearch(keyword, category, page);
+	const responseData = data?.data as PostsSearchDataType | undefined;
+	const results = responseData?.posts || [];
+
+	useEffect(() => {
+		if (responseData && onDataLoad) {
+			onDataLoad(responseData);
+		}
+	}, [responseData, onDataLoad]);
 
 	return (
 		<>

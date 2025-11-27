@@ -9,11 +9,11 @@ import { LivePostItem } from "./LivePostItem";
 import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
 import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
+import { PostsHotContainerSkeleton } from "./PostsHotContainerSkeleton";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
-import { ReviewItemSkeleton } from "./ReviewItemSkeleton";
+import { ReviewContainerSkeleton } from "./ReviewContainerSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
-import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 
 function Sidebar() {
 	const { pathname } = useLocation();
@@ -41,20 +41,8 @@ function Sidebar() {
 			</section>
 
 			<section>
-				<DelayedSuspense
-					fallback={
-						<>
-							<SidebarHeader title="HOT 게시물" isMore={true} />
-							<div className="flex flex-col">
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-							</div>
-						</>
-					}
-					delay={200}
-				>
+				<SidebarHeader title="HOT 게시물" isMore={true} />
+				<DelayedSuspense fallback={<PostsHotContainerSkeleton />} delay={200}>
 					<PostsHotContainer />
 				</DelayedSuspense>
 			</section>
@@ -65,16 +53,7 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<DelayedSuspense
-					fallback={
-						<div className="flex flex-col">
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-						</div>
-					}
-					delay={200}
-				>
+				<DelayedSuspense fallback={<ReviewContainerSkeleton />} delay={200}>
 					<ReviewContainer />
 				</DelayedSuspense>
 			</section>
