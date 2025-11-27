@@ -10,7 +10,7 @@ interface SearchResultListProps {
 	keyword: string;
 	category: string;
 	page: number;
-	onDataLoad?: (data: PostsSearchDataType) => void;
+	onDataLoad: (data: PostsSearchDataType) => void;
 }
 
 const SearchResultList = ({ keyword, category, page, onDataLoad }: SearchResultListProps) => {
