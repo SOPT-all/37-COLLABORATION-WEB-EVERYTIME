@@ -26,4 +26,4 @@ const BookSkeleton = () => {
 	);
 };
 
-export default BookSkeleton;
+export { BookSkeleton };

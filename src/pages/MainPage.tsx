@@ -4,8 +4,8 @@ import AdImg from "@/assets/images/img_ad1.png";
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { BoardContainer } from "@/components/MainPage/BoardContainer";
 import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
-import Book from "@/components/MainPage/Book";
-import BookSkeleton from "@/components/MainPage/BookSkeleton";
+import { Book } from "@/components/MainPage/Book";
+import { BookSkeleton } from "@/components/MainPage/BookSkeleton";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 

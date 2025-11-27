@@ -12,7 +12,7 @@ import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { changeLabelToCode } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 
-export const SearchContainer = () => {
+const SearchContainer = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	// 초기값 설정
@@ -73,3 +73,5 @@ export const SearchContainer = () => {
 		</section>
 	);
 };
+
+export { SearchContainer };
