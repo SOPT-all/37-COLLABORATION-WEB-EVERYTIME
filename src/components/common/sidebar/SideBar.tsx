@@ -90,7 +90,7 @@ function Sidebar() {
 						height={187}
 						loading="lazy"
 						decoding="async"
-						className="h-auto w-[28rem] object-contain"
+						className="h-[18.7rem] w-[28rem] object-contain"
 					/>
 				))}
 		</aside>
