@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { useGetPostsSearch } from "@/apis/queries";
+import { DelayedSuspense } from "@/components/common/DelayedSuspense";
 import { Pagination } from "@/components/SearchPage/Pagination";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
@@ -9,6 +9,7 @@ import { changeLabelToCode } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 
 import { Filter } from "./Filter";
+import { SearchContentSkeletonList } from "./SearchContentSkeleton";
 import { SearchResult } from "./SearchResult";
 import { SearchResultList } from "./SearchResultList";
 import { SearchTextField } from "./SearchTextField";
@@ -28,8 +29,8 @@ export const SearchContainer = () => {
 	const [appliedKeyword, setAppliedKeyword] = useState(initialKeyword);
 	const [appliedPage, setAppliedPage] = useState(initialPage);
 
-	const { data } = useGetPostsSearch(appliedKeyword, appliedCategory, appliedPage);
-	const responseData = data?.data as PostsSearchDataType | undefined;
+	// 페이지네이션 정보를 저장
+	const [paginationData, setPaginationData] = useState<PostsSearchDataType | null>(null);
 
 	// 엔터 또는 페이지네이션 클릭 시에만 호출
 	const handleSearch = (page: number = 1) => {
@@ -62,12 +63,19 @@ export const SearchContainer = () => {
 				/>
 			</div>
 			<SearchResult keyword={appliedKeyword} />
-			<SearchResultList keyword={appliedKeyword} results={responseData?.posts || []} />
+			<DelayedSuspense fallback={<SearchContentSkeletonList />} delay={200}>
+				<SearchResultList
+					keyword={appliedKeyword}
+					category={appliedCategory}
+					page={appliedPage}
+					onDataLoad={setPaginationData}
+				/>
+			</DelayedSuspense>
 
-			{responseData?.totalSize !== 0 && (
+			{paginationData && paginationData.totalSize !== 0 && (
 				<Pagination
-					currentPage={responseData?.currentPage || 1}
-					totalPages={responseData?.totalPages || 1}
+					currentPage={paginationData.currentPage || 1}
+					totalPages={paginationData.totalPages || 1}
 					onPageChange={handleSearch}
 				/>
 			)}
