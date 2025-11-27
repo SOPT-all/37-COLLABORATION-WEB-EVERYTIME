@@ -51,4 +51,4 @@ const Book = () => {
 	);
 };
 
-export default Book;
+export { Book };
