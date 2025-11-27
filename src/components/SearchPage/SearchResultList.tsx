@@ -1,12 +1,12 @@
 import { useGetPostsSearch } from "@/apis/queries";
-import type { SearchResultType } from "@/types/search";
+import type { PostsSearchPostsType } from "@/types/getPostsSearchResponse";
 import { cn } from "@/utils/cn";
 
 import { SearchContent } from "./SearchContent";
 import { SearchContentSkeleton } from "./SearchContentSkeleton";
 interface SearchWrapperProps {
 	keyword: string;
-	results: SearchResultType[];
+	results: PostsSearchPostsType[];
 }
 const SearchResultList = ({ keyword, results }: SearchWrapperProps) => {
 	const { isLoading } = useGetPostsSearch(keyword);
