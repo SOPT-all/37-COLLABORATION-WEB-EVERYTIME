@@ -1,6 +1,6 @@
 import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
-import type { SearchResultType } from "@/types/search";
+import type { PostsSearchPostsType } from "@/types/getPostsSearchResponse";
 import { changeCodeToLabel } from "@/utils/changeLabelToCode";
 import { cn } from "@/utils/cn";
 import { formatDateForSearch } from "@/utils/formatDate";
@@ -9,7 +9,7 @@ import { splitIntoTwoLines } from "@/utils/highlight";
 import { SearchHighlight } from "./SearchHighlight";
 interface SearchContentProps {
 	searchTerm: string;
-	searchResult: SearchResultType;
+	searchResult: PostsSearchPostsType;
 }
 
 const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
