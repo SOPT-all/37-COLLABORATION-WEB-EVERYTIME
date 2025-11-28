@@ -1,6 +1,6 @@
 import type { BoardGroupsItemType } from "@/types/lnb";
 
-export const BADGE_BOARDS: string[] = [
+const BADGES: string[] = [
 	"자유게시판",
 	"비밀게시판",
 	"졸업생게시판",
@@ -16,7 +16,7 @@ export const BADGE_BOARDS: string[] = [
 	"교환학생 게시판🌏",
 ] as const;
 
-export const BOARD_GROUPS: BoardGroupsItemType[] = [
+const BOARD_GROUPS: BoardGroupsItemType[] = [
 	{
 		groupName: "general",
 		boards: [
@@ -48,3 +48,7 @@ export const BOARD_GROUPS: BoardGroupsItemType[] = [
 		boards: ["퀴어 게시판", "아대중고나라", "아대세끼", "교환학생 게시판🌏", "주식↗"],
 	},
 ] as const;
+
+const NAV_LIST = ["게시판", "시간표", "강의실", "학점계산기", "친구", "책방", "캠퍼스픽"];
+
+export { BOARD_GROUPS, BADGES, NAV_LIST };

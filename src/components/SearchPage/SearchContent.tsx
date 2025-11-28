@@ -2,7 +2,7 @@ import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { SearchHighlight } from "@/components/SearchPage/SearchHighlight";
 import type { PostsSearchPostsType } from "@/types/getPostsSearchResponse";
-import { changeCodeToLabel } from "@/utils/changeLabelToCode";
+import { categoryEngToKor } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 import { formatDateForSearch } from "@/utils/formatDate";
 import { splitIntoTwoLines } from "@/utils/highlight";
@@ -17,7 +17,7 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	const hasComment = searchResult.commentCount > 0;
 	const { firstLine, secondLine } = splitIntoTwoLines(searchResult.content);
 	const date = formatDateForSearch(searchResult.createdAt);
-	const label = changeCodeToLabel(searchResult.category);
+	const label = categoryEngToKor(searchResult.category);
 	return (
 		<div
 			className={cn(

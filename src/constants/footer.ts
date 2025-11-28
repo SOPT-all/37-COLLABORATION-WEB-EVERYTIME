@@ -1,4 +1,4 @@
-export const FOOTER_LINKS = [
+const FOOTER_LIST = [
 	{ label: "이용약관", className: "caption02" },
 	{ label: "개인정보처리방침", className: "body02" },
 	{ label: "청소년보호정책", className: "caption02" },
@@ -7,3 +7,5 @@ export const FOOTER_LINKS = [
 	{ label: "문의하기", className: "caption02" },
 	{ label: "© 에브리타임", className: "body02" },
 ];
+
+export { FOOTER_LIST };

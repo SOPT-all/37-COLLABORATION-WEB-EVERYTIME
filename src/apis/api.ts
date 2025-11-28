@@ -6,7 +6,7 @@ import type { GetPostsRealTimeResponse } from "@/types/getPostsRealtimeResponse"
 import type { GetPostsResponse } from "@/types/getPostsResponse";
 import type { GetPostsSearchResponse } from "@/types/getPostsSearchResponse";
 import type { GetReviewsResponse } from "@/types/getReviewsResponse";
-import { changeLabelToCode } from "@/utils/changeLabelToCode";
+import { categoryKorToEng } from "@/utils/categoryChanger";
 
 const getPostsHot = () => {
 	return get<GetPostsHotResponse>(END_URL.GET_POSTS_HOT);
@@ -17,7 +17,7 @@ const getReviews = () => {
 };
 
 const getPostsSearch = (keyword: string, category: string, page: number) => {
-	const categoryCode = changeLabelToCode(category);
+	const categoryCode = categoryKorToEng(category);
 	return get<GetPostsSearchResponse>(
 		`${END_URL.GET_POSTS_SEARCH}?category=${categoryCode}&keyword=${encodeURIComponent(keyword)}&page=${page}`,
 	);
@@ -31,8 +31,8 @@ const getMarket = () => {
 	return get<GetMarketResponse>(END_URL.GET_MARKET);
 };
 
-const getPostsRealtime = async () => {
-	return await get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
+const getPostsRealtime = () => {
+	return get<GetPostsRealTimeResponse>(END_URL.GET_POSTS_REALTIME);
 };
 
 export { getReviews, getPostsSearch, getPosts, getMarket, getPostsRealtime, getPostsHot };

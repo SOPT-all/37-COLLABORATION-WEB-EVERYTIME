@@ -1,4 +1,4 @@
-import { GNB_LIST } from "@/constants/gnbList";
+import { NAV_LIST } from "@/constants/header";
 import { cn } from "@/utils/cn";
 
 interface NavbarProps {
@@ -8,7 +8,7 @@ interface NavbarProps {
 const Navbar = ({ currentPage, onBoardHover }: NavbarProps) => {
 	return (
 		<nav className={cn("h-full", "flex", "gap-[2.75rem]", "min-w-[48.3rem]")}>
-			{GNB_LIST.map((menu) => (
+			{NAV_LIST.map((menu) => (
 				<button
 					key={menu}
 					type="button"

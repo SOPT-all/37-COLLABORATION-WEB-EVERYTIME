@@ -2,7 +2,7 @@ import { Fragment } from "react/jsx-runtime";
 
 import { LnbItem } from "@/components/common/header/LnbItem";
 import { LnbSearch } from "@/components/common/header/LnbSearch";
-import { BOARD_GROUPS, BADGE_BOARDS } from "@/constants/boardList";
+import { BOARD_GROUPS, BADGES } from "@/constants/header";
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
 import { splitGroupBoards } from "@/utils/splitGroupBoards";
@@ -33,7 +33,7 @@ const Lnb = ({ isOpen }: LnbProps) => {
 					>
 						{column.map((board, boardIdx) => (
 							<Fragment key={board}>
-								<LnbItem title={board} hasBadge={BADGE_BOARDS.includes(board)} />
+								<LnbItem title={board} hasBadge={BADGES.includes(board)} />
 								{idx === columns.length - 1 && boardIdx === column.length - 1 && <LnbSearch />}
 							</Fragment>
 						))}

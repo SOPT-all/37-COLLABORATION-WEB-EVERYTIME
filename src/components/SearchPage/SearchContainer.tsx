@@ -10,7 +10,7 @@ import { SearchResultList } from "@/components/SearchPage/SearchResultList";
 import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
-import { changeLabelToCode } from "@/utils/changeLabelToCode";
+import { categoryKorToEng } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 
 const SearchContainer = () => {
@@ -35,12 +35,12 @@ const SearchContainer = () => {
 	const handleSearch = (page: number = 1) => {
 		// applied- 값들 업데이트 -> API 재호출
 		setAppliedCategory(category);
-		setAppliedKeyword(keyword);
+		setAppliedKeyword(keyword.trim());
 		setAppliedPage(page);
 
 		// URL 쿼리 동기화
 		setSearchParams({
-			category: changeLabelToCode(category),
+			category: categoryKorToEng(category),
 			keyword,
 			page: String(page),
 		});
