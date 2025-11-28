@@ -1,16 +1,16 @@
-import { useState, useCallback, type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 
 export const useSearchForm = (initialCategory: string = "ALL", initialKeyword: string = "") => {
 	const [category, setCategory] = useState(initialCategory);
 	const [keyword, setKeyword] = useState(initialKeyword);
 
-	const onCategoryChange = useCallback((newCategory: string) => {
+	const onCategoryChange = (newCategory: string) => {
 		setCategory(newCategory);
-	}, []);
+	};
 
-	const onKeywordChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+	const onKeywordChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setKeyword(e.target.value);
-	}, []);
+	};
 
 	return {
 		category,

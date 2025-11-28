@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
 import { SearchHighlight } from "@/components/SearchPage/SearchHighlight";
@@ -15,9 +17,10 @@ interface SearchContentProps {
 const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	const hasLike = searchResult.likeCount > 0;
 	const hasComment = searchResult.commentCount > 0;
-	const { firstLine, secondLine } = splitIntoTwoLines(searchResult.content);
-	const date = formatDateForSearch(searchResult.createdAt);
-	const label = categoryEngToKor(searchResult.category);
+	const { firstLine, secondLine } = useMemo(() => splitIntoTwoLines(searchResult.content), [searchResult.content]);
+	const date = useMemo(() => formatDateForSearch(searchResult.createdAt), [searchResult.createdAt]);
+	const label = useMemo(() => categoryEngToKor(searchResult.category), [searchResult.category]);
+
 	return (
 		<div
 			className={cn(

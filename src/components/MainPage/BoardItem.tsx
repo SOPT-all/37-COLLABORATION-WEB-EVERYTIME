@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import { cn } from "@/utils/cn";
 import { formatDateForList } from "@/utils/formatDate";
 
@@ -7,7 +9,8 @@ export interface ListProps {
 }
 
 const BoardItem = ({ content, createdAt }: ListProps) => {
-	const date = formatDateForList(createdAt);
+	const date = useMemo(() => formatDateForList(createdAt), [createdAt]);
+
 	return (
 		<button
 			type="button"

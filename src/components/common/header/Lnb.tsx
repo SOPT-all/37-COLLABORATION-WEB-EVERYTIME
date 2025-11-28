@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 import { LnbItem } from "@/components/common/header/LnbItem";
@@ -8,7 +9,7 @@ import { cn } from "@/utils/cn";
 import { splitGroupBoards } from "@/utils/splitGroupBoards";
 
 const Lnb = ({ isOpen }: LnbProps) => {
-	const columns = splitGroupBoards(BOARD_GROUPS, 8);
+	const columns = useMemo(() => splitGroupBoards(BOARD_GROUPS, 8), []);
 
 	return (
 		<section
