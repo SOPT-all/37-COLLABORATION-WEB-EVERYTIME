@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { useGetPostsSearch } from "@/apis/queries";
-import { SearchContent } from "@/components/SearchPage/SearchContent";
+import { SearchResultListItem } from "@/components/SearchPage/SearchResultList/SearchResultListItem";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { cn } from "@/utils/cn";
 
@@ -39,7 +39,7 @@ const SearchResultList = ({ keyword, category, page, onDataLoad }: SearchResultL
 			) : (
 				<div className={cn("flex flex-col", "border-t border-gray-400")}>
 					{results.map((item) => (
-						<SearchContent key={item.id} searchTerm={keyword} searchResult={item} />
+						<SearchResultListItem key={item.id} searchTerm={keyword} searchResult={item} />
 					))}
 				</div>
 			)}

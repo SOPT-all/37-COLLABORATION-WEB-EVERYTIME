@@ -1,7 +1,6 @@
+import { BoardItem } from "@/components/MainPage/BoardConatiner/BoardItem";
 import type { PostsDataType } from "@/types/getPostsResponse";
 import { cn } from "@/utils/cn";
-
-import { BoardItem } from "./BoardItem";
 
 const EMPTY_POSTS = 0;
 

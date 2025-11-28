@@ -1,10 +1,10 @@
 import { cn } from "@/utils/cn";
 
-interface SearchResultProps {
+interface SearchResultHeaderProps {
 	keyword: string;
 }
 
-const SearchResult = ({ keyword }: SearchResultProps) => {
+const SearchResultHeader = ({ keyword }: SearchResultHeaderProps) => {
 	return (
 		<div
 			className={cn(
@@ -20,4 +20,4 @@ const SearchResult = ({ keyword }: SearchResultProps) => {
 	);
 };
 
-export { SearchResult };
+export { SearchResultHeader };

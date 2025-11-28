@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { Footer } from "@/components/common/footer/Footer";
+import { Footer } from "@/components/common/Footer";
 import { Header } from "@/components/common/header/Header";
 import { Sidebar } from "@/components/common/sidebar/SideBar";
 

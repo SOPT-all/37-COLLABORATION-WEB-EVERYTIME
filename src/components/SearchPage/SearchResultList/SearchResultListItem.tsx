@@ -2,19 +2,19 @@ import { useMemo } from "react";
 
 import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
-import { SearchHighlight } from "@/components/SearchPage/SearchHighlight";
+import { SearchHighlight } from "@/components/SearchPage/SearchResultList/SearchHighlight";
 import type { PostsSearchPostsType } from "@/types/getPostsSearchResponse";
 import { categoryEngToKor } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 import { formatDateForSearch } from "@/utils/formatDate";
 import { splitIntoTwoLines } from "@/utils/highlight";
 
-interface SearchContentProps {
+interface SearchResultListItemProps {
 	searchTerm: string;
 	searchResult: PostsSearchPostsType;
 }
 
-const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
+const SearchResultListItem = ({ searchTerm, searchResult }: SearchResultListItemProps) => {
 	const hasLike = searchResult.likeCount > 0;
 	const hasComment = searchResult.commentCount > 0;
 	const { firstLine, secondLine } = useMemo(() => splitIntoTwoLines(searchResult.content), [searchResult.content]);
@@ -91,4 +91,4 @@ const SearchContent = ({ searchTerm, searchResult }: SearchContentProps) => {
 	);
 };
 
-export { SearchContent };
+export { SearchResultListItem };
