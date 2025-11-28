@@ -212,11 +212,11 @@
 
 | 담당자     | 담당 컴포넌트                                                |
 | ---------- | ------------------------------------------------------------ |
-| **이채영** | Header + LNB + LnbSearch, Pagination, GnbButton, SearchPage  |
-| **김어진** | SimplePostItem, Filter, SearchResult, Footer                 |
+| **이채영** | Header + LNB + LnbSearch, Pagination, GnbButton, SearchPage, ErrorPage  |
+| **김어진** | SimplePostItem, Filter, SearchResultHeader, Footer                 |
 | **김윤지** | LnbItem, ProfileItem, LivePostItem, SearchTextField, SideBar |
 | **백지연** | SidebarHeader, ReviewItem, MyHistory, BookItem, MainPage     |
-| **임서준** | Board, BoardItem, SearchContent, SearchHighlight             |
+| **임서준** | Board, BoardItem, SearchResultListItem, SearchHighlight             |
 
 <br/>
 

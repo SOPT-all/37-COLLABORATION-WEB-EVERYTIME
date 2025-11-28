@@ -3,12 +3,12 @@ import { useMemo } from "react";
 import { cn } from "@/utils/cn";
 import { formatDateForList } from "@/utils/formatDate";
 
-export interface ListProps {
+export interface BoardItemProps {
 	content: string;
 	createdAt: string;
 }
 
-const BoardItem = ({ content, createdAt }: ListProps) => {
+const BoardItem = ({ content, createdAt }: BoardItemProps) => {
 	const date = useMemo(() => formatDateForList(createdAt), [createdAt]);
 
 	return (

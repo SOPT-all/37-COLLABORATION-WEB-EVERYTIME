@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 
-const SearchContentSkeletonList = ({ count = 6 }: { count?: number }) => {
-	const SearchContentSkeletonItem = () => {
+const SearchResultListItemSkeleton = ({ count = 6 }: { count?: number }) => {
+	const SearchResultListItemSkeletonItem = () => {
 		const skeletonBars = [
 			{ width: "w-[6.5rem]" },
 			{ width: "w-[49.5rem]" },
@@ -32,10 +32,10 @@ const SearchContentSkeletonList = ({ count = 6 }: { count?: number }) => {
 	return (
 		<div className={cn("flex flex-col", "body05 text-gray-600", "border-t border-gray-400")}>
 			{Array.from({ length: count }, (_, index) => (
-				<SearchContentSkeletonItem key={index} />
+				<SearchResultListItemSkeletonItem key={index} />
 			))}
 		</div>
 	);
 };
 
-export { SearchContentSkeletonList };
+export { SearchResultListItemSkeleton };

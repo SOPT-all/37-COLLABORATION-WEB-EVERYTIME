@@ -4,11 +4,11 @@ import AdImg1x from "@/assets/images/img_ad1-1x.webp";
 import AdImg2x from "@/assets/images/img_ad1-2x.webp";
 import AdImg3x from "@/assets/images/img_ad1-3x.webp";
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
-import { BoardContainer } from "@/components/MainPage/BoardContainer";
-import { BoardContainerSkeleton } from "@/components/MainPage/BoardContainerSkeleton";
-import { Book } from "@/components/MainPage/Book";
-import { BookSkeleton } from "@/components/MainPage/BookSkeleton";
-import { SearchTextField } from "@/components/SearchPage/SearchTextField";
+import { BoardContainer } from "@/components/MainPage/BoardConatiner/BoardContainer";
+import { BoardContainerSkeleton } from "@/components/MainPage/BoardConatiner/BoardContainerSkeleton";
+import { Book } from "@/components/MainPage/Book/Book";
+import { BookSkeleton } from "@/components/MainPage/Book/BookSkeleton";
+import { SearchTextField } from "@/components/common/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 
 const MainPage = () => {

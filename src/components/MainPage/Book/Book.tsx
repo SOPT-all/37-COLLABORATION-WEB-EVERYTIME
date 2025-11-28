@@ -1,5 +1,5 @@
 import { useGetMarket } from "@/apis/queries";
-import { BookItem } from "@/components/common/item/BookItem";
+import { BookItem } from "@/components/MainPage/Book/BookItem";
 import type { MarketDataType } from "@/types/getMarketResponse";
 import { cn } from "@/utils/cn";
 

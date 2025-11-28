@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
+import { SearchTextField } from "@/components/common/SearchTextField";
 import { Filter } from "@/components/SearchPage/Filter";
 import { Pagination } from "@/components/SearchPage/Pagination";
-import { SearchContentSkeletonList } from "@/components/SearchPage/SearchContentSkeleton";
-import { SearchResult } from "@/components/SearchPage/SearchResult";
-import { SearchResultList } from "@/components/SearchPage/SearchResultList";
-import { SearchTextField } from "@/components/SearchPage/SearchTextField";
+import { SearchResultHeader } from "@/components/SearchPage/SearchResultHeader";
+import { SearchResultList } from "@/components/SearchPage/SearchResultList/SearchResultList";
+import { SearchResultListItemSkeleton } from "@/components/SearchPage/SearchResultList/SearchResultListItemSkeleton";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { categoryKorToEng } from "@/utils/categoryChanger";
@@ -30,18 +30,18 @@ const SearchContainer = () => {
 
 	// 페이지네이션 정보를 저장
 	const [paginationData, setPaginationData] = useState<PostsSearchDataType | null>(null);
-
 	// 엔터 또는 페이지네이션 클릭 시에만 호출
 	const handleSearch = useCallback(
 		(page: number = 1) => {
+			const engCategory = categoryKorToEng(category);
 			// applied- 값들 업데이트 -> API 재호출
-			setAppliedCategory(category);
+			setAppliedCategory(engCategory);
 			setAppliedKeyword(keyword.trim());
 			setAppliedPage(page);
 
 			// URL 쿼리 동기화
 			setSearchParams({
-				category: categoryKorToEng(category),
+				category: engCategory,
 				keyword,
 				page: String(page),
 			});
@@ -68,8 +68,8 @@ const SearchContainer = () => {
 					onSearch={() => handleSearch(1)}
 				/>
 			</div>
-			<SearchResult keyword={appliedKeyword} />
-			<DelayedSuspense fallback={<SearchContentSkeletonList />} delay={200}>
+			<SearchResultHeader keyword={appliedKeyword} />
+			<DelayedSuspense fallback={<SearchResultListItemSkeleton />} delay={200}>
 				<SearchResultList
 					keyword={appliedKeyword}
 					category={appliedCategory}
