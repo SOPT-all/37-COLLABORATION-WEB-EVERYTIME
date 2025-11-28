@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import type { PostsHotDataType } from "@/types/getPostsHotResponse";
 import { cn } from "@/utils/cn";
 import { formatDateWithTime } from "@/utils/formatDate";
@@ -9,7 +11,7 @@ interface SimplePostItemProps {
 
 const SimplePostItem = ({ post, onClick }: SimplePostItemProps) => {
 	const { title, createdAt } = post;
-	const formattedDate = formatDateWithTime(createdAt);
+	const formattedDate = useMemo(() => formatDateWithTime(createdAt), [createdAt]);
 
 	return (
 		<button
