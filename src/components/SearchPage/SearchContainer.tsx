@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
@@ -32,19 +32,26 @@ const SearchContainer = () => {
 	const [paginationData, setPaginationData] = useState<PostsSearchDataType | null>(null);
 
 	// 엔터 또는 페이지네이션 클릭 시에만 호출
-	const handleSearch = (page: number = 1) => {
-		// applied- 값들 업데이트 -> API 재호출
-		setAppliedCategory(category);
-		setAppliedKeyword(keyword.trim());
-		setAppliedPage(page);
+	const handleSearch = useCallback(
+		(page: number = 1) => {
+			// applied- 값들 업데이트 -> API 재호출
+			setAppliedCategory(category);
+			setAppliedKeyword(keyword.trim());
+			setAppliedPage(page);
 
-		// URL 쿼리 동기화
-		setSearchParams({
-			category: categoryKorToEng(category),
-			keyword,
-			page: String(page),
-		});
-	};
+			// URL 쿼리 동기화
+			setSearchParams({
+				category: categoryKorToEng(category),
+				keyword,
+				page: String(page),
+			});
+		},
+		[category, keyword, setSearchParams],
+	);
+
+	const handleDataLoad = useCallback((data: PostsSearchDataType) => {
+		setPaginationData(data);
+	}, []);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -67,7 +74,7 @@ const SearchContainer = () => {
 					keyword={appliedKeyword}
 					category={appliedCategory}
 					page={appliedPage}
-					onDataLoad={setPaginationData}
+					onDataLoad={handleDataLoad}
 				/>
 			</DelayedSuspense>
 
