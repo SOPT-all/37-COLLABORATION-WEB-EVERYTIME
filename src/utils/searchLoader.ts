@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from "react-router-dom";
 
-export const searchLoader = ({ request }: LoaderFunctionArgs) => {
+const searchLoader = ({ request }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
 	const keyword = url.searchParams.get("keyword") ?? "";
 
@@ -11,3 +11,5 @@ export const searchLoader = ({ request }: LoaderFunctionArgs) => {
 
 	return null;
 };
+
+export { searchLoader };
