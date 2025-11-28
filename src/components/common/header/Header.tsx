@@ -51,7 +51,7 @@ const Header = () => {
 				"h-[7rem]",
 				"flex items-center justify-between",
 				"bg-white",
-				"border border-b-[0.5px] border-gray-400",
+				"border-b-[0.5px] border-gray-400",
 				"fixed top-0 left-0",
 				"z-1",
 				"pr-[11.2rem] pl-[11.8rem]",
