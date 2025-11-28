@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import { cn } from "@/utils/cn";
 import { highlightClass } from "@/utils/highlight";
 
@@ -8,9 +10,11 @@ interface SearchHighlightProps {
 }
 
 const SearchHighlight = ({ searchTerm, content, styleCss }: SearchHighlightProps) => {
-	const textWithSpecialSymbol = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-	const reg = new RegExp(`(${textWithSpecialSymbol})`, "giu");
-	const splitContent = content.split(reg);
+	const splitContent = useMemo(() => {
+		const textWithSpecialSymbol = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+		const reg = new RegExp(`(${textWithSpecialSymbol})`, "giu");
+		return content.split(reg);
+	}, [searchTerm, content]);
 
 	return (
 		<p className={cn(styleCss)}>
