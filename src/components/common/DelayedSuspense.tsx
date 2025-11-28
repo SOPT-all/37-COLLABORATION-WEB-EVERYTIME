@@ -1,5 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState, type ReactNode } from "react";
 
 interface DelayedSuspenseProps {
 	children: ReactNode;

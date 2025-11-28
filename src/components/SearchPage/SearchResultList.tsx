@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 
 import { useGetPostsSearch } from "@/apis/queries";
+import { SearchContent } from "@/components/SearchPage/SearchContent";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { cn } from "@/utils/cn";
-
-import { SearchContent } from "./SearchContent";
 
 interface SearchResultListProps {
 	keyword: string;

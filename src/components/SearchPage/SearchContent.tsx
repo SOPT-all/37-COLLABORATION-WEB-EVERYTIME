@@ -1,12 +1,12 @@
 import Comment from "@/assets/icons/icon_comment.svg?react";
 import ThumbsUp from "@/assets/icons/icon_thumbs_up.svg?react";
+import { SearchHighlight } from "@/components/SearchPage/SearchHighlight";
 import type { PostsSearchPostsType } from "@/types/getPostsSearchResponse";
 import { categoryEngToKor } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 import { formatDateForSearch } from "@/utils/formatDate";
 import { splitIntoTwoLines } from "@/utils/highlight";
 
-import { SearchHighlight } from "./SearchHighlight";
 interface SearchContentProps {
 	searchTerm: string;
 	searchResult: PostsSearchPostsType;

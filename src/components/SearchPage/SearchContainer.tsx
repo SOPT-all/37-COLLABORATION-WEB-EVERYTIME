@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
+import { Filter } from "@/components/SearchPage/Filter";
 import { Pagination } from "@/components/SearchPage/Pagination";
+import { SearchContentSkeletonList } from "@/components/SearchPage/SearchContentSkeleton";
+import { SearchResult } from "@/components/SearchPage/SearchResult";
+import { SearchResultList } from "@/components/SearchPage/SearchResultList";
+import { SearchTextField } from "@/components/SearchPage/SearchTextField";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { categoryKorToEng } from "@/utils/categoryChanger";
 import { cn } from "@/utils/cn";
 
-import { Filter } from "./Filter";
-import { SearchContentSkeletonList } from "./SearchContentSkeleton";
-import { SearchResult } from "./SearchResult";
-import { SearchResultList } from "./SearchResultList";
-import { SearchTextField } from "./SearchTextField";
-
-export const SearchContainer = () => {
+const SearchContainer = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	// 초기값 설정
@@ -82,3 +81,5 @@ export const SearchContainer = () => {
 		</section>
 	);
 };
+
+export { SearchContainer };

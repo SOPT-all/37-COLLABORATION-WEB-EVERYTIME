@@ -1,8 +1,7 @@
 import { useGetMarket } from "@/apis/queries";
+import { BookItem } from "@/components/common/item/BookItem";
 import type { MarketDataType } from "@/types/getMarketResponse";
 import { cn } from "@/utils/cn";
-
-import { BookItem } from "../common/item/BookItem";
 
 const Book = () => {
 	const { data: marketResponse } = useGetMarket();
@@ -17,4 +16,4 @@ const Book = () => {
 	);
 };
 
-export default Book;
+export { Book };

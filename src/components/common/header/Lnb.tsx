@@ -1,12 +1,12 @@
 import { Fragment } from "react/jsx-runtime";
 
 import { BOARD_GROUPS, BADGES } from "@/constants/header";
+import { LnbItem } from "@/components/common/header/LnbItem";
+import { LnbSearch } from "@/components/common/header/LnbSearch";
+
 import type { LnbProps } from "@/types/lnb";
 import { cn } from "@/utils/cn";
 import { splitGroupBoards } from "@/utils/splitGroupBoards";
-
-import { LnbItem } from "./LnbItem";
-import { LnbSearch } from "./LnbSearch";
 
 const Lnb = ({ isOpen }: LnbProps) => {
 	const columns = splitGroupBoards(BOARD_GROUPS, 8);

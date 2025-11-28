@@ -1,5 +1,4 @@
 import { cn } from "@/utils/cn";
-import { truncateByLength } from "@/utils/truncate";
 
 interface BookItemProps {
 	title: string;
