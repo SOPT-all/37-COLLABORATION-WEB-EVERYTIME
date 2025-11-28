@@ -1,7 +1,6 @@
 import { useGetPosts } from "@/apis/queries";
+import { Board } from "@/components/MainPage/Board";
 import type { PostsDataType } from "@/types/getPostsResponse";
-
-import { Board } from "./Board";
 
 const BoardContainer = () => {
 	const { data } = useGetPosts();

@@ -17,7 +17,7 @@ interface PaginationProps {
 
 const iconSizeClass = "h-[1.8rem] w-[1.8rem]";
 
-export const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
 	const {
 		pageNumbers,
 		hasPrevBlock,
@@ -102,3 +102,5 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
 		</div>
 	);
 };
+
+export { Pagination };

@@ -53,5 +53,8 @@
 		"vite": "^7.2.2",
 		"vite-plugin-svgr": "^4.5.0",
 		"vite-size": "^0.0.6"
-	}
+	},
+	"sideEffects": [
+    "**/*.css"
+  ]
 }
