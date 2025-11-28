@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import "@/index.css";
 import "@/theme.css";
 
+import { ErrorPage } from "@/pages/ErrorPage";
 import { router } from "@/routes/appRoutes";
 
 const queryClient = new QueryClient({
@@ -22,7 +23,7 @@ const queryClient = new QueryClient({
 
 const App = () => {
 	return (
-		<ErrorBoundary fallback={<p>문제가 발생했습니다.</p>}>
+		<ErrorBoundary fallback={<ErrorPage />}>
 			<QueryClientProvider client={queryClient}>
 				<RouterProvider router={router} />
 				<ReactQueryDevtools />

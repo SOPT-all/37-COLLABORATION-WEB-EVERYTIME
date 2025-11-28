@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
@@ -10,8 +10,24 @@ import { cn } from "@/utils/cn";
 
 const Header = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const [searchParams] = useSearchParams();
+
 	const currentPage = "게시판";
 	const [isLnbOpen, setIsLnbOpen] = useState(false);
+
+	// lnb 오픈 가능 여부 판단
+	const isValidLNBContext = (() => {
+		const path = location.pathname;
+		if (path === "/") return true;
+
+		if (path === "/search") {
+			const keyword = searchParams.get("keyword") ?? "";
+			return keyword.trim().length > 0;
+		}
+
+		return false;
+	})();
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
@@ -19,15 +35,13 @@ const Header = () => {
 	};
 
 	const handleBoardHover = () => {
-		if (!isLnbOpen) {
-			setIsLnbOpen(true);
-		}
+		if (!isValidLNBContext) return;
+		if (!isLnbOpen) setIsLnbOpen(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (isLnbOpen) {
-			setIsLnbOpen(false);
-		}
+		if (!isValidLNBContext) return;
+		if (isLnbOpen) setIsLnbOpen(false);
 	};
 
 	return (
@@ -57,7 +71,8 @@ const Header = () => {
 
 			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
 			<UserButtonGroup />
-			<Lnb isOpen={isLnbOpen} />
+
+			{isValidLNBContext && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
 };
