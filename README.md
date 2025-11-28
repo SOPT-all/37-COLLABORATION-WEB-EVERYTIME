@@ -44,17 +44,20 @@
 📦 37-COLLABORATION-WEB-EVERYTIME
 ├── 📁 node_modules
 ├── 📁 public
+│   └── 📁 fonts
 ├── 📁 src
 │   ├── 📁 apis
 │   ├── 📁 assets
 │   ├── 📁 components
 │   │   ├── 📁 common
-│   │   │   ├── 📁 footer
 │   │   │   ├── 📁 header
-│   │   │   ├── 📁 item
 │   │   │   ├── 📁 sidebar
-│   │   │   └── DelayedSuspense.tsx
+│   │   │   ├── DelayedSuspense.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── SearchTextField.tsx
 │   │   ├── 📁 MainPage
+│   │   │   ├── 📁 BoardContainer
+│   │   │   └── 📁 Book
 │   │   └── 📁 SearchPage
 │   ├── 📁 constants
 │   ├── 📁 hooks
@@ -69,7 +72,8 @@
 │   ├── main.tsx
 │   ├── theme.css
 │   └── vite.env.d.ts
-├── .eslintrc.cjs
+├── .env
+├── .gitignore
 ├── .prettierrc
 ```
 
@@ -210,13 +214,13 @@
 
 ## 🧩 컴포넌트 & 뷰 역할 분배
 
-| 담당자     | 담당 컴포넌트                                                |
-| ---------- | ------------------------------------------------------------ |
-| **이채영** | Header + LNB + LnbSearch, Pagination, GnbButton, SearchPage, ErrorPage  |
-| **김어진** | SimplePostItem, Filter, SearchResultHeader, Footer                 |
-| **김윤지** | LnbItem, ProfileItem, LivePostItem, SearchTextField, SideBar |
-| **백지연** | SidebarHeader, ReviewItem, MyHistory, BookItem, MainPage     |
-| **임서준** | Board, BoardItem, SearchResultListItem, SearchHighlight             |
+| 담당자     | 담당 컴포넌트                                                          |
+| ---------- | ---------------------------------------------------------------------- |
+| **이채영** | Header + LNB + LnbSearch, Pagination, GnbButton, SearchPage, ErrorPage |
+| **김어진** | SimplePostItem, Filter, SearchResultHeader, Footer                     |
+| **김윤지** | LnbItem, ProfileItem, LivePostItem, SearchTextField, SideBar           |
+| **백지연** | SidebarHeader, ReviewItem, MyHistory, BookItem, MainPage               |
+| **임서준** | Board, BoardItem, SearchResultListItem, SearchHighlight                |
 
 <br/>
 
