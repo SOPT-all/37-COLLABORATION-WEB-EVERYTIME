@@ -39,7 +39,7 @@ const MyHistory = ({ variant }: MyHistoryProps) => {
 			)}
 		>
 			<Icon width={ICON_SIZE} height={ICON_SIZE} aria-hidden="true" />
-			<span className="body05 hover:text-primary-red text-gray-700">{label}</span>
+			<span className="body05 text-gray-700">{label}</span>
 		</button>
 	);
 };

@@ -1,0 +1,54 @@
+import type { BoardGroupsItemType } from "@/types/lnb";
+
+const BADGES: string[] = [
+	"자유게시판",
+	"비밀게시판",
+	"졸업생게시판",
+	"시사·이슈",
+	"정보게시판",
+	"이벤트게시판",
+	"홍보게시판",
+	"동아리·학회",
+	"취업·진로",
+	"SW게시판",
+	"미디어에서 살아남기",
+	"퀴어 게시판",
+	"교환학생 게시판🌏",
+] as const;
+
+const BOARD_GROUPS: BoardGroupsItemType[] = [
+	{
+		groupName: "general",
+		boards: [
+			"자유게시판",
+			"비밀게시판",
+			"졸업생게시판",
+			"새내기게시판",
+			"시사·이슈",
+			"정보게시판",
+			"이벤트게시판",
+			"홍보게시판",
+			"동아리·학회",
+		],
+	},
+	{
+		groupName: "job",
+		boards: ["취업·진로"],
+	},
+	{
+		groupName: "disclosure",
+		boards: ["아주언론사", "동아리연합회", "감사연합회"],
+	},
+	{
+		groupName: "like",
+		boards: ["SW게시판", "미디어에서 살아남기", "산업공학과 게시판"],
+	},
+	{
+		groupName: "etc",
+		boards: ["퀴어 게시판", "아대중고나라", "아대세끼", "교환학생 게시판🌏", "주식↗"],
+	},
+] as const;
+
+const NAV_LIST = ["게시판", "시간표", "강의실", "학점계산기", "친구", "책방", "캠퍼스픽"];
+
+export { BOARD_GROUPS, BADGES, NAV_LIST };

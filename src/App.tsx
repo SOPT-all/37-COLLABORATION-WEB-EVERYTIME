@@ -6,14 +6,16 @@ import { RouterProvider } from "react-router-dom";
 import "@/index.css";
 import "@/theme.css";
 
-import { router } from "@/routes";
+import { ErrorPage } from "@/pages/ErrorPage";
+import { router } from "@/routes/appRoutes";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
 			staleTime: 1000 * 60 * 5,
 			gcTime: 1000 * 60 * 30,
-			retry: 1,
+			retry: 2,
+			retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 10000),
 			refetchOnWindowFocus: false,
 			refetchOnReconnect: true,
 		},
@@ -22,7 +24,7 @@ const queryClient = new QueryClient({
 
 const App = () => {
 	return (
-		<ErrorBoundary fallback={<p>문제가 발생했습니다.</p>}>
+		<ErrorBoundary fallback={<ErrorPage />}>
 			<QueryClientProvider client={queryClient}>
 				<RouterProvider router={router} />
 				<ReactQueryDevtools />

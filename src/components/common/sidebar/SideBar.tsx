@@ -1,19 +1,19 @@
 import { useLocation } from "react-router-dom";
 
 import { DelayedSuspense } from "@/components/common/DelayedSuspense";
-import { AD_IMAGES } from "@/constants/adImages";
-import { ROUTES } from "@/constants/routes";
+import { AD_IMAGES } from "@/constants/adImageList";
+import { ROUTES } from "@/constants/paths";
 import { cn } from "@/utils/cn";
 
 import { LivePostItem } from "./LivePostItem";
 import { LivePostItemSkeleton } from "./LivePostItemSkeleton";
 import { MyHistory } from "./MyHistory";
 import { PostsHotContainer } from "./PostsHotContainer";
+import { PostsHotContainerSkeleton } from "./PostsHotContainerSkeleton";
 import { ProfileItem } from "./ProfileItem";
 import { ReviewContainer } from "./ReviewContainer";
-import ReviewItemSkeleton from "./ReviewItemSkeleton";
+import { ReviewContainerSkeleton } from "./ReviewContainerSkeleton";
 import { SidebarHeader } from "./SidebarHeader";
-import { SimplePostItemSkeleton } from "./SimplePostItemSkeleton";
 
 function Sidebar() {
 	const { pathname } = useLocation();
@@ -41,20 +41,8 @@ function Sidebar() {
 			</section>
 
 			<section>
-				<DelayedSuspense
-					fallback={
-						<>
-							<SidebarHeader title="HOT 게시물" isMore={true} />
-							<div className="flex flex-col">
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-								<SimplePostItemSkeleton />
-							</div>
-						</>
-					}
-					delay={200}
-				>
+				<SidebarHeader title="HOT 게시물" isMore={true} />
+				<DelayedSuspense fallback={<PostsHotContainerSkeleton />} delay={200}>
 					<PostsHotContainer />
 				</DelayedSuspense>
 			</section>
@@ -65,23 +53,24 @@ function Sidebar() {
 
 			<section>
 				<SidebarHeader title={"최근 강의평"} isMore={true} />
-				<DelayedSuspense
-					fallback={
-						<div className="flex flex-col">
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-							<ReviewItemSkeleton />
-						</div>
-					}
-					delay={200}
-				>
+				<DelayedSuspense fallback={<ReviewContainerSkeleton />} delay={200}>
 					<ReviewContainer />
 				</DelayedSuspense>
 			</section>
 
 			{isHomePage &&
-				AD_IMAGES.map(({ src, alt }) => (
-					<img key={alt} src={src} alt={alt} className="h-auto w-[28rem] object-contain" />
+				AD_IMAGES.map(({ src1x, src2x, src3x, alt }) => (
+					<img
+						key={alt}
+						src={src1x}
+						srcSet={`${src1x} 1x, ${src2x} 2x, ${src3x} 3x`}
+						alt={alt}
+						width={280}
+						height={187}
+						loading="lazy"
+						decoding="async"
+						className="h-[18.7rem] w-[28rem] object-contain"
+					/>
 				))}
 		</aside>
 	);

@@ -17,7 +17,7 @@ export const useGetReviews = () => {
 	});
 };
 
-export const useGetPostsSearch = (keyword: string, category: string = "전체", page: number = 1) => {
+export const useGetPostsSearch = (keyword: string, category: string = "ALL", page: number = 1) => {
 	return useSuspenseQuery({
 		queryKey: [QUERY_KEYS.POSTS_SEARCH, keyword, category, page],
 		queryFn: () => getPostsSearch(keyword, category, page),

@@ -1,18 +1,33 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
-import { ROUTES } from "@/constants/routes";
+import { Navbar } from "@/components/common/header/Navbar";
+import { UserButtonGroup } from "@/components/common/header/UserButtonGroup";
+import { ROUTES } from "@/constants/paths";
 import { cn } from "@/utils/cn";
-
-import { Navbar } from "./Navbar";
-import { UserButtonGroup } from "./UserButtonGroup";
 
 const Header = () => {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const [searchParams] = useSearchParams();
+
 	const currentPage = "게시판";
 	const [isLnbOpen, setIsLnbOpen] = useState(false);
+
+	// lnb 오픈 가능 여부 판단
+	const isValidLNBContext = (() => {
+		const path = location.pathname;
+		if (path === "/") return true;
+
+		if (path === "/search") {
+			const keyword = searchParams.get("keyword") ?? "";
+			return keyword.trim().length > 0;
+		}
+
+		return false;
+	})();
 
 	const handleLogoClick = () => {
 		window.scrollTo(0, 0);
@@ -20,15 +35,13 @@ const Header = () => {
 	};
 
 	const handleBoardHover = () => {
-		if (!isLnbOpen) {
-			setIsLnbOpen(true);
-		}
+		if (!isValidLNBContext) return;
+		if (!isLnbOpen) setIsLnbOpen(true);
 	};
 
 	const handleMouseLeave = () => {
-		if (isLnbOpen) {
-			setIsLnbOpen(false);
-		}
+		if (!isValidLNBContext) return;
+		if (isLnbOpen) setIsLnbOpen(false);
 	};
 
 	return (
@@ -38,7 +51,7 @@ const Header = () => {
 				"h-[7rem]",
 				"flex items-center justify-between",
 				"bg-white",
-				"border border-b-[0.5px] border-gray-400",
+				"border-b-[0.5px] border-gray-400",
 				"fixed top-0 left-0",
 				"z-1",
 				"pr-[11.2rem] pl-[11.8rem]",
@@ -58,7 +71,8 @@ const Header = () => {
 
 			<Navbar currentPage={currentPage} onBoardHover={handleBoardHover} />
 			<UserButtonGroup />
-			<Lnb isOpen={isLnbOpen} />
+
+			{isValidLNBContext && <Lnb isOpen={isLnbOpen} />}
 		</header>
 	);
 };
