@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import LogoIcon from "@/assets/images/logo.svg?react";
 import { Lnb } from "@/components/common/header/Lnb";
-
 import { Navbar } from "@/components/common/header/Navbar";
 import { UserButtonGroup } from "@/components/common/header/UserButtonGroup";
-import { ROUTES } from "@/constants/routes";
-
+import { ROUTES } from "@/constants/paths";
 import { cn } from "@/utils/cn";
 
 const Header = () => {
