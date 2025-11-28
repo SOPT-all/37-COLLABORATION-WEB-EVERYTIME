@@ -24,10 +24,6 @@ export const router = createBrowserRouter([
 		],
 	},
 	{
-		path: "/error",
-		element: <ErrorPage />,
-	},
-	{
 		path: "*",
 		lazy: async () => {
 			const { ErrorPage } = await import("@/pages/ErrorPage");
