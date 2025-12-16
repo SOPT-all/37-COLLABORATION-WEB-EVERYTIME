@@ -6,7 +6,6 @@ import type { GetPostsRealTimeResponse } from "@/types/getPostsRealtimeResponse"
 import type { GetPostsResponse } from "@/types/getPostsResponse";
 import type { GetPostsSearchResponse } from "@/types/getPostsSearchResponse";
 import type { GetReviewsResponse } from "@/types/getReviewsResponse";
-import { categoryKorToEng } from "@/utils/categoryChanger";
 
 const getPostsHot = () => {
 	return get<GetPostsHotResponse>(END_URL.GET_POSTS_HOT);
@@ -17,9 +16,8 @@ const getReviews = () => {
 };
 
 const getPostsSearch = (keyword: string, category: string, page: number) => {
-	const categoryCode = categoryKorToEng(category);
 	return get<GetPostsSearchResponse>(
-		`${END_URL.GET_POSTS_SEARCH}?category=${categoryCode}&keyword=${encodeURIComponent(keyword)}&page=${page}`,
+		`${END_URL.GET_POSTS_SEARCH}?category=${category}&keyword=${encodeURIComponent(keyword)}&page=${page}`,
 	);
 };
 

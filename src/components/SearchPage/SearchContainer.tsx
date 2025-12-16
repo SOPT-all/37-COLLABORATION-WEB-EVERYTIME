@@ -35,7 +35,7 @@ const SearchContainer = () => {
 		(page: number = 1) => {
 			const engCategory = categoryKorToEng(category);
 			// applied- 값들 업데이트 -> API 재호출
-			setAppliedCategory(category);
+			setAppliedCategory(engCategory);
 			setAppliedKeyword(keyword.trim());
 			setAppliedPage(page);
 
