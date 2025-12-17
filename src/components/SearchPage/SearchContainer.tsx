@@ -8,6 +8,7 @@ import { Pagination } from "@/components/SearchPage/Pagination";
 import { SearchResultHeader } from "@/components/SearchPage/SearchResultHeader";
 import { SearchResultList } from "@/components/SearchPage/SearchResultList/SearchResultList";
 import { SearchResultListItemSkeleton } from "@/components/SearchPage/SearchResultList/SearchResultListItemSkeleton";
+import type { CategoryCode } from "@/constants/category";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import type { PostsSearchDataType } from "@/types/getPostsSearchResponse";
 import { categoryKorToEng } from "@/utils/categoryChanger";
@@ -24,7 +25,7 @@ const SearchContainer = () => {
 	const { category, keyword, onCategoryChange, onKeywordChange } = useSearchForm(initialCategory, initialKeyword);
 
 	// 실제로 검색에 사용하는 값
-	const [appliedCategory, setAppliedCategory] = useState(initialCategory);
+	const [appliedCategory, setAppliedCategory] = useState<CategoryCode>(initialCategory as CategoryCode);
 	const [appliedKeyword, setAppliedKeyword] = useState(initialKeyword);
 	const [appliedPage, setAppliedPage] = useState(initialPage);
 
@@ -35,7 +36,7 @@ const SearchContainer = () => {
 		(page: number = 1) => {
 			const engCategory = categoryKorToEng(category);
 			// applied- 값들 업데이트 -> API 재호출
-			setAppliedCategory(category);
+			setAppliedCategory(engCategory);
 			setAppliedKeyword(keyword.trim());
 			setAppliedPage(page);
 
